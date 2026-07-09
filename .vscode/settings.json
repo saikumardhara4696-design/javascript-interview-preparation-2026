@@ -1,0 +1,22 @@
+{
+  // --- Theme Activation ---
+  "workbench.colorTheme": "Visual Studio Dark", 
+  // Alternatives: "Catppuccin Mocha", "Material Nova Darker", "One Dark Pro"
+
+  // --- Typography & Code Layout ---
+  "editor.fontFamily": "'JetBrains Mono', 'Fira Code', Consolas, monospace",
+  "editor.fontSize": 14,
+  "editor.lineHeight": 22,
+  "editor.fontLigatures": true,
+
+  // --- JavaScript & React Semantic Highlighting ---
+  "editor.semanticHighlighting.enabled": true,
+  "javascript.implicitProjectConfig.checkJs": false,
+
+  // --- UI Cleanup (Minimalist Look) ---
+  "workbench.activityBar.location": "default",
+  "editor.minimap.enabled": false,
+  "editor.bracketPairColorization.enabled": true,
+  "editor.guides.bracketPairs": "active",
+  "editor.renderWhitespace": "selection"
+}

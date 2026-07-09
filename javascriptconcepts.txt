@@ -1,0 +1,400 @@
+
+
+VARIABLES:-
+
+1. var:- function scoped, can be redeclared, can be reassigned, can be hoisted
+2. let:- block scoped, cannot be redeclared, can be reassigned, can be hoisted
+3. const:- block scoped, cannot be redeclared, cannot be reassigned, can be hoisted
+
+JAVASCRIPT OPERATORS:-
+=======================
+
+1. Arthmetic Operators:- +,-,*,/,%,**,++,--
+2. Comparison Operators:- ==,===,!=,!==,<,>,<=,>=,
+3. Logical Operators:- &&,||,!
+4. Assignment Operators:- =,+=,-=,*=,/=,%=,**=,&=,|=,^=,>>=,<<=
+5. Ternary Operator:- ?:
+6. typeof Operator:- typeof
+7. instanceof Operator:- instanceof
+8. in Operator:- in
+9. delete Operator:- delete
+10. void Operator:- void
+11. comma Operator:- ,
+12. bitwise Operators:- &,|,^,~,<<,>>
+
+JAVASCRIPT IF CONDITION:-
+=============================
+
+1. if statement:- if (condition) {
+  // code to be executed if condition is true
+}
+
+2. Nested if statement:- 
+
+if (condition) {
+  // code to be executed if condition is true
+  if (condition) {
+    // code to be executed if condition is true
+  }
+}
+
+3. if-else statement:-
+
+if (condition) {
+  // code to be executed if condition is true
+} else {
+  // code to be executed if condition is false
+}
+
+4. if-else-if statement:- 
+
+if (condition) {
+  // code to be executed if condition is true
+} else if (condition) {
+  // code to be executed if condition is true
+} else {
+  // code to be executed if condition is false
+}
+
+5. switch statement:-
+
+Based on a condition, switch selects one or more code blocks to be executed.
+
+switch executes the code blocks that matches an expression.
+
+switch is often used as a more readable alternative to many 
+if...else if...else statements, especially when dealing with multiple possible values.
+
+switch (expression) {
+  case value1:
+    // code to be executed if expression equals value1
+    break;
+  case value2:
+    // code to be executed if expression equals value2
+    break;
+  default:
+    // code to be executed if expression does not equal any of the above values
+}
+
+This is how it works:
+
+=> The switch expression is evaluated once.
+=> The value of the expression is compared with the values of each case.
+=> If there is a match, the associated block of code is executed.
+=> If there is no match, no code is executed.
+
+
+
+
+6. Ternary operator:- condition ? expression1 : expression2
+
+ 
+JAVA SCRIPT LOOPS:-
+==================
+
+1. FOR LOOPS =>
+ - Loops can execute a block of code a number of times.
+ - if you want to run the same code over and over again, 
+   each time with a different value.
+  
+const cars = ["BMW", "Volvo", "Saab", "Ford", "Fiat", "Audi"];
+
+let text = "";
+for (let i = 0; i < cars.length; i++) {
+  text += cars[i] + "<br>";
+}
+
+// Result
+BMW
+Volvo
+Saab
+Ford
+Fiat
+Audi
+
+Math Methods:=
+==============
+
+To create the min and max value 
+ let x = 10.5
+ Math.round(x) => // 10.4 = 10 and 10.5 = 11 , make the round figure 10.6 => 11
+ Math.floor(x) => // 10.1 = 11 here it will take higher value
+ Math.ceil(x) =>  // 10.1 = 11 here it will take higher value
+ Math.trunc(x) => // 10 it will take lowest value
+ Math.pow(x) =>
+ Math.sin(x) =>
+ Math.tan(x) =>
+ Math.cos(x) =>
+ Math.abs(x) =>
+ Math.sign(x) =>
+
+ let x = 10;
+ let y = 20;
+ let z = 30;
+ Math.min(x,y,z) => 10 here we can find the lowest value 
+ Math.max(x,y,z) => 30 here we can find the highest value1
+
+ Math.random()
+ const randomNum = Math.random() *6 
+ => 1.8698196011898531 it will generate random number below 6
+
+ => if u add the Math.floor to it it will convert to higher round number
+ Math.floor(Math.random() *6)  =>1-5  
+
+ => if u add some number after 6. the value should be above 2 to 8 
+  bcz 6+2 = 8
+  Math.floor(Math.random() *6 + 2) =>3-8
+
+=>  it will generate 30-80 between
+ const min = 30;
+  const max = 50;
+  
+  const randomNum = Math.floor(Math.random() *max)+ min
+
+  => it will generate 30 - 50.
+  const randomNum = Math.floor(Math.random() *(max -min))+ min
+
+
+ CHECKED PROPERTY:-
+ ==================
+
+ => property that determines the checked state of an HTML checkbox or radio button element.
+
+
+ TERNARY OPERATOR:-
+ ==================
+
+ => ternary operator = a shortcut to if{} and else{} statements
+    helps to assign a variable based on a condition 
+ => condition ? codeIfTrue : codeIfFalse
+
+ let age = 18;
+ let  message = age>= 18 ? "You are a Major" : "You are a Minor"
+ console.log(message) // You are a Major
+
+let time = 9;
+let greet = time > 12 ? "happy birthday" : "Advance happy Birthday"
+console.log(greet) // "Advance happy Birthday"
+
+let purchaseamout = 120;
+let discount = purchaseamout >= 100 ? 10 : 0;
+console.log(` your Toatal amount is ${ purchaseamount -purchaseamout * (discount/100)}`)  // your Total amount is 108
+
+
+SWITCH STATEMENT :-
+===================
+=> can be an effecient replacement to many else if statements
+
+let day = 1;
+
+switch(day){
+  case 1: 
+  console.log("Its Monday")
+  case 2:
+  console.log("Its Tuesday")
+=> // If you write the case one after another without using the break,
+     it will execute all the possible cases after passing the first case.
+     Example:- day is 1 it will print both monday, tuesday.
+     So use every time breaks to stop the execution once passed
+}
+=> // Its Monday
+
+switch (day) {
+ => // Good approach
+    case 0:
+        console.log("Its Sunday")
+        break;
+    case 1:
+        console.log("Its Monday")
+        break;
+    case 2:
+        console.log("Its Tuesday")
+        break;
+    default:
+    console.log("Invalid day")
+} // "Its Monday" 
+
+
+STRING SLICING:-
+=================
+
+=> create a substring from a portion of another string
+string.slice(start, end)
+
+const fullName = 'sai kumar'
+console.log(fullName.slice(3))
+
+
+
+ METHOD CHAINING:-
+ =================
+ => Method chaining is a programming technique where multiple methods are called on the same object in a single line of code.
+  This is often used to improve code readability and reduce the number of lines of code.
+
+=> Nothing but adding the multiple methods in a single line 
+
+=> Simple or shortest way to do the above method chaining is:
+let methodChaining2 = "   sai Kumar   ";
+let firstLetter = methodChaining2.trim().charAt(0).toUpperCase() + methodChaining2.trim().slice(1).toLowerCase();
+
+console.log("First letter of the name is: " + firstLetter); => First letter of the name is: Sai kumar
+=> here were trimmed the string,
+=>  got the first character, converted it to uppercase,
+=> sliced the rest of the string,
+=> and converted it to lowercase, all in one line of code.
+ 
+ 
+LOGICAL OPERATORS:-
+==================
+=> Logical operators are use to combine or manipulate boolean values ( true or false)
+
+AND = &&
+=> The AND operator returns true if both conditions are true.
+OR =  ||
+=> The OR operator returns true if at least one of the conditions is true.
+NOT = !
+=> The NOT operator negates the value of a condition, returning true if the condition is false, and vice versa.
+
+
+WHILE LOOP:-
+===========
+=> The while loop is a control flow statement that allows code to be executed repeatedly based on a given boolean condition.
+
+
+let count = 0; // variable declaration and initialization
+while (count < 5) { // while loop condition
+    console.log("Count is: " + count); // printing the value of count variable in each iteration
+    count++;   // incrementing the count variable by 1 in each iteration
+}
+=> here we are using number variable count to keep track of the number of iterations. 
+=> The loop will continue to run as long as count is less than 5.
+
+
+DO ...WHILE LOOP:-
+==================
+
+=> The do...while loop is similar to the while loop, but it guarantees that the code block will be executed at least once, 
+=> even if the condition is false. The syntax for a do...while loop is as follows:
+
+let count = 0; // variable declaration and initialization
+do{
+    console.log("Count is: " + count); // printing the value of count variable in each iteration
+    count++;   // incrementing the count variable by 1 in each iteration
+}while(count < 5); // while loop condition
+
+
+let tablestarcount = 1;
+let rows = 10;
+while (tablestarcount < rows) {
+
+    let stars = "";
+    let j = 0;
+    while (j < tablestarcount) {
+        stars += "*"       // here we are concating the * like a string 
+        j++
+    }
+    console.log(stars)  // prints 1, 2, 3, ...
+    tablestarcount++;
+}
+*
+**
+***
+****
+*****
+******
+*******
+********
+*********
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
