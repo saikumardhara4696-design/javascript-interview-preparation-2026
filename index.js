@@ -226,20 +226,20 @@ while (tablecount < 10) { // while loop condition
 
 
 
-let rows = 1;
-let i = 10;
-while (rows <= 10) { // 10 times loop will run
-    let stars = '';
-    let j = 1;
-    while (j <= i) { // again 10 times i need loop to print 10 stars in each row
-        stars += "*" // untill j became 10, it will keep adding * to the stars variable
-        j++  // incrementing the j variable by 1 in each iteration
-    }
-    console.log(stars)
-    rows++  // incrementing it will create new loop after 10 stars printed
-    i-- // decrementing the i variable by 1 in each iteration to decrease the number of stars.
+// let rows = 1;
+// let i = 10;
+// while (rows <= 10) { // 10 times loop will run
+//     let stars = '';
+//     let j = 1;
+//     while (j <= i) { // again 10 times i need loop to print 10 stars in each row
+//         stars += "*" // untill j became 10, it will keep adding * to the stars variable
+//         j++  // incrementing the j variable by 1 in each iteration
+//     }
+//     console.log(stars)
+//     rows++  // incrementing it will create new loop after 10 stars printed
+//     i-- // decrementing the i variable by 1 in each iteration to decrease the number of stars.
 
-}
+// }
 // **********
 // *********
 // ********
@@ -252,6 +252,39 @@ while (rows <= 10) { // 10 times loop will run
 // *
 
 
+
+let rows = 1;
+let i = 10;
+while (rows <= 10) { // 10 times loop will run
+    let n = 0;
+    let stars = '';
+    let j = 1;
+    let space = '';
+    while (i < 10 && n < rows) {
+        space += ' '
+        n++
+    }
+    stars += space;
+    while (j <= i) {
+        stars += "*"
+        j++
+    }
+    console.log(stars)
+    rows++
+    i--
+
+}
+
+// **********
+//   *********
+//    ********
+//     *******
+//      ******
+//       *****
+//        ****
+//         ***
+//          **
+//           *
 // DO ...WHILE LOOP
 
 // The do...while loop is similar to the while loop, but it guarantees that the code block will be executed at least once, 
@@ -274,15 +307,65 @@ do {
 // code block to be executed
 // }
 
+for (let i = 0; i <= 10; i++) { // initialization, condition, increment
+    console.log("FOR Loop Count is: " + i); // printing the value of i variable in each iteration
+}
+
+for (let i = 2; i <= 10; i += 2) {
+    console.log("FOR Loop Even Count is: " + i); // printing the value of i variable in each iteration
+}
+
+for (let i = 1; i <= 20; i += 2) {
+    console.log("FOR Loop Odd Count is: " + i); // printing the value of i variable in each iteration
+}
+
+for (let i = 10; i > 0; i--) {
+    console.log("FOR Loop Reverse Count is: " + i); // printing the value of i variable in each iteration
+}
+
+// CONTINUE STATEMENT IN FOR LOOP
+// Below is an example of using the continue statement in a for loop.
+// When we need to skip the particular iteration of the loop based on a condition, we can use the continue statement.
+//  we use continue; for i == 6. so it won't print the value 6.
+for (let i = 1; i <= 10; i++) {
+
+    if (i == 6) {
+        continue; // skip the current iteration if the condition is true
+    } else {
+        console.log("FOR Loop Count is: " + i); // printing the value of i variable in each iteration
+    }
+}
+// FOR Loop Count is: 1
+// FOR Loop Count is: 2
+// FOR Loop Count is: 3
+// FOR Loop Count is: 4
+// FOR Loop Count is: 5
+// FOR Loop Count is: 7
+// FOR Loop Count is: 8
+// FOR Loop Count is: 9
+// FOR Loop Count is: 10
 
 
 
+// BREAK STATEMENT IN FOR LOOP
 
+// Below is an example of using the break statement in a for loop.
+// When we need to exit the loop based on a condition, we can use the break statement.
+//  we use break; for i == 6. so it will exit the loop when i == 6.
+for (let i = 1; i <= 10; i++) {
 
-
-
-
-
+    if (i == 6) {
+        break; // exit the loop if the condition is true
+    } else {
+        console.log("FOR Loop Count is: " + i); // printing the value of i variable in each iteration
+    }
+}
+// FOR Loop Count is: 1
+// FOR Loop Count is: 2
+// FOR Loop Count is: 3
+// FOR Loop Count is: 4
+// FOR Loop Count is: 5
+// Here the loop will exit when i == 6, so it won't print the value 6 and future iterations of the loop will end.
 
 
 
