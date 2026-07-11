@@ -368,37 +368,211 @@ for (let i = 1; i <= 10; i++) {
 // Here the loop will exit when i == 6, so it won't print the value 6 and future iterations of the loop will end.
 
 
+// FUNCTIONS
+
+// A function is a block of code that performs a specific task. 
+// It can take input in the form of parameters and can return an output. 
+// Functions help to organize code, make it reusable, and improve readability.
+
+function greetings(name) { // function declaration
+    return "Hello, " + name + "!"; // function body
+}
+greetings("sai"); // this how we do function call, we can pass the argument to the function
+console.log(greetings("sai")); // Hello, sai!
+
+function addNumbers(a, b) { // function declaration with parameters
+    return a + b; // function body
+}
+console.log(addNumbers(5, 10)); // 15
+
+function multiplyNumbers(a, b) { // function declaration with parameters
+    return a * b; // function body
+}
+console.log(multiplyNumbers(5, 10)); // 50
+
+// EVEN NUMBERS CHECKER FUNCTION
+function isEven(num) { // function declaration with parameter
+    return num % 2 === 0 // function body, it will return true if the number is even, otherwise false
+}
+console.log(isEven(4)); // true
+console.log(isEven(5)); // false
+
+// ODD NUMBERS CHECKER FUNCTION
+function isOdd(num) { // function declaration with parameter
+    return num % 2 !== 0 // function body, it will return true if the number is odd, otherwise false
+}
+console.log(isOdd(4)); // false
+console.log(isOdd(5)); // true
+
+// EMAIL CHECKER FUNCTION
+
+function emailChecker(email) {
+    if (email.includes('@gmail.com') || email.includes('@')) {
+        return true;
+    } else {
+        return false;
+    }
+}
+console.log(emailChecker("saikumardhara4696@gmail.com")) // true
+console.log(emailChecker("saikumardhara4696@gmail")) // false
+
+// FUNCTION EXPRESSION
+const greetingsExpression = function (name) {
+    return "Hello, " + name + "!";
+};
+console.log(greetingsExpression("sai")); // Hello, sai!
 
 
 
+// ARRAYS
+
+// Arrays are used to store multiple values in a single variable.
+// They can hold values of different data types, including numbers, strings, objects, and even other arrays.
+const fruits = ['apple', 'banana', 'orange', 'grape', 'mango'];
+
+console.log(fruits[0]); // apple
+console.log(fruits[1]); // banana
+console.log(fruits[2]); // orange
+console.log(fruits[3]); // grape
+console.log(fruits[4]); // mango
+fruits[5] = 'kiwi'; // adding a new element to the array at index 5
+console.log(fruits[5]); // kiwi
+
+// ARRAY METHODS
+
+// push() - adds one or more elements to the end of an array and returns the new length of the array.
+fruits.push('strawberry'); // adding a new element to the end of the array
+console.log("push method", fruits); // ['apple', 'banana', 'orange', 'grape', 'mango', 'kiwi', 'strawberry']
+
+// pop() - removes the last element from an array and returns that element.
+fruits.pop(); // removing the last element from the array
+console.log("pop method", fruits); // ['apple', 'banana', 'orange', 'grape', 'mango', 'kiwi']
+
+// shift() - removes the first element from an array and returns that element.
+fruits.shift(); // removing the first element from the array
+console.log('shift method', fruits); // ['banana', 'orange', 'grape', 'mango', 'kiwi']
+
+// unshift() - adds one or more elements to the beginning of an array and returns the new length of the array.
+fruits.unshift('watermelon'); // adding a new element to the beginning of the array
+console.log('unshift method', fruits); // ['watermelon', 'banana', 'orange', 'grape', 'mango', 'kiwi']
+
+// indexOf() - returns the first index at which a given element can be found in the array,
+//  or -1 if it is not present.
+console.log('indexOf method', fruits.indexOf('orange')); // 2
+console.log('indexOf method', fruits.indexOf('pineapple')); // -1
+
+// includes() - determines whether an array includes a certain value among its entries,
+//  returning true or false as appropriate.
+console.log('includes method', fruits.includes('orange')); // true
+console.log('includes method', fruits.includes('pineapple')); // false
+
+// length - returns the number of elements in an array.
+console.log('length method', fruits.length); // 6
+
+// reverse() - reverses the order of the elements in an array.
+fruits.reverse(); // reversing the order of the elements in the array
+console.log('reverse method', fruits); // ['kiwi', 'mango', 'grape', 'orange', 'banana', 'watermelon']
+
+// sort() - sorts the elements of an array in place and returns the sorted array.
+fruits.sort(); // sorting the elements of the array in ascending order
+console.log('sort method', fruits); // ['banana', 'grape', 'kiwi', 'mango', 'orange', 'watermelon']
+
+// join() - joins all elements of an array into a string.
+console.log('join method', fruits.join(', ')); // banana, grape, kiwi, mango, orange, watermelon
+
+// slice() - returns a shallow copy of a portion of an array into a new array
+//  object selected from start to end (end not included).
+fruits.slice(1, 4); // returns a new array with elements from index 1 to 3
+console.log('slice method', fruits.slice(1, 4)); // ['grape', 'kiwi', 'mango']
+
+// splice() - changes the contents of an array by removing or replacing 
+// existing elements and/or adding new elements in place.
+fruits.splice(1, 2); // removes 2 elements starting from index 1
+console.log('splice method', fruits); // ['banana', 'mango', 'orange', 'watermelon']
+
+// concat() - is used to merge two or more arrays. 
+// This method does not change the existing arrays, but instead returns a new array.
+const vegetables = ['carrot', 'broccoli', 'spinach'];
+const fruitsAndVegetables = fruits.concat(vegetables);
+console.log('concat method', fruitsAndVegetables); // ['banana', 'mango', 'orange', 'watermelon', 'carrot', 'broccoli', 'spinach']
+
+// forEach() - executes a provided function once for each array element.
+fruits.forEach(function (fruit) {
+    console.log('forEach method', fruit); // prints each fruit in the array
+});
+
+// map() - creates a new array populated with the results of calling a
+//  provided function on every element in the calling array.
+const numbers = [1, 2, 3, 4, 5];
+const squaredNumbers = numbers.map(function (number) {
+    return number * number; // returns the square of each number
+});
+console.log('map method', squaredNumbers); // [1, 4, 9, 16, 25]
+
+// filter() - creates a new array with all elements that pass 
+// the test implemented by the provided function.
+const evenNumbers = numbers.filter(function (number) {
+    return number % 2 === 0; // returns true for even numbers
+});
+console.log('filter method', evenNumbers); // [2, 4]
 
 
+// SORT THE TWO ARRAYS IN ASCENDING ORDER
+
+let list1 = [1, 2, 4];
+let list2 = [1, 3, 4];
 
 
+var mergeTwoLists = function (list1, list2) {
 
+    let result = [];
+    let index = 0;
+    for (let i = 0; i < list1.length; i++) {
+        result[index] = list1[i]
+        index++
+    }
+    for (let i = 0; i < list2.length; i++) {
+        result[index] = list2[i]
+        index++
+    }
+    for (let j = 0; j < result.length; j++) {
+        for (let k = 0; k < result.length; k++) {
+            if (result[k] > result[k + 1]) {
+                let temp = result[k];
+                result[k] = result[k + 1];
+                result[k + 1] = temp
+            }
+        }
+    }
+    return result;
+};
+console.log("leet code problem", mergeTwoLists(list1, list2))
 
+// LEET CODE ACCEPTED CODE
 
+// var mergeTwoLists = function (list1, list2) {
+//     let dummy = new ListNode(0);  // List Node we need to learn // generate by chatgpt
+//     let current = dummy;
 
+//     while (list1 !== null && list2 !== null) {
+//         if (list1.val <= list2.val) {
+//             current.next = list1;
+//             list1 = list1.next;
+//         } else {
+//             current.next = list2;
+//             list2 = list2.next;
+//         }
+//         current = current.next;
+//     }
 
+//     if (list1 !== null) {
+//         current.next = list1;
+//     } else {
+//         current.next = list2;
+//     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//     return dummy.next;
+// };
 
 
 
