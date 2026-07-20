@@ -438,6 +438,38 @@ console.log(fruits[4]); // mango
 fruits[5] = 'kiwi'; // adding a new element to the array at index 5
 console.log(fruits[5]); // kiwi
 
+// FOR LOOP WITH ARRAY
+for (let i = 0; i <= fruits.length; i++) {
+    console.log("for loop with array", fruits[i])
+}
+// apple
+// banana
+// orange
+// grape
+// mango
+
+// FOR  OF LOOP WITH ARRAY
+for (let fruit of fruits) {
+    console.log("Forof loop", fruit)  // simple way to use for loop to return a array
+}
+// apple
+// banana
+// orange
+// grape
+// mango
+
+// FOR LOOP TO REVERSE ARRAY
+for (let i = fruits.length - 1; i >= 0; i--) {
+    console.log("Reverse array", fruits[i])// reversing the Array using for loop
+}
+// mango
+// grape
+// orange
+// banana
+// apple
+
+
+
 // ARRAY METHODS
 
 // push() - adds one or more elements to the end of an array and returns the new length of the array.
@@ -516,6 +548,11 @@ const evenNumbers = numbers.filter(function (number) {
 });
 console.log('filter method', evenNumbers); // [2, 4]
 
+// sort() - arranging the array in ascending to descending order
+fruits.sort()
+// [ 'apple', 'banana', 'grape', 'mango', 'orange' ]
+fruits.sort().reverse()
+// ['orange', 'mango', 'grape', 'banana', 'apple']
 
 // SORT THE TWO ARRAYS IN ASCENDING ORDER
 
@@ -576,15 +613,137 @@ console.log("leet code problem", mergeTwoLists(list1, list2))
 
 
 
+// SPREAD OPERATOR
+// The spread operator expands elements of an iterable (like an array) into individual places.
+// Unpacks/expands elements
+const spreadoperator = [1, 2, 3, 4, 5]
+let maximumNum = Math.max(...spreadoperator)
+console.log('maximumNum', maximumNum) // 5
+let minimumNum = Math.min(spreadoperator)
+console.log("minimumNum", minimumNum) // 1
+
+// REST OPERATOR
+// while the rest operator collects multiple individual elements into a single array.
+// Packs/collects elements
+// Both operators use the exact same three-dot syntax (...), but they perform opposite tasks depending on how and where you use them.
+//  ...rest allow a function work with a variable number of arguments by building them into an array
+
+
+let userName = "Sai Code";
+let restletters = [...userName].join("-")
+console.log('restoperator', restletters) // S-a-i- -C-o-d-e
+
+// if we use (...) in function it is spread operator
+function openFridge(...foods) { // if we use (...) in function parameters it is "rest operator".
+    console.log("spread the array", ...foods) // return strings
+}
+
+function getFoods(...foods) {
+    return foods
+}
+const food1 = 'apple';
+const food2 = 'banana';
+const food3 = 'orange';
+const food4 = 'grapes'
+
+const foods = getFoods(food1, food2, food3, food4);
+console.log("rest operator", foods) // return Array of strings
+
+function sum(...numbers) {
+    let result = 0;
+    for (let number of numbers) {
+        result += number
+    }
+    return result;
+}
+console.log("sum fun", sum(10, 20, 30, 40)) // 100
+
+function getAverage(...numbers) {
+    let result = 0;
+    for (let number of numbers) {
+        result += number;
+    }
+    return result / numbers.length
+}
+
+const total = getAverage(75, 40, 100, 85)
+console.log('getAverage', total)
 
 
 
+// SHALLOW COPY
+// A shallow copy only copies the top-level properties; nested objects still share the same reference.
+let fru = ['apple', 'banana', 'pear']
+let newfru = [...fru];
+console.log('shallow copy', newfru) // shallow copy [ 'apple', 'banana', 'pear' ]
+
+// DEEP COPY
+// A deep copy copies everything recursively, creating a completely independent duplicate with no shared references.
+
+let employee = {
+    eid: "E102",
+    ename: "Jack",
+    eaddress: "New York",
+    salary: 50000
+}
+console.log("=========Deep Copy========");
+let newEmployee = JSON.parse(JSON.stringify(employee));
+console.log("Employee=> ", employee);
+console.log("New Employee=> ", newEmployee);
+
+console.log("---------After modification---------");
+newEmployee.ename = "Beck";
+newEmployee.salary = 70000;
+console.log("Employee=> ", employee);
+console.log("New Employee=> ", newEmployee);
+// =========Deep Copy========
+// Employee=>  { eid: 'E102', ename: 'Jack', eaddress: 'New York', salary: 50000 }
+// New Employee=>  { eid: 'E102', ename: 'Jack', eaddress: 'New York', salary: 50000 }
+// ---------After modification---------
+// Employee=>  { eid: 'E102', ename: 'Jack', eaddress: 'New York', salary: 50000 }
+// New Employee=>  { eid: 'E102', ename: 'Beck', eaddress: 'New York', salary: 70000 }
 
 
+// CALLBACKS FUNCTION
+// Callback is a function that is passed as an argument to another function.
+// Used to handle asynchronous operations:
+// 1. Reading a file
+// 2. Network requests
+// 3. Interacting with databases
+
+hello(goodBye); // callback function passing
+
+function hello(callback) {
+    console.log("Hello !")
+    callback();
+}
+// Hello !
+// goodByee !
+function goodBye() {
+    console.log("good Byee!")
+}
 
 
+callbackSum(displayConsole, 1, 2)
+function callbackSum(callback, x, y) {
+    let result = x + y;
+    callback(result)
+}
+function displayConsole(result) {
+    console.log("callback rs", result)
+}
 
 
+// FOR EACH  
+// => forEach method is used to iterate over the elements of an array and apply a specified function callback to each element
+// element, index, array are provided. 
+const numbers = [1, 2, 3, 4, 5, 6];
+
+numbers.forEach(display);
+
+function display(element) {
+    console.log(element)
+}
 
 
 
