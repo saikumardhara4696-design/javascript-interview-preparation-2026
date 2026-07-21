@@ -168,12 +168,117 @@ const totalValue = products
 
 
 
+//  ASYNC AND AWAIT
+// Async and await are JavaScript keywords that provide a cleaner syntax for working with Promises.
+// They eliminate the need for nested.then() and.catch() blocks, allowing you to write asynchronous code that looks and behaves like synchronous code.
+
+// Under the hood, async/await is strictly non-blocking syntactic sugar built on top of the JavaScript Event Loop.
+
+// How to use:
+//  async / awaitTo implement async / await, you apply the async keyword to a function,
+//  which forces it to return a Promise, and use the await keyword to pause execution until a Promise resolves.
+
+// Rules of usage:
+// The async keyword: 
+// Placed before a function declaration, arrow function, or method.
+// It wraps the return value of the function in a resolved Promise.
+
+// The await keyword:
+//  Placed before any Promise.It pauses code execution within that specific function until the Promise settles(resolves or rejects).
+// Note: await only works inside async functions or as a top - level module feature in modern environments.
+
+// Error handling:
+//  Instead of.catch(), you use standard JavaScript try...catch blocks
+
+// 1. Declare the async function
+async function getUserDashboard(userId) {
+    try {
+        // 2. Pause execution until the fetch Promise resolves
+        const response = await fetch(`https://example.com{userId}`);
+
+        if (!response.ok) throw new Error("Network response failed");
+
+        // 3. Pause execution until the JSON parsing Promise resolves
+        const userData = await response.json();
+        return userData;
+
+    } catch (error) {
+        // 4. Catch errors naturally using try/catch
+        console.error("Dashboard error:", error.message);
+    }
+}
+
+// Calling the function returns a Promise
+getUserDashboard(123).then(data => console.log(data));
 
 
+// When to use them:
+// Use async / await whenever your JavaScript application interacts with the outside world
+//  or performs operations that take an indeterminate amount of time.
+
+// Fetching data:
+//  Making API calls using fetch() or libraries like Axios.
+
+// Database operations:
+//  Interacting with databases in Node.js via ORMs like Prisma or Mongoose.
+
+// File system tasks:
+//  Reading, writing, or deleting files using the Node.js fs/promises module.
+
+// Third-party integration:
+//  Waiting for authentication tokens, payment gateways, or AWS S3 uploads.
+
+// When NOT to use them:-
+
+// Heavy computation:
+//  Do not use async / await for CPU - intensive tasks like image processing or matrix multiplication.
+// JavaScript is single - threaded, and async / await will not prevent these operations from freezing the browser UI.
+// For heavy math, use Web Workers or Node.js Worker Threads.
+
+// Synchronous array methods:
+//  Avoid placing await directly inside synchronous loops like.forEach(), .map(), or.filter(), 
+// as they do not natively support asynchronous execution structures.
 
 
+// Advantages and disadvantages:-
+// ===============================
+// Advantages:-
+// ------------
+// Linear readability: Code reads top - to - bottom, dramatically reducing cognitive load 
+// compared to complex Promise chains or "callback hell".
 
+// Unified error handling:
+//  You can wrap multiple asynchronous operations inside a single try...catch block,
+//  handling both runtime exceptions and network rejections in one place.
 
+// Easier debugging:
+//  Step - by - step debugging is straightforward.Setting a breakpoint on an await line pauses
+//  execution reliably, and stack traces pinpoint exact code lines rather than anonymous Promise wrappers.
+
+// Clean branching:
+//  Writing conditional logic(if/else) around asynchronous data is simple,
+//  unlike wrapping chained.then() blocks inside conditional scopes.
+
+// Disadvantages:-
+// --------------
+// The sequential trap: It is easy to accidentally serialize independent operations.
+// For example, awaiting two unrelated API fetches sequentially doubles your loading time.
+// You must manually opt back into parallelism using Promise.all().
+
+// BAD (Slow): Fetching data sequentially
+const user = await fetchUser();
+const posts = await fetchPosts(); // Waits for user to finish completely
+
+// GOOD (Fast): Fetching data concurrently
+const [user, posts] = await Promise.all([fetchUser(), fetchPosts()]);
+
+// Contagious functions:-
+//  Once you mark a low - level utility function as async, every parent function that calls
+//  it must usually become async and use await, filtering up through your architectural layers.
+//
+// Swallowed exceptions:-
+//  If you omit a try...catch block around an await statement, it results in an unhandled Promise rejection.
+// In modern runtimes, this can crash your Node.js process or trigger console errors in browsers.
 
 
 
