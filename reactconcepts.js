@@ -119,6 +119,14 @@ function UserList() {
 
 
 
+// What is Controlled and UnControllable components?
+
+// What is Higher Order Components?
+
+// What is Pure Component?
+
+// What are Props and State ?
+
 
 
 
