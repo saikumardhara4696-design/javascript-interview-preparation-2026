@@ -307,7 +307,8 @@
 // Block everything else.
 
 // 23. What is the difference between Security Groups and NACL ?
-//     Security Group	NACL
+
+// Security Group	NACL
 // Instance level	Subnet level
 // Stateful	Stateless
 // Easier	More advanced
@@ -315,8 +316,7 @@
 
 // 24. How do you host a React app on AWS ?
 
-//     Build the project:
-
+//  Build the project:
 // npm run build
 // Upload the build files to an S3 bucket.
 // Enable static website hosting on the bucket.
