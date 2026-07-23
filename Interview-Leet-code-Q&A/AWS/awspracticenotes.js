@@ -297,14 +297,13 @@
 
 // 22. What are Security Groups ?
 
-//     Virtual firewall for EC2.
-
-//         Example
-// Allow
-// HTTP 80
-// HTTPS 443
-// SSH 22
-// Block everything else.
+//    Virtual firewall for EC2.
+//    Example
+//    Allow
+//    HTTP 80
+//    HTTPS 443
+//    SSH 22
+//    Block everything else.
 
 // 23. What is the difference between Security Groups and NACL ?
 
@@ -324,11 +323,13 @@
 // Point your domain to CloudFront using Route 53.
 
 // 25. What AWS services have you used ?
-//     For a MERN developer, a strong answer could be:
 
-// "I've used EC2 to host Node.js applications, S3 for storing static assets, IAM for access control, Route 53 for DNS, CloudFront for CDN, and CloudWatch for monitoring. I've also deployed React applications using S3 and CloudFront."
+// For a MERN developer, a strong answer could be:
+// "I've used EC2 to host Node.js applications, S3 for storing static assets,
+//  IAM for access control, Route 53 for DNS, CloudFront for CDN,
+// and CloudWatch for monitoring. I've also deployed React applications using S3 and CloudFront."
 
-// Most Frequently Asked AWS Services
+//     Most Frequently Asked AWS Services
 //          Service	                   Purpose
 //          EC2	                       Virtual Server
 //          S3	                       File Storage
