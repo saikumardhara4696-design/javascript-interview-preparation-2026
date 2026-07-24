@@ -345,3 +345,17 @@
 //          Auto Scaling	           Automatic Scaling
 //          API Gateway	               API Management
 //          Elastic Beanstalk	       Application Deployment
+
+
+
+
+
+
+
+
+
+
+
+
+
+

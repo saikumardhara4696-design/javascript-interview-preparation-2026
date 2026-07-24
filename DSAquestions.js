@@ -45,33 +45,33 @@ function diagonalDifference(arr) {
 
 
 
-// dynamic programming
-// two pointer
-// slider
-// graph
-// recursion
-// stag
-// que
-// grid
+//                 dynamic programming
+//                 two pointer
+//                 slider
+//                 graph
+//                 recursion
+//                 stag
+//                 que
+//                 grid
 
-// Arrays
-// ↓
-// HashMap
-// ↓
-// Two Pointers
-// ↓
-// Sliding Window
-// ↓
-// Linked List
-// ↓
-// Stack
-// ↓
-// Queue
-// ↓
-// Binary Search
-// ↓
-// Tree
-// ↓
-// Graph
-// ↓
-// Dynamic Programming
+//                 Arrays
+//                    ↓
+//                 HashMap
+//                    ↓
+//                 Two Pointers
+//                    ↓
+//                 Sliding Window
+//                    ↓
+//                 Linked List
+//                    ↓
+//                 Stack
+//                    ↓
+//                 Queue
+//                    ↓
+//                 Binary Search
+//                    ↓
+//                 Tree
+//                    ↓
+//                 Graph
+//                    ↓
+//                 Dynamic Programming
