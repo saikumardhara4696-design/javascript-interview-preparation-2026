@@ -28,13 +28,15 @@
 // MongoDB(Database layer)
 // SQL vs NoSQL:
 // 4. What is the primary difference between MongoDB and MySQL ?
-//  Answer : MySQL is a relational database using structured tables with rows and columns.
-// MongoDB is a non - relational database that stores data as flexible, schema - less JSON - like documents(BSON).
+//  Answer :
+//  MySQL is a relational database using structured tables with rows and columns.
+//  MongoDB is a non - relational database that stores data as flexible, schema - less JSON - like documents(BSON).
 
 // Mongoose purpose:
 // 5. What is Mongoose and why do we use it ?
-//  Answer : Mongoose is an Object Data Modeling(ODM) library for MongoDB and Node.js.
-// It manages relationships between data, provides schema validation, and translates code objects into database documents.
+//  Answer :
+//  Mongoose is an Object Data Modeling(ODM) library for MongoDB and Node.js.
+//  It manages relationships between data, provides schema validation, and translates code objects into database documents.
 
 // Document ID:
 // 6. What is _id in MongoDB ?
@@ -114,97 +116,5 @@
 // Data Types        Limited (String, Number, Boolean,            Extended(Adds ObjectId, Date, Binary Data, etc.)
 //                    Array, Object, Null)
 // Primary           UseNetwork data interchange and web APIs     Data storage and internal wire protocol in MongoDB
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
