@@ -75,3 +75,24 @@ function diagonalDifference(arr) {
 //                 Graph
 //                    ↓
 //                 Dynamic Programming
+
+
+// 77. Combinations
+
+var combine = function (n, k) {
+
+    let arr = [];
+
+    if (k === 1 && n === 1) {
+        arr[arr.length] = [1];
+        return arr;
+    }
+
+    for (let i = 1; i < n; i++) {
+        for (let j = i + 1; j <= n; j++) {
+            arr[arr.length] = [i, j];
+        }
+    }
+
+    return arr;
+};
