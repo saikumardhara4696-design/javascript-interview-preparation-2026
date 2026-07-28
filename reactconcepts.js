@@ -1,6 +1,6 @@
 
 // 1. What is useMemo() ?
-// 🧠 useMemo: Caching Calculated ValuesThe primary purpose of useMemo is to cache the result of an expensive calculation.
+// 🧠 useMemo: Caching Calculated Values The primary purpose of useMemo is to cache the result of an expensive calculation.
 // It runs the computation once and stores the output.
 // React will then reuse that stored value on subsequent renders unless one of its specific dependencies changes.
 
@@ -24,7 +24,7 @@ const filteredList = useMemo(() => {
 
 // 2. What is useCallback() ?
 //  useCallback:
-//  Caching Function DefinitionsThe primary purpose of useCallback is to cache the actual function
+//  Caching Function Definitions The primary purpose of useCallback is to cache the actual function
 //  instance (its definition/reference) between renders. It does not execute the function;
 //  it simply keeps the function from being recreated as a new object in memory.
 
@@ -113,19 +113,159 @@ function UserList() {
 }
 
 
-// When to use useQuery vs useMutation
+// 4. When to use useQuery vs useMutation
 // Use useQuery exclusively for reading data(HTTP GET requests).
 // Use useMutation for modifying data on the server, such as creating, updating, or deleting resources(HTTP POST, PUT, DELETE requests).
 
 
 
-// What is Controlled and UnControllable components?
+// 5. What are Controlled and UnControllable components?
 
-// What is Higher Order Components?
+// ========================= //
+// Controlled Components:-
 
-// What is Pure Component?
+// Controlled components are form elements(like input, textarea, or select) that are managed by React state.
+// This means that the value of the form element is set and updated through React state, making React the "single source of truth" for the form data.
 
-// What are Props and State ?
+// In this example:
+import React, { useState } from 'react';
+
+function ControlledComponent() {
+    const [value, setValue] = useState('');
+
+    const handleChange = (event) => {
+        setValue(event.target.value);
+    };
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        alert('A name was submitted: ' + value);
+    };
+
+    return (
+        <form onSubmit={handleSubmit}>
+            <label>
+                Name:
+                <input type="text" value={value} onChange={handleChange} />
+            </label>
+            <button type="submit">Submit</button>
+        </form>
+    );
+}
+export default ControlledComponent;
+
+// The value state holds the current value of the input field.
+// The handleChange function updates the state whenever the user types in the input field.
+// The handleSubmit function handles the form submission, using the current state value.
+
+
+// ========================================//
+// UnControlled Components:-
+
+// Uncontrolled components in React manage their own state internally rather than relying on React state.
+// This approach is useful for simple forms where you don't need to manipulate the input data through React state updates.
+
+// Example code:-
+import React, { Component } from 'react';
+
+class UncontrolledComponent extends Component {
+    constructor(props) {
+        super(props);
+        // Create a ref to hold the input DOM element
+        this.inputRef = React.createRef();
+        // This is the UnControlled data. bcz it will take internal or current state directly from DOM element.
+
+    }
+
+    handleSubmit = () => {
+        // Access the input value using the ref
+        console.log(this.inputRef.current.value);
+    }
+
+    render() {
+        return (
+            <div>
+                {/* Use ref attribute to attach the ref to the input element */}
+                <input
+                    type="text"
+                    ref={this.inputRef}
+                />
+                <button onClick={this.handleSubmit}>Submit</button>
+            </div>
+        );
+    }
+}
+
+// Ref Usage: In uncontrolled components, we use the ref attribute to create a reference(this.inputRef) to the DOM node of the input field.
+
+// Handling Input: When the user enters data and clicks "Submit", this.inputRef.current.value allows us to
+//  directly access the current value of the input field without involving React state.
+
+// Advantages: Uncontrolled components can be simpler and faster for basic form handling.
+// They are often used when the form data is not needed in React state for any processing or validation.
+
+// Key Points:
+
+// Internal State: Uncontrolled components manage their state internally with the help of refs, not with React state updates.
+// Direct DOM Access: Accessing form data is done directly through DOM refs(this.inputRef.current.value).
+// Simplicity: They are straightforward for simple forms where real - time validation or complex form interactions are not necessary.
+
+// => Uncontrolled components are handy in scenarios where you want a lightweight approach to handling form data without the overhead of managing state in React.
+
+// 6. What is Higher Order Components?
+// => ReactJS Higher - Order Components:-
+// Higher - order components(HOC) are an advanced technique in React that is used for reusing component logic.
+// It is the function that takes the original component and returns the new enhanced component.
+
+// It doesn’t modify the input component directly.Instead, they return a new component with enhanced behavior.
+// They allow you to reuse component logic across multiple components without duplicating it.
+// They are pure functions that accept a component and return a new component.
+
+// Syntax:
+
+// const EnhancedComponent = higherOrderComponent(OriginalComponent);
+// A Higher - Order Component takes a component as input.
+// It returns a new component with added functionality.
+// The new component behaves like the original but with extra features.
+
+// ================MAIN COMPONENT APP.JS===============//
+
+import React from "react";
+import "./App.css";
+import withName from './Components/Name'; // Import the HOC
+// Functional component
+const App = (props) => {
+    return <h1>{props.name}</h1>;
+};
+// Wrap the App component with the HOC to create the enhanced version
+const EnhancedComponent = withName(App);
+// Export the enhanced component
+export default EnhancedComponent;
+// ================MAIN COMPONENT APP.JS===============//
+
+//========== HIGHER ORDER (COMMON) COMPONENT==========//
+import React from 'react';
+// Higher-Order Component (HOC) as a functional component
+const withName = (OriginalComponent) => {
+    const NewComponent = (props) => {
+        return <OriginalComponent {...props} name="Higher Order Component" />;
+    };
+    return NewComponent;
+};
+export default withName;
+//========== HIGHER ORDER (COMMON) COMPONENT==========//
+
+// 7. What is Pure Component?
+// when functions returns same output when same input is passed is called Pure functions.
+// It is like returning same data for same input.So in pure function output only depend on its input arguments.
+// Pure functions does not produced any side effects as well.
+// For example:
+function Add(num1, num2) {
+    return num1 + num2;
+}
+
+
+// 8. What are Props and State ?
 
 
 
