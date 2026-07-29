@@ -48,7 +48,9 @@
 
 //  10) What is Closure in javascript?
 //  => Closure is a function that remembers the variables from its outer scope
-//     even after the outer function has finished executing
+//     even after the outer function has finished executing.
+//             [or]
+//  => Closure is a function where Inner function can access the outer function variables.
 
 //  11) What is "this" Keyword?
 //  => "this" keyword is a reference to the object
@@ -64,7 +66,7 @@
 //  => Arrow function does not have its own "arguments" object
 //  => Arrow function cannot be used as constructor
 
-//**14) What is the difference between map() and forEach()?
+// 14) What is the difference between map() and forEach()?
 //  => map() is used to create a new array with the results of calling
 //     a function on every element in the array
 //  => map() returns a new array
@@ -770,6 +772,89 @@
 //     }, 1000);
 // }
 // // startLeaking(); 
+
+
+
+
+
+// 54) What is WEB SOCKET ?
+// WebSockets in JavaScript enable persistent, full - duplex, bidirectional communication between
+//  a client and a server over a single TCP connection.Unlike traditional HTTP requests,
+//  which close after a response is delivered, a WebSocket connection remains open, 
+// allowing both parties to pass data instantly without repeated request - response cycles.
+
+// ===============Client side code (FRONTEND CODE)===========// 
+// 1. Connection opened event
+socket.onopen = (event) => {
+    console.log('Connected to the server.');
+
+    // Send data as text or JSON string strings
+    const message = { type: 'greet', text: 'Hello Server!' };
+    socket.send(JSON.stringify(message));
+};
+
+// 2. Listen for incoming messages
+socket.onmessage = (event) => {
+    // Received data is accessible via event.data
+    try {
+        const data = JSON.parse(event.data);
+        console.log('Message from server:', data);
+    } catch (e) {
+        console.log('Raw string message:', event.data);
+    }
+};
+
+// 3. Handle errors
+socket.onerror = (error) => {
+    console.error('WebSocket Error:', error);
+};
+
+// 4. Connection closed event
+socket.onclose = (event) => {
+    console.log(`Disconnected. Code: ${event.code}, Reason: ${event.reason}`);
+};
+// ===============Client side code (FRONTEND CODE)===========// 
+
+// ===============Server side (Node Js Backend Code) =========//
+const { WebSocketServer } = require('ws');
+
+// Initialize server on port 8080
+const wss = new WebSocketServer({ port: 8080 });
+
+wss.on('connection', (ws) => {
+    console.log('New client connected!');
+
+    // Handle incoming messages from this client
+    ws.on('message', (message) => {
+        // In 'ws', incoming text messages are delivered as Buffers
+        console.log(`Received: ${message}`);
+
+        // Echo the message back to the client
+        ws.send(`Server received: ${message}`);
+    });
+
+    // Handle client disconnection
+    ws.on('close', () => {
+        console.log('Client has disconnected.');
+    });
+});
+// ===============Server side (Node Js Backend Code) =========//
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
