@@ -191,3 +191,282 @@ list.flat(Infinity); // [1, 2, 3, 4, 5, 6]
 // Code
 const list = [1, 2, 3];
 list.flatMap((el) => [el, el * el]); // [1, 1, 2, 4, 3, 9]
+
+
+
+// Here's a JavaScript Array Cheat Sheet for interviews and LeetCode. Since you've been practicing without built -in methods, I've included both approaches where useful.
+
+// 1. Add an Element
+// ✅ Using methods
+// let arr = [1, 2, 3];
+
+// arr.push(4);        // End
+//  [1,2,3,4]
+
+// arr.unshift(0);     // Beginning
+//  [0,1,2,3,4]
+// ✅ Without methods
+// let arr = [1, 2, 3];
+
+// arr[arr.length] = 4;
+
+// console.log(arr);
+//  [1,2,3,4]
+// 2. Remove Last Element
+// Using method
+// arr.pop();
+// Without method
+// arr.length = arr.length - 1;
+// 3. Remove First Element
+// Using method
+// arr.shift();
+// Without methods
+// let arr = [1, 2, 3, 4];
+
+// for (let i = 0; i < arr.length - 1; i++) {
+//     arr[i] = arr[i + 1];
+// }
+
+// arr.length--;
+
+// console.log(arr);
+// // [2,3,4]
+// 4. Remove Element by Index
+
+// Example: Remove index = 2
+
+// let arr = [10, 20, 30, 40, 50];
+
+// let index = 2;
+
+// for (let i = index; i < arr.length - 1; i++) {
+//     arr[i] = arr[i + 1];
+// }
+
+// arr.length--;
+
+// console.log(arr);
+//  [10,20,40,50]
+// 5. Remove Duplicates
+// Method 1(Best using Set)
+// let arr = [1, 1, 2, 2, 3];
+
+// let ans = [...new Set(arr)];
+
+// console.log(ans);
+// // [1,2,3]
+// Method 2(Without Set)
+// let arr = [1, 1, 2, 2, 3];
+
+// let result = [];
+
+// for (let i = 0; i < arr.length; i++) {
+
+//     let found = false;
+
+//     for (let j = 0; j < result.length; j++) {
+
+//         if (arr[i] == result[j]) {
+//             found = true;
+//             break;
+//         }
+
+//     }
+
+//     if (!found) {
+//         result[result.length] = arr[i];
+//     }
+
+// }
+
+// console.log(result);
+// 6. Remove Duplicate(Sorted Array) ⭐ LeetCode 26
+// let nums = [1, 1, 2, 2, 3];
+
+// let k = 1;
+
+// for (let i = 1; i < nums.length; i++) {
+
+//     if (nums[i] != nums[k - 1]) {
+//         nums[k] = nums[i];
+//         k++;
+//     }
+
+// }
+
+// console.log(k);
+// console.log(nums);
+
+// Output
+
+// k = 3
+
+// nums = [1, 2, 3, 2, 3]
+
+// First k elements are unique.
+
+// 7. Insert Element at Index
+
+// Insert 25 at index 2
+
+// let arr = [10, 20, 30, 40];
+
+// let index = 2;
+// let value = 25;
+
+// for (let i = arr.length; i > index; i--) {
+//     arr[i] = arr[i - 1];
+// }
+
+// arr[index] = value;
+
+// console.log(arr);
+
+// Output
+
+// [10, 20, 25, 30, 40]
+// 8. Find an Element
+// let arr = [5, 10, 15];
+
+// let target = 10;
+
+// for (let i = 0; i < arr.length; i++) {
+
+//     if (arr[i] == target) {
+//         console.log(i);
+//     }
+
+// }
+// 9. Count Duplicates
+// let arr = [1, 1, 2, 3, 3, 3];
+
+// let count = {};
+
+// for (let num of arr) {
+
+//     if (count[num]) {
+//         count[num]++;
+//     } else {
+//         count[num] = 1;
+//     }
+
+// }
+
+// console.log(count);
+
+// Output
+
+// {
+//     1: 2,
+//         2: 1,
+//             3: 3
+// }
+// 10. Reverse Array
+// Using method
+// arr.reverse();
+// Without methods
+// let arr = [1, 2, 3, 4];
+
+// let left = 0;
+// let right = arr.length - 1;
+
+// while (left < right) {
+
+//     let temp = arr[left];
+//     arr[left] = arr[right];
+//     arr[right] = temp;
+
+//     left++;
+//     right--;
+// }
+
+// console.log(arr);
+// 11. Copy an Array
+// let copy = [...arr];
+
+// Without methods
+
+// let copy = [];
+
+// for (let i = 0; i < arr.length; i++) {
+//     copy[i] = arr[i];
+// }
+// 12. Merge Two Arrays
+// let a = [1, 2];
+// let b = [3, 4];
+
+// let c = [...a, ...b];
+
+// Without methods
+
+// let c = [];
+
+// for (let i = 0; i < a.length; i++) {
+//     c[c.length] = a[i];
+// }
+
+// for (let i = 0; i < b.length; i++) {
+//     c[c.length] = b[i];
+// }
+
+// console.log(c);
+// 13. Rotate Array Right by 1
+// let arr = [1, 2, 3, 4];
+
+// let last = arr[arr.length - 1];
+
+// for (let i = arr.length - 1; i > 0; i--) {
+//     arr[i] = arr[i - 1];
+// }
+
+// arr[0] = last;
+
+// console.log(arr);
+// 14. Find Maximum
+// let max = arr[0];
+
+// for (let i = 1; i < arr.length; i++) {
+
+//     if (arr[i] > max) {
+//         max = arr[i];
+//     }
+
+// }
+
+// console.log(max);
+// 15. Find Minimum
+// let min = arr[0];
+
+// for (let i = 1; i < arr.length; i++) {
+
+//     if (arr[i] < min) {
+//         min = arr[i];
+//     }
+
+// }
+
+// console.log(min);
+// 16. Sum of Array
+// let sum = 0;
+
+// for (let i = 0; i < arr.length; i++) {
+//     sum += arr[i];
+// }
+
+// console.log(sum);
+// ⭐ Interview Cheat Sheet(Memorize)
+// Operation	Time	Common Approach
+// Add at end	O(1)	arr[arr.length] = value / push()
+// Add at beginning	O(n)	Shift right then insert
+// Remove last	O(1)	length-- / pop()
+// Remove first	O(n)	Shift left
+// Remove by index	O(n)	Shift left from index
+// Insert by index	O(n)	Shift right from end
+// Find element	O(n)	Linear search
+// Remove duplicates(unsorted)	O(n²) / O(n)	Nested loops or Set
+// Remove duplicates(sorted)	O(n)	Two pointers
+// Reverse array	O(n)	Two pointers
+// Max / Min	O(n)	Single pass
+// Sum	O(n)	Single pass
+
+// This covers the array operations that appear most frequently in JavaScript coding interviews and LeetCode problems.
