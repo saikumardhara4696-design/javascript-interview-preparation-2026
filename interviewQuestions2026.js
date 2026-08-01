@@ -221,4 +221,11 @@ console.log(add(2, 3, 4)); // 9
 
 
 
-// 6. 
+// 01-08-2026
+
+// 6. What is NORMALISE IN SQL?
+// 7. how we can use the normalise in sql?
+// 8. write some table with FN1 and FN2 and FN3 with example?
+// 9. what is the difference between FN1 and FN2 and FN3?
+// 10. what is the difference between primary key and foreign key?
+//
