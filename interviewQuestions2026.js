@@ -228,4 +228,7 @@ console.log(add(2, 3, 4)); // 9
 // 8. write some table with FN1 and FN2 and FN3 with example?
 // 9. what is the difference between FN1 and FN2 and FN3?
 // 10. what is the difference between primary key and foreign key?
-//
+// 11. what is react and how it works?
+// 12. what is node js and how it works?
+// 13. what is the difference between node js and react js?
+// 14. 
