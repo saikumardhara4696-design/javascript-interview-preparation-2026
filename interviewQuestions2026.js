@@ -231,4 +231,246 @@ console.log(add(2, 3, 4)); // 9
 // 11. what is react and how it works?
 // 12. what is node js and how it works?
 // 13. what is the difference between node js and react js?
-// 14. 
+// 14. write the code for storing the data in FN3?
+// 15. what is the difference between sql and nosql?
+//
+
+
+// 6. What is Normalization in SQL?
+// Answer
+// Normalization is the process of organizing data into multiple related tables.
+// It reduces data redundancy (duplicate data).
+// It improves data consistency and integrity.
+// It makes updates, inserts, and deletes easier.
+
+// Example (Without Normalization)
+
+// EmpID	Name	Department	Department Manager
+// 1	    John	HR	         David
+// 2	    Sam 	HR	         David
+// 3	    Mike	IT	          Alice
+
+// Here, Department Manager is repeated multiple times.
+
+// 7. How can we use Normalization in SQL?
+
+// We divide the data into separate tables.
+
+// Employee Table
+// EmpID	Name	DeptID
+// 1	    John	1
+// 2	    Sam	    1
+// 3	    Mike	2
+// Department Table
+// DeptID	Department	Manager
+// 1	      HR	    David
+// 2	      IT	    Alice
+
+// Now, if the HR manager changes, update only one row.
+
+// 8. Explain 1NF, 2NF, and 3NF with Example ?
+// Original Table (Not Normalized)
+// OrderID	Customer	Products	         CustomerCity
+// 1	    John       	Mouse, Keyboard	      Hyderabad
+// 2	    Sam	        Laptop	              Bangalore
+
+// Products contains multiple values in one column.
+
+// First Normal Form (1NF)
+
+// Rule
+
+// Every column should contain only one value (atomic values).
+// No repeating groups.
+// Orders
+// OrderID	        Customer	Product	    CustomerCity
+// 1	            John	    Mouse	     Hyderabad
+// 1	            John	    Keyboard	 Hyderabad
+// 2	            Sam	         Laptop	     Bangalore
+// Second Normal Form (2NF)
+
+// Rule
+
+// Must satisfy 1NF.
+// Remove partial dependency.
+// Every non-key column must depend on the whole primary key.
+// Customers
+// CustomerID	Customer	City
+// 1	         John	    Hyderabad
+// 2	         Sam	    Bangalore
+// Orders
+// OrderID	CustomerID
+// 1	     1
+// 2	     2
+// OrderItems
+// OrderID	    Product
+// 1	        Mouse
+// 1	        Keyboard
+// 2	        Laptop
+// Third Normal Form (3NF)
+
+// Rule
+
+// Must satisfy 2NF.
+// Remove transitive dependency.
+// Non-key columns should depend only on the primary key.
+// Employees
+// EmpID	Name	DeptID
+// 1	     John	1
+// 2	     Sam	2
+// Departments
+// DeptID	Department	    Manager
+// 1	     HR	            David
+// 2	     IT	            Alice
+
+
+// 9. Difference between 1NF, 2NF, and 3NF?
+// 1NF	2NF	3NF
+// Removes repeating groups	Removes partial dependency	Removes transitive dependency
+// Atomic values only	Depends on the whole primary key	Depends only on the primary key
+// No multiple values in one cell	No partial dependency	No indirect dependency
+
+// Easy to Remember
+
+// 1NF: One value per cell.
+// 2NF: Remove partial dependency.
+// 3NF: Remove transitive dependency.
+
+
+// 10. Difference between Primary Key and Foreign Key?
+// Primary Key	Foreign Key
+// Uniquely identifies a row	References a primary key in another table
+// Cannot be NULL	Can be NULL (unless constrained)
+// One primary key per table	Multiple foreign keys allowed
+// Must be unique	Can contain duplicate values
+// Example
+
+// Department
+
+// DeptID (PK)	Name
+// 1	        HR
+// 2	     IT
+
+// Employee
+
+// EmpID (PK)	Name	DeptID (FK)
+// 1	         John	1
+// 2	         Sam	2
+
+
+// 11. What is React and how does it work?
+// Answer
+// React is a JavaScript library for building user interfaces.
+// It is component-based.
+// It uses a Virtual DOM.
+// When state or props change, React creates a new Virtual DOM, compares it with the previous one (Reconciliation), and updates only the changed parts of the Real DOM.
+
+// Flow
+
+// User Action
+//       ↓
+// State Changes
+//       ↓
+// Virtual DOM
+//       ↓
+// Diffing (Reconciliation)
+//       ↓
+// Real DOM Update
+//       ↓
+// Browser
+
+
+// 12. What is Node.js and how does it work?
+// Answer
+// Node.js is a JavaScript runtime built on Chrome's V8 engine.
+// It allows JavaScript to run outside the browser.
+// It uses a single-threaded, event-driven, non-blocking I/O model.
+
+// Flow
+
+// Client Request
+//       ↓
+// Event Loop
+//       ↓
+// Non-blocking I/O
+//       ↓
+// Worker Threads (if needed)
+//       ↓
+// Response
+
+// Example
+
+// A database query runs asynchronously.
+// Node.js can handle other requests while waiting for the database response.
+
+
+// 13. Difference between Node.js and React.js
+// React.js	Node.js
+// Frontend library	Backend runtime
+// Builds UI	Runs server-side JavaScript
+// Runs in browser	Runs on server
+// Uses Virtual DOM	Uses Event Loop
+// Creates components	Creates APIs and backend services
+// 14. SQL Code for Storing Data in 3NF
+// Create Department Table
+// CREATE TABLE Department (
+//     DeptID INT PRIMARY KEY,
+//     DepartmentName VARCHAR(50),
+//     Manager VARCHAR(50)
+// );
+// Create Employee Table
+// CREATE TABLE Employee (
+//     EmpID INT PRIMARY KEY,
+//     Name VARCHAR(50),
+//     DeptID INT,
+//     FOREIGN KEY (DeptID) REFERENCES Department(DeptID)
+// );
+// Insert Data
+// INSERT INTO Department
+// VALUES
+// (1,'HR','David'),
+// (2,'IT','Alice');
+// INSERT INTO Employee
+// VALUES
+// (101,'John',1),
+// (102,'Sam',2),
+// (103,'Mike',1);
+
+
+// 15. Difference between SQL and NoSQL
+// SQL	NoSQL
+// Relational database	Non-relational database
+// Table-based	Document, Key-Value, Graph, Column
+// Fixed schema	Flexible schema
+// Uses SQL queries	No standard query language
+// Supports ACID transactions	Often optimized for scalability and availability (varies by database)
+// Best for complex joins and structured data	Best for large-scale, rapidly changing, or semi-structured data
+// Examples
+
+// SQL
+
+// MySQL
+// PostgreSQL
+// SQL Server
+// Oracle
+
+// NoSQL
+
+// MongoDB
+// Cassandra
+// Redis
+// CouchDB
+
+
+// Interview Revision (Quick Answers)
+// Normalization: Organizes data to reduce redundancy and improve consistency.
+// 1NF: One value per cell.
+// 2NF: Remove partial dependency.
+// 3NF: Remove transitive dependency.
+// Primary Key: Uniquely identifies a row.
+// Foreign Key: Links one table to another using a primary key.
+// React: Component-based UI library using Virtual DOM and Reconciliation.
+// Node.js: JavaScript runtime using an event-driven, non-blocking architecture.
+// React vs Node: React is for frontend UI; Node.js is for backend/server-side JavaScript.
+// 3NF Storage: Split related data into separate tables connected by foreign keys.
+// SQL vs NoSQL: SQL is relational with a fixed schema; NoSQL is non-relational with a flexible schema.
