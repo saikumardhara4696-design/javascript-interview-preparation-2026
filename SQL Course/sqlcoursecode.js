@@ -280,3 +280,44 @@
 // Typical flow:
 // Load Driver → Connect → Execute Query → Read Result → Close Connection
 
+
+
+// 8. What is Normalization in SQL?
+// Normalization is the process of organizing data in a database to reduce redundancy and improve data integrity.
+// It involves dividing large tables into smaller, related tables and defining relationships between them using primary and foreign keys.
+
+
+// 9. What is Database?
+// A database is an organized collection of structured data that can be easily accessed, managed, and updated.
+
+// 10. What is the difference between Primary Key and Foreign Key?
+// Primary Key: A primary key is a unique identifier for a record in a table.
+// It ensures that each record can be uniquely identified and cannot contain NULL values.
+
+// Foreign Key: A foreign key is a field (or collection of fields) in one table that refers to the primary key in another table.
+// It establishes a relationship between the two tables and can contain NULL values unless constrained otherwise.
+
+// Example Table
+// Employee
+// EmpID	Name	DeptID
+// 101	John	1
+// 102	Sam	    2
+// 103	Mike	1
+
+// Department
+// DeptID	Department	Manager
+// 1	     HR	        David
+// 2	     IT	        Alice
+
+// 11. What is the difference between 1NF, 2NF, and 3NF?
+// 1NF(First Normal Form): Ensures that each column contains atomic values and that each record is unique.
+// It eliminates repeating groups and arrays.
+// 2NF(Second Normal Form): Achieved when a table is in 1NF and all non-key attributes are fully functionally dependent on the primary key.
+// 3NF(Third Normal Form): Achieved when a table is in 2NF and all attributes are only dependent on the primary key,
+// eliminating transitive dependencies.
+
+// 12. What is the difference between SQL and NoSQL?
+// SQL databases are relational, use structured query language, and have a predefined schema.
+// They are suitable for complex queries and transactions.
+// NoSQL databases are non-relational, can store unstructured data, and have dynamic schemas.
+// They are suitable for large-scale data storage and real-time applications.
