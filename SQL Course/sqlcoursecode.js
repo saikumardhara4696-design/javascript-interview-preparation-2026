@@ -194,7 +194,7 @@
 
 
 // Example
-// 1. Connect to MySQL
+// A. Connect to MySQL
 // import java.sql.*;
 
 // public class Demo {
@@ -213,7 +213,7 @@
 // }
 
 
-// 2. Read Data
+// B. Read Data
 // Statement stmt = con.createStatement();
 
 // ResultSet rs = stmt.executeQuery("SELECT * FROM employee");
@@ -223,7 +223,7 @@
 // }
 
 
-// 3. Insert Data
+// C. Insert Data
 // PreparedStatement ps = con.prepareStatement(
 //     "INSERT INTO employee(name, salary) VALUES(?, ?)"
 // );
@@ -244,21 +244,27 @@
 
 
 
-// Statement vs PreparedStatement
-// Statement	PreparedStatement
-// SQL is written directly	Uses ? placeholders
-// Slower for repeated queries	Faster for repeated execution
-// Vulnerable to SQL Injection	Helps prevent SQL Injection
-// Less efficient	More efficient
+// Statement vs PreparedStatement:-
+// Statement	                          PreparedStatement
+// SQL is written directly	              Uses ? placeholders
+// Slower for repeated queries	          Faster for repeated execution
+// Vulnerable to SQL Injection	          Helps prevent SQL Injection
+// Less efficient	                      More efficient
+
+
 // Advantages of JDBC
 // Connects Java applications to databases.
 // Supports multiple databases(MySQL, Oracle, PostgreSQL, SQL Server).
 // Executes SQL queries(SELECT, INSERT, UPDATE, DELETE).
 // Supports transactions.
-//     Database - independent API(you mainly change the JDBC driver and connection URL).
+// Database - independent API(you mainly change the JDBC driver and connection URL).
+
+
 // Interview Answer(30 seconds)
 
-// JDBC(Java Database Connectivity) is a Java API that enables Java applications to communicate with relational databases.It provides interfaces like Connection, Statement, PreparedStatement, and ResultSet to connect to a database, execute SQL queries, and process results.JDBC works through a JDBC driver, which translates Java calls into database - specific commands.
+// JDBC(Java Database Connectivity) is a Java API that enables Java applications to communicate with relational databases.
+// It provides interfaces like Connection, Statement, PreparedStatement, and ResultSet to connect to a database,
+// execute SQL queries, and process results.JDBC works through a JDBC driver, which translates Java calls into database - specific commands.
 
 // Interview Points to Remember
 // JDBC = Java Database Connectivity
