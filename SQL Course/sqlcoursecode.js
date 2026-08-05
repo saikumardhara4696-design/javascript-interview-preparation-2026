@@ -288,7 +288,9 @@
 
 
 // 9. What is Database?
-// A database is an organized collection of structured data that can be easily accessed, managed, and updated.
+
+// A Database is an organised collection of data that is stored and accessed electronically.
+// It provides a systematic way to store, manage, and retrieve information.
 
 // 10. What is the difference between Primary Key and Foreign Key?
 // Primary Key: A primary key is a unique identifier for a record in a table.
@@ -321,3 +323,44 @@
 // They are suitable for complex queries and transactions.
 // NoSQL databases are non-relational, can store unstructured data, and have dynamic schemas.
 // They are suitable for large-scale data storage and real-time applications.
+
+// 13. What is the difference between SQL and MySQL?
+// SQL is a language used to manage and manipulate relational databases.
+// MySQL is a relational database management system (RDBMS) that uses SQL as its query language.
+// In other words, SQL is the language, while MySQL is the software that implements it.
+
+// 14. What is DBMS?
+// DBMS(Database Management System) is software that provides an interface to interact with databases.
+// It helps in data storing, retrieving, and managing data efficiently.
+
+// 15. What is RDBMS?
+// RDBMS(Relational Database Management System) is a type of DBMS that stores data in tables with rows and columns.
+// It supports relationships between tables using primary and foreign keys and ensures data integrity through constraints.
+
+// 16. What is the difference between DBMS and RDBMS?
+// DBMS	                                    RDBMS
+// Manages databases                        Manages relational databases
+// Data stored in files or objects          Data stored in tables with rows and columns
+// No support for relationships             Supports relationships using keys
+// Less secure and less scalable            More secure and scalable
+// Examples: FileMaker, Microsoft Access	Examples: MySQL, PostgreSQL, Oracle, SQL Server
+
+// 17. What are the Types of DBMS?
+// 1. Hierarchical DBMS: Organizes data in a tree-like structure, where each record has a parent-child relationship.
+// 2. Network DBMS: Organizes data in a graph structure, allowing many-to-many relationships between records.
+// 3. Relational DBMS (RDBMS): Organizes data in tables with rows and columns, supporting relationships through keys.
+// 4. Object-oriented DBMS: Stores data as objects, similar to object-oriented programming concepts.
+// 5. Document-oriented DBMS: Stores data in document formats like JSON or XML, suitable for semi-structured data.
+// 6. Key-Value Store: Stores data as key-value pairs, allowing fast retrieval based on keys.
+// 7. Columnar DBMS: Stores data in columns rather than rows, optimizing analytical queries and aggregations.
+
+// Majorly Two types of DBMS are used in the industry:-
+// TYPES OF DBMS:
+// Relational DBMS (RDBMS):-
+// Based on tables(relations)consists of Organizes data in tables with rows and columns.
+// Example: - MySQL, PostgreSQL, Oracle, SQL Server
+
+// Non Relational DBMS (NoSQL):-
+// Uses models like documents, key-value pairs, columnar or graphs.
+// Based on collections instead of tables.
+// Example: - MongoDB, Cassandra, DynamoDB, Redis, Couchbase
