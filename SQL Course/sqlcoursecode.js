@@ -364,3 +364,45 @@
 // Uses models like documents, key-value pairs, columnar or graphs.
 // Based on collections instead of tables.
 // Example: - MongoDB, Cassandra, DynamoDB, Redis, Couchbase
+
+
+
+// 18. What are Data Types in SQL?
+// Data types define the type of data that can be stored in a column of a table.
+
+// Common SQL Data Types:
+// Data                             Type	      Purpose	   Example
+// INT	                            Integer       values       1, 42, -7
+// VARCHAR(Variable-length string)	Text          values	   'Hello', 'John Doe'
+// CHAR(Fixed-length string)	    Text          values	   'Y', 'N'
+// DATE                         	Date          values	   '2024-01-01'
+// DATETIME	                        Date and time  values	   '2024-01-01 12:30:00'
+// BOOLEAN	                        True/False    values	    TRUE, FALSE
+// DECIMAL(Precision, Scale)	    Decimal        values	    DECIMAL(10, 2) for 12345678.90
+// FLOAT	                        Floating-point  values	    3.14, -0.001
+// TEXT	                            Large text      values	    'This is a long text...'
+// BLOB(Binary Large Object)	Binary data	Images, audio files, etc.
+
+
+// 19.
+
+// . What are Constraints in SQL?
+// Constraints are rules applied to columns in a table to enforce data integrity and consistency.
+// Common SQL Constraints:
+// Constraint	Purpose
+// PRIMARY KEY	Ensures unique and non-null values for a column
+// FOREIGN KEY	Establishes a relationship between two tables
+// UNIQUE	Ensures all values in a column are unique
+// NOT NULL	Prevents null values in a column
+// CHECK	Ensures values meet a specific condition
+// DEFAULT	Provides a default value for a column if none is specified
+// AUTO_INCREMENT	Automatically generates a unique value for a column (commonly used for primary keys)
+
+
+// . What is Indexing in SQL?
+// Indexing is a technique used to improve the speed of data retrieval operations on a database table.
+// An index is created on one or more columns of a table, allowing the database
+// to find rows more quickly without scanning the entire table.
+// Indexes can be created using the CREATE INDEX statement and can be unique or non-unique.
+// However, while indexes speed up read operations,
+//  they can slow down write operations (INSERT, UPDATE, DELETE) because the index must also be updated.
