@@ -474,3 +474,18 @@ console.log(add(2, 3, 4)); // 9
 // React vs Node: React is for frontend UI; Node.js is for backend/server-side JavaScript.
 // 3NF Storage: Split related data into separate tables connected by foreign keys.
 // SQL vs NoSQL: SQL is relational with a fixed schema; NoSQL is non-relational with a flexible schema.
+
+
+// 08-08-2026
+// 1. What is Static Mode in React?
+// 2. What is Rest and spread operator in React?
+// 3. What are the life cycle methods in react?
+// 4. what is useReducer in react and how it works?
+// 5. what is callback function in react and how it works?
+// 6. what is the difference between useState and useReducer in react?
+// 7. what is useQuery in react and how it works?
+// 8. what is usememo in react and how it works?
+// 9. what is psuedo class in css and how it works?
+// 10. what is synchronous and asynchronous in javascript and how it works?
+// 11. what is promises in javascript and how it works?
+// 12 which tools used optimize the performance in react?
