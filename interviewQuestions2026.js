@@ -491,5 +491,7 @@ console.log(add(2, 3, 4)); // 9
 // 12 which tools used optimize the performance in react?
 // 13. what AI tool and version used in for development?
 // 14. what is Node js and how it works?
+// 15. what is the testing tools (jest, cypress)used in react and node js?
+// 16. what is higher order functions in react and how it works?
 
 // 
