@@ -493,5 +493,8 @@ console.log(add(2, 3, 4)); // 9
 // 14. what is Node js and how it works?
 // 15. what is the testing tools (jest, cypress)used in react and node js?
 // 16. what is higher order functions in react and how it works?
-
+// 17. what is pure function in react and how it works?
+// 18. what is event bubbling and event capturing in react and how it works?
+// 19. what is box model in css and how it works?
+// 20. what is
 // 
