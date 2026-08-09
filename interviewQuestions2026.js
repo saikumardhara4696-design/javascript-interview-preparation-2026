@@ -489,3 +489,7 @@ console.log(add(2, 3, 4)); // 9
 // 10. what is synchronous and asynchronous in javascript and how it works?
 // 11. what is promises in javascript and how it works?
 // 12 which tools used optimize the performance in react?
+// 13. what AI tool and version used in for development?
+// 14. what is Node js and how it works?
+
+// 
