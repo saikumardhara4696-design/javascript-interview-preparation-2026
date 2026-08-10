@@ -496,5 +496,5 @@ console.log(add(2, 3, 4)); // 9
 // 17. what is pure function in react and how it works?
 // 18. what is event bubbling and event capturing in react and how it works?
 // 19. what is box model in css and how it works?
-// 20. what is
+// 20. what is shallow copy and deep copy?
 // 
