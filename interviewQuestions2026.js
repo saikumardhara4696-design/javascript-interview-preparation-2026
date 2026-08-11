@@ -497,4 +497,4 @@ console.log(add(2, 3, 4)); // 9
 // 18. what is event bubbling and event capturing in react and how it works?
 // 19. what is box model in css and how it works?
 // 20. what is shallow copy and deep copy?
-// 
+// 21. what are ES6 features?
