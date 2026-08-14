@@ -502,6 +502,662 @@ console.log(add(2, 3, 4)); // 9
 // 23. what is recoincolation in react?
 
 
+// ==================================
+// ANSWERS
+// ==================================
+
+// 1. What is Static Mode in React ?
+
+//     Answer :
+//     In React, static rendering / static mode generally means generating HTML ahead of time instead of rendering everything dynamically on every request.It is commonly used with frameworks like Next.js for better performance and SEO.
+
+// export default function Home() {
+//     return <h1>Hello React</h1>;
+// }
+
+// Interview point: Static content can be generated ahead of time and served quickly.
+
+//     Note: If the interviewer specifically means React Strict Mode, that's different—it helps detect potential problems during development.
+
+// 2. What are Rest and Spread Operators ?
+
+//     Both use ..., but their purpose is different.
+
+//         Spread → expands values
+
+// const arr1 = [1, 2];
+// const arr2 = [...arr1, 3, 4];
+
+
+// console.log(arr2); // [1,2,3,4]
+
+// Rest → collects values
+
+// function sum(...numbers) {
+//     return numbers.reduce((a, b) => a + b, 0);
+// }
+
+
+// sum(1, 2, 3); // 6
+
+// Interview point:
+
+// Spread = expand
+// Rest = collect
+// 3. What are the Lifecycle Methods in React ?
+
+//     React component lifecycle has three phases:
+
+// Mounting – component is created.
+//     Updating – state / props change.
+//         Unmounting – component is removed.
+
+// Class component:
+
+// class App extends React.Component {
+//     componentDidMount() {
+//         console.log("Mounted");
+//     }
+
+
+//     componentDidUpdate() {
+//         console.log("Updated");
+//     }
+
+
+//     componentWillUnmount() {
+//         console.log("Unmounted");
+//     }
+
+
+//     render() {
+//         return <h1>Hello</h1>;
+//     }
+// }
+
+// With functional components, we commonly use useEffect:
+
+// useEffect(() => {
+//     console.log("Mounted");
+
+
+//     return () => {
+//         console.log("Unmounted");
+//     };
+// }, []);
+// 4. What is useReducer and how does it work ?
+
+//     Answer :
+//     useReducer is a React Hook used to manage complex state logic using a reducer function and actions.
+
+// const reducer = (state, action) => {
+//     switch (action.type) {
+//         case "increment":
+//             return { count: state.count + 1 };
+
+
+//         default:
+//             return state;
+//     }
+// };
+
+
+// const [state, dispatch] = useReducer(reducer, { count: 0 });
+
+
+// <button onClick={() => dispatch({ type: "increment" })}>
+//     {state.count}
+// </button>
+
+// Flow:
+
+// dispatch(action) → reducer() → new state → re - render
+
+// 5. What is a Callback Function in React ?
+
+//     A callback is a function passed to another function/component and executed later.
+
+// function Parent() {
+//     const handleClick = (name) => {
+//         console.log(name);
+//     };
+
+
+//     return <Child onClick={handleClick} />;
+// }
+
+
+// function Child({ onClick }) {
+//     return (
+//         <button onClick={() => onClick("Sai")}>
+//             Click
+//         </button>
+//     );
+// }
+
+// Interview point:
+// Callbacks are commonly used for passing data / events from child to parent.
+
+// 6. Difference Between useState and useReducer
+// useState	useReducer
+// Simple state	Complex state
+// Direct update	Action - based update
+// Less code	More structured
+// Good for input / toggle	Good for complex forms / state
+// // useState
+// const [count, setCount] = useState(0);
+
+
+// setCount(count + 1);
+// // useReducer
+// dispatch({ type: "increment" });
+
+// Interview answer:
+
+// I use useState for simple state and useReducer when multiple state transitions or complex business logic are involved.
+
+// 7. What is useQuery in React ?
+
+//     useQuery is not a built -in React Hook.It is commonly provided by libraries such as TanStack Query(React Query).
+
+// It handles:
+
+// API calls
+// Loading state
+// Error state
+// Caching
+// Refetching
+// Server - state synchronization
+// const { data, isLoading, error } = useQuery({
+//     queryKey: ["users"],
+//     queryFn: () => fetch("/api/users").then(res => res.json())
+// });
+
+// Interview point:
+
+// useQuery is mainly used for managing server state and API data.
+
+// 8. What is useMemo and how does it work ?
+
+//     useMemo memoizes a calculated value and recalculates it only when dependencies change.
+
+// const expensiveValue = useMemo(() => {
+//     return numbers.reduce((sum, n) => sum + n, 0);
+// }, [numbers]);
+
+// Without useMemo, the calculation can run on every render.
+
+// Interview point:
+
+// useMemo optimizes expensive calculations, but I don't use it unnecessarily because memoization itself has overhead.
+
+// 9. What is a Pseudo - class in CSS ?
+
+//     A pseudo - class defines a special state of an element.
+
+// Common examples:
+
+// : hover
+// : focus
+// : active
+// : first - child
+// : nth - child()
+// button:hover {
+//     background: black;
+//     color: white;
+// }
+
+
+// input:focus {
+//     border: 2px solid blue;
+// }
+
+// Interview point:
+
+// Pseudo - classes select elements based on their state or position.
+
+// 10. Synchronous vs Asynchronous JavaScript
+
+// Synchronous: Executes line by line and waits for each operation.
+
+//     console.log("A");
+//     console.log("B");
+// console.log("C");
+
+// Output:
+
+// A
+// B
+// C
+
+// Asynchronous: Allows operations like API calls / timers to complete later.
+
+//     console.log("A");
+
+
+// setTimeout(() => {
+//     console.log("B");
+// }, 1000);
+
+
+// console.log("C");
+
+// Output:
+
+// A
+// C
+// B
+
+// Interview point:
+
+// JavaScript is single - threaded, but asynchronous operations are handled through mechanisms such as the event loop, Web APIs, and callback queues.
+
+// 11. What is a Promise ?
+
+//     A Promise represents the eventual result of an asynchronous operation.
+
+// It has three states:
+
+// Pending
+// Fulfilled
+// Rejected
+// const promise = fetch("/api/users");
+
+
+// promise
+//     .then(res => res.json())
+//     .then(data => console.log(data))
+//     .catch(error => console.log(error));
+
+// Using async / await:
+
+// async function getUsers() {
+//     try {
+//         const res = await fetch("/api/users");
+//         const data = await res.json();
+//         console.log(data);
+//     } catch (error) {
+//         console.log(error);
+//     }
+// }
+// 12. Which tools / techniques do you use to optimize React performance ?
+
+//     Answer :
+
+//     I use:
+
+// React.memo
+// useMemo
+// useCallback
+// Lazy loading
+// Code splitting
+// Virtualization
+// Image optimization
+// Redux optimization
+// React DevTools Profiler
+// Chrome DevTools
+// Bundle analyzers
+
+// Example:
+
+// const User = React.memo(({ name }) => {
+//     return <h1>{name}</h1>;
+// });
+
+// Lazy loading:
+
+// const Dashboard = lazy(() => import("./Dashboard"));
+
+// Interview answer:
+
+// I first identify the bottleneck using profiling tools and then apply the appropriate optimization rather than blindly using memoization.
+
+// 13. What AI tools and versions do you use for development ?
+
+//     A good interview answer:
+
+// I use AI development tools such as GitHub Copilot and ChatGPT for code generation, debugging, refactoring, test generation, documentation, and understanding unfamiliar code.I also verify AI - generated code through testing, linting, and code review rather than blindly accepting it.
+
+// If they ask for an exact version, mention the actual version / tool you currently use rather than guessing.
+
+// 14. What is Node.js and how does it work ?
+
+//     Answer :
+//     Node.js is a JavaScript runtime built on Chrome's V8 engine that allows JavaScript to run outside the browser.
+
+// It uses:
+
+// V8 Engine
+// Event Loop
+// Non - blocking I / O
+// Asynchronous APIs
+
+// Example:
+
+// const http = require("http");
+
+
+// http.createServer((req, res) => {
+//     res.end("Hello Node.js");
+// }).listen(3000);
+
+// Interview point:
+
+// Request → Event Loop → Non - blocking operation → Callback → Response
+
+// 15. What are Jest and Cypress used for?
+
+//     Jest :
+
+//     Used mainly for unit and integration testing.
+
+//         test("adds two numbers", () => {
+//             expect(2 + 3).toBe(5);
+//         });
+
+// Cypress:
+
+// Used mainly for end - to - end / browser testing.
+
+//     cy.visit("/login");
+
+
+//     cy.get("#email").type("test@gmail.com");
+
+
+// cy.get("button").click();
+
+// Interview answer:
+
+// I use Jest / React Testing Library for unit and component testing, and Cypress for end - to - end testing of complete user flows.
+
+// 16. What is a Higher - Order Function ?
+
+//     A Higher - Order Function is a function that:
+
+//     Takes another function as an argument, or
+// Returns another function.
+
+//     Example:
+
+// const numbers = [1, 2, 3];
+
+
+// const result = numbers.map(num => num * 2);
+
+
+// console.log(result); // [2,4,6]
+
+// map() is a higher - order function because it accepts a function.
+
+// Custom example:
+
+// function multiplyBy(x) {
+//     return function (num) {
+//         return num * x;
+//     };
+// }
+
+
+// const double = multiplyBy(2);
+
+
+// double(5); // 10
+// 17. What is a Pure Function ?
+
+//     A pure function:
+
+//     Gives the same output for the same input.
+// Does not modify external data or cause side effects.
+// function add(a, b) {
+//     return a + b;
+// }
+
+
+// add(2, 3); // 5
+
+// Impure:
+
+// let total = 0;
+
+
+// function add(value) {
+//     total += value;
+// }
+
+// React interview point:
+// React encourages predictable, side - effect - free rendering and immutable state updates.
+
+// 18. Event Bubbling and Event Capturing
+
+// Suppose:
+
+// <div>
+//     <button>Click</button>
+// </div>
+
+// Bubbling: Event travels:
+
+// Button → Div → Body → Document
+
+// Capturing: Event travels:
+
+// Document → Body → Div → Button
+
+// React example:
+
+// <div onClick={() => console.log("Parent")}>
+//     <button onClick={() => console.log("Child")}>
+//         Click
+//     </button>
+// </div>
+
+// Clicking button normally triggers:
+
+// Child
+// Parent
+
+// Stop bubbling:
+
+// <button
+//     onClick={(e) => {
+//         e.stopPropagation();
+//     }}
+// >
+//     Click
+// </button>
+// 19. What is the CSS Box Model ?
+
+//     Every HTML element is treated as a box:
+
+// Content
+//  ↓
+// Padding
+//  ↓
+// Border
+//  ↓
+// Margin
+
+// Example:
+
+// .box {
+//     width: 200px;
+//     padding: 20px;
+//     border: 5px solid black;
+//     margin: 10px;
+// }
+
+// With default content - box:
+
+// Total width = 200 + 40 + 10 = 250px
+
+// Using:
+
+// * {
+//     box- sizing: border - box;
+// }
+
+// The declared width includes padding and border.
+
+// 20. Shallow Copy vs Deep Copy
+
+// Shallow copy: Copies only the first level.
+
+// const user = {
+//     name: "Sai",
+//     address: {
+//         city: "Bangalore"
+//     }
+// };
+
+
+// const copy = { ...user };
+
+
+// copy.address.city = "Hyderabad";
+
+
+// console.log(user.address.city);
+// // Hyderabad
+
+// Nested object is still shared.
+
+// Deep copy:
+
+// const copy = structuredClone(user);
+
+
+// copy.address.city = "Hyderabad";
+
+
+// console.log(user.address.city);
+// // Bangalore
+
+// Interview point:
+
+// Shallow copy copies references for nested objects, while deep copy creates independent nested objects.
+
+// 21. What are the important ES6 features ?
+
+//     Important ES6 features:
+
+// let / const
+//     Arrow functions
+// Template literals
+// Destructuring
+// Spread / rest
+// Default parameters
+// Classes
+// Modules
+// Promises
+// for...of
+// Map
+// Set
+
+// Example:
+
+// const user = {
+//     name: "Sai",
+//     age: 25
+// };
+
+
+// const { name, age } = user;
+
+
+// const message = `Hello ${name}`;
+// 22. What is ESLint ?
+
+//     ESLint is a static code analysis tool that identifies JavaScript / TypeScript code problems and enforces coding standards.
+
+//         Example:
+
+// const name = "Sai"
+// console.log(name)
+
+// ESLint can enforce:
+
+// const name = "Sai";
+// console.log(name);
+
+// Typical configuration:
+
+// {
+//     "rules": {
+//         "semi": ["error", "always"],
+//             "no-unused-vars": "warn"
+//     }
+// }
+
+// Interview point:
+
+// ESLint improves code quality, consistency, and catches potential bugs before runtime.
+
+// 23. What is Reconciliation in React ?
+
+//     Reconciliation is React's process of comparing the previous Virtual DOM with the new Virtual DOM and determining the minimum DOM changes required.
+
+// Example:
+
+// Initial:
+
+// <h1>Hello</h1>
+
+// After state update:
+
+// <h1>Hello Sai</h1>
+
+// React compares the old and new trees:
+
+// Old Virtual DOM
+//       ↓
+// New Virtual DOM
+//       ↓
+// Compare
+//       ↓
+// Find changed node
+//       ↓
+// Update real DOM
+
+// Key interview point:
+
+// Reconciliation helps React efficiently update the UI by determining what actually changed instead of rebuilding the entire DOM.
+
+// Also remember: React uses key props to help identify list elements efficiently.
+
+//     users.map(user => (
+//         <User key={user.id} user={user} />
+//     ))
+
+
+// ⭐ Quick Interview Revision ===//
+
+// Topic	One - line answer
+// Static	Pre - generated / rendered content
+// Spread	Expands values
+// Rest	Collects values
+// Lifecycle	Mount → Update → Unmount
+// useReducer	Complex state management
+// Callback	Function passed to another function
+//     useState	Simple state
+// useQuery	Server - state / API management
+// useMemo	Memoizes calculated value
+// Pseudo - class Selects element state
+// Sync	Executes sequentially
+// Async	Executes without blocking
+// Promise	Handles async result
+// HOF	Takes / returns a function
+//     Pure function Same input → same output
+// Bubbling	Child → Parent
+// Capturing	Parent → Child
+// Box model	Content → Padding → Border → Margin
+// Shallow copy	Nested references shared
+// Deep copy	Nested objects copied
+// ES6	Modern JavaScript features
+// ESLint	Code quality / static analysis
+// Reconciliation	Compares UI trees and updates changed DOM
+
+
 
 
 
