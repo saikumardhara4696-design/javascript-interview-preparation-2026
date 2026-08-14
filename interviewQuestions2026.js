@@ -499,6 +499,8 @@ console.log(add(2, 3, 4)); // 9
 // 20. what is shallow copy and deep copy?
 // 21. what are ES6 features?
 // 22. what is eslint and how it works?
+// 23. what is recoincolation in react?
+
 
 
 
