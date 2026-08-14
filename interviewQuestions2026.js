@@ -544,6 +544,7 @@ console.log(add(2, 3, 4)); // 9
 
 // Spread = expand
 // Rest = collect
+
 // 3. What are the Lifecycle Methods in React ?
 
 //     React component lifecycle has three phases:
@@ -585,6 +586,7 @@ console.log(add(2, 3, 4)); // 9
 //         console.log("Unmounted");
 //     };
 // }, []);
+
 // 4. What is useReducer and how does it work ?
 
 //     Answer :
@@ -644,12 +646,12 @@ console.log(add(2, 3, 4)); // 9
 // Direct update	Action - based update
 // Less code	More structured
 // Good for input / toggle	Good for complex forms / state
-// // useState
+// useState
 // const [count, setCount] = useState(0);
 
 
 // setCount(count + 1);
-// // useReducer
+// useReducer
 // dispatch({ type: "increment" });
 
 // Interview answer:
@@ -780,6 +782,8 @@ console.log(add(2, 3, 4)); // 9
 //         console.log(error);
 //     }
 // }
+
+
 // 12. Which tools / techniques do you use to optimize React performance ?
 
 //     Answer :
@@ -1031,7 +1035,7 @@ console.log(add(2, 3, 4)); // 9
 
 
 // console.log(user.address.city);
-// // Bangalore
+// Bangalore
 
 // Interview point:
 
@@ -1066,6 +1070,8 @@ console.log(add(2, 3, 4)); // 9
 
 
 // const message = `Hello ${name}`;
+
+
 // 22. What is ESLint ?
 
 //     ESLint is a static code analysis tool that identifies JavaScript / TypeScript code problems and enforces coding standards.
