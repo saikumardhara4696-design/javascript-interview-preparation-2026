@@ -508,8 +508,8 @@ console.log(add(2, 3, 4)); // 9
 
 // 1. What is Static Mode in React ?
 
-//     Answer :
-//     In React, static rendering / static mode generally means generating HTML ahead of time instead of rendering everything dynamically on every request.It is commonly used with frameworks like Next.js for better performance and SEO.
+//  Answer :
+//  In React, static rendering / static mode generally means generating HTML ahead of time instead of rendering everything dynamically on every request.It is commonly used with frameworks like Next.js for better performance and SEO.
 
 // export default function Home() {
 //     return <h1>Hello React</h1>;
@@ -521,9 +521,9 @@ console.log(add(2, 3, 4)); // 9
 
 // 2. What are Rest and Spread Operators ?
 
-//     Both use ..., but their purpose is different.
+//   Both use ..., but their purpose is different.
 
-//         Spread → expands values
+//   Spread → expands values
 
 // const arr1 = [1, 2];
 // const arr2 = [...arr1, 3, 4];
@@ -605,7 +605,6 @@ console.log(add(2, 3, 4)); // 9
 
 
 // const [state, dispatch] = useReducer(reducer, { count: 0 });
-
 
 // <button onClick={() => dispatch({ type: "increment" })}>
 //     {state.count}
@@ -877,19 +876,14 @@ console.log(add(2, 3, 4)); // 9
 
 // 16. What is a Higher - Order Function ?
 
-//     A Higher - Order Function is a function that:
+// A Higher - Order Function is a function that:
 
-//     Takes another function as an argument, or
+// Takes another function as an argument, or
 // Returns another function.
 
-//     Example:
-
+//Example:
 // const numbers = [1, 2, 3];
-
-
 // const result = numbers.map(num => num * 2);
-
-
 // console.log(result); // [2,4,6]
 
 // map() is a higher - order function because it accepts a function.
@@ -902,21 +896,17 @@ console.log(add(2, 3, 4)); // 9
 //     };
 // }
 
-
 // const double = multiplyBy(2);
-
-
 // double(5); // 10
+
+
 // 17. What is a Pure Function ?
-
-//     A pure function:
-
-//     Gives the same output for the same input.
+// A pure function:
+// Gives the same output for the same input.
 // Does not modify external data or cause side effects.
 // function add(a, b) {
 //     return a + b;
 // }
-
 
 // add(2, 3); // 5
 
