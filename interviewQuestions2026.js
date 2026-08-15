@@ -927,15 +927,12 @@ console.log(add(2, 3, 4)); // 9
 // </div>
 
 // Bubbling: Event travels:
-
 // Button → Div → Body → Document
 
 // Capturing: Event travels:
-
 // Document → Body → Div → Button
 
 // React example:
-
 // <div onClick={() => console.log("Parent")}>
 //     <button onClick={() => console.log("Child")}>
 //         Click
