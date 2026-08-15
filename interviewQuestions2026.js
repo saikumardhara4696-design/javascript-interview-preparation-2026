@@ -953,9 +953,9 @@ console.log(add(2, 3, 4)); // 9
 // >
 //     Click
 // </button>
-// 19. What is the CSS Box Model ?
 
-//     Every HTML element is treated as a box:
+// 19. What is the CSS Box Model ?
+// Every HTML element is treated as a box:
 
 // Content
 //  ↓
@@ -979,8 +979,7 @@ console.log(add(2, 3, 4)); // 9
 // Total width = 200 + 40 + 10 = 250px
 
 // Using:
-
-// * {
+// *{
 //     box- sizing: border - box;
 // }
 
