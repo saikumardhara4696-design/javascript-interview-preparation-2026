@@ -911,10 +911,7 @@ console.log(add(2, 3, 4)); // 9
 // add(2, 3); // 5
 
 // Impure:
-
 // let total = 0;
-
-
 // function add(value) {
 //     total += value;
 // }
@@ -922,8 +919,7 @@ console.log(add(2, 3, 4)); // 9
 // React interview point:
 // React encourages predictable, side - effect - free rendering and immutable state updates.
 
-// 18. Event Bubbling and Event Capturing
-
+// 18. Event Bubbling and Event Capturing?
 // Suppose:
 
 // <div>
