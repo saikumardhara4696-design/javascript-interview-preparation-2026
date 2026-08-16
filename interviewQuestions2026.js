@@ -1049,10 +1049,7 @@ console.log(add(2, 3, 4)); // 9
 
 
 // const { name, age } = user;
-
-
 // const message = `Hello ${name}`;
-
 
 // 22. What is ESLint ?
 
