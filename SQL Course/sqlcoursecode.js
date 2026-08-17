@@ -385,9 +385,7 @@
 // BLOB(Binary Large Object)	Binary data	Images, audio files, etc.
 
 
-// 19.
-
-// . What are Constraints in SQL?
+// 19. What are Constraints in SQL?
 // Constraints are rules applied to columns in a table to enforce data integrity and consistency.
 // Common SQL Constraints:
 // Constraint	Purpose
