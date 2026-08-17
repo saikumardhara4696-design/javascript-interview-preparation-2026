@@ -398,7 +398,7 @@
 // AUTO_INCREMENT	Automatically generates a unique value for a column (commonly used for primary keys)
 
 
-// . What is Indexing in SQL?
+// 20. What is Indexing in SQL?
 // Indexing is a technique used to improve the speed of data retrieval operations on a database table.
 // An index is created on one or more columns of a table, allowing the database
 // to find rows more quickly without scanning the entire table.
