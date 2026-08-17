@@ -312,6 +312,7 @@
 // 2	     IT	        Alice
 
 // 11. What is the difference between 1NF, 2NF, and 3NF?
+
 // 1NF(First Normal Form): Ensures that each column contains atomic values and that each record is unique.
 // It eliminates repeating groups and arrays.
 // 2NF(Second Normal Form): Achieved when a table is in 1NF and all non-key attributes are fully functionally dependent on the primary key.
