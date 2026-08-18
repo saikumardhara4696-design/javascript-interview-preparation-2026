@@ -405,3 +405,18 @@
 // Indexes can be created using the CREATE INDEX statement and can be unique or non-unique.
 // However, while indexes speed up read operations,
 //  they can slow down write operations (INSERT, UPDATE, DELETE) because the index must also be updated.
+
+
+CREATE DATABASE employees;
+
+SHOW DATABASES ;
+
+DROP DATABASE employees;
+
+USE employees;
+
+CREATE TABLE employees(
+ employee_id INT PRIMARY KEY,
+ name TEXT,
+ age INT
+ );
