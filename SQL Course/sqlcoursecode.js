@@ -407,16 +407,16 @@
 //  they can slow down write operations (INSERT, UPDATE, DELETE) because the index must also be updated.
 
 
-CREATE DATABASE employees;
+// CREATE DATABASE employees;
 
-SHOW DATABASES ;
+// SHOW DATABASES ;
 
-DROP DATABASE employees;
+// DROP DATABASE employees;
 
-USE employees;
+// USE employees;
 
-CREATE TABLE employees(
- employee_id INT PRIMARY KEY,
- name TEXT,
- age INT
- );
+// CREATE TABLE employees(
+//  employee_id INT PRIMARY KEY,
+//  name TEXT,
+//  age INT
+//  );
