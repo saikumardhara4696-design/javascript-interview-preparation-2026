@@ -420,3 +420,12 @@
 //  name TEXT,
 //  age INT
 //  );
+
+
+// CREATE TABLE resturants(
+//     resturant_id INT AUTO_INCREMENT PRIMARY KEY,
+//     resturant_name TEXT,
+//     price INT,
+//     item_name TEXT,
+//     item_code INT
+// );
