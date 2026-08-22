@@ -10,6 +10,8 @@
  DISTINCT
  LIMIT / TOP
  Aliases
+
+
 2. Filtering & Operators
  AND, OR, NOT
  IN
@@ -18,6 +20,9 @@
  IS NULL
  CASE WHEN
  COALESCE
+
+
+ 
 3. Aggregate Functions
 
 Master these:
