@@ -1,0 +1,377 @@
+🚀 SQL Mastery Roadmap
+1. SQL Fundamentals — Must Know
+ Database, table, row, column
+ Primary Key / Foreign Key
+ CREATE, ALTER, DROP
+ INSERT, UPDATE, DELETE
+ SELECT
+ WHERE
+ ORDER BY
+ DISTINCT
+ LIMIT / TOP
+ Aliases
+2. Filtering & Operators
+ AND, OR, NOT
+ IN
+ BETWEEN
+ LIKE
+ IS NULL
+ CASE WHEN
+ COALESCE
+3. Aggregate Functions
+
+Master these:
+
+COUNT()
+SUM()
+AVG()
+MIN()
+MAX()
+
+Then understand:
+
+GROUP BY
+HAVING
+
+Important interview concept:
+
+WHERE  → filters rows BEFORE grouping
+HAVING → filters groups AFTER grouping
+4. JOINs ⭐⭐⭐
+
+This is one of the most important SQL topics.
+
+Learn deeply:
+
+ INNER JOIN
+ LEFT JOIN
+ RIGHT JOIN
+ FULL OUTER JOIN
+ CROSS JOIN
+ SELF JOIN
+
+You should be able to solve:
+
+Find employees who don't have a department.
+
+Find customers who never placed an order.
+
+Find employees earning more than their manager.
+
+5. Subqueries ⭐⭐⭐
+
+Learn:
+
+ Single-row subquery
+ Multi-row subquery
+ Correlated subquery
+ EXISTS
+ NOT EXISTS
+ IN
+ ANY
+ ALL
+
+Example:
+
+SELECT *
+FROM employees e
+WHERE salary > (
+    SELECT AVG(salary)
+    FROM employees
+);
+6. CTEs ⭐⭐⭐
+
+Learn:
+
+WITH employee_data AS (
+    SELECT *
+    FROM employees
+)
+SELECT *
+FROM employee_data;
+
+Then move to recursive CTEs.
+
+CTEs are extremely useful for writing complex queries cleanly.
+
+7. Window Functions ⭐⭐⭐⭐⭐
+
+If you want to move from good SQL developer → advanced SQL developer, master these.
+
+ROW_NUMBER()
+RANK()
+DENSE_RANK()
+NTILE()
+LAG()
+LEAD()
+FIRST_VALUE()
+LAST_VALUE()
+SUM() OVER()
+AVG() OVER()
+
+Most important concepts:
+
+PARTITION BY
+ORDER BY
+OVER()
+
+Practice problems like:
+
+2nd highest salary
+3rd highest salary per department
+Top 3 employees per department
+Running total
+Previous month's sales
+Difference between current and previous salary
+8. Set Operations
+
+Learn:
+
+UNION
+UNION ALL
+INTERSECT
+EXCEPT
+
+Understand the difference between:
+
+UNION
+vs
+UNION ALL
+9. Database Design ⭐⭐⭐⭐
+
+For backend/full-stack development, this is very important.
+
+Learn:
+
+ Normalization
+ 1NF
+ 2NF
+ 3NF
+ BCNF
+ Denormalization
+ Relationships
+One-to-One
+One-to-Many
+Many-to-Many
+ ER diagrams
+ Primary keys
+ Foreign keys
+ Composite keys
+
+You should be able to design something like:
+
+Employee
+Department
+Project
+Employee_Project
+Salary
+10. Constraints
+
+Master:
+
+PRIMARY KEY
+FOREIGN KEY
+UNIQUE
+NOT NULL
+CHECK
+DEFAULT
+
+Understand when and why to use each one.
+
+11. Indexing ⭐⭐⭐⭐⭐
+
+This is critical for becoming advanced.
+
+Learn:
+
+What is an index?
+Why indexes improve performance
+Clustered index
+Non-clustered index
+Composite index
+Unique index
+Covering index
+Index selectivity
+When indexes hurt performance
+Index on multiple columns
+Leftmost-prefix concept
+
+Understand:
+
+CREATE INDEX idx_employee_name
+ON employees(name);
+12. Query Optimization ⭐⭐⭐⭐⭐
+
+This separates a normal SQL developer from a strong one.
+
+Learn:
+
+ EXPLAIN
+ EXPLAIN ANALYZE
+ Query execution plans
+ Full table scans
+ Index scans
+ Index seeks
+ Join algorithms
+ Query cost
+ Avoiding unnecessary columns
+ Avoiding unnecessary subqueries
+ Pagination optimization
+
+For example:
+
+SELECT *
+FROM employees;
+
+vs.
+
+SELECT id, name, salary
+FROM employees;
+
+Understand why the second can be better.
+
+13. Transactions ⭐⭐⭐⭐
+
+Master:
+
+BEGIN
+COMMIT
+ROLLBACK
+SAVEPOINT
+
+Then learn ACID:
+
+A → Atomicity
+C → Consistency
+I → Isolation
+D → Durability
+14. Transaction Isolation ⭐⭐⭐⭐⭐
+
+Very important for backend interviews.
+
+Learn:
+
+READ UNCOMMITTED
+READ COMMITTED
+REPEATABLE READ
+SERIALIZABLE
+
+And understand:
+
+Dirty Read
+Non-Repeatable Read
+Phantom Read
+Lost Update
+15. Stored Procedures & Functions
+
+Learn:
+
+ Stored procedures
+ User-defined functions
+ Parameters
+ Variables
+ Conditional logic
+ Loops
+16. Views
+
+Learn:
+
+CREATE VIEW
+
+Understand:
+
+Normal views
+Materialized views
+When to use views
+Advantages/disadvantages
+17. Triggers
+
+Learn:
+
+BEFORE
+AFTER
+INSERT
+UPDATE
+DELETE
+
+Also understand when NOT to use triggers.
+
+18. Advanced SQL ⭐⭐⭐⭐⭐
+
+After the above, learn:
+
+Recursive queries
+Recursive CTEs
+JSON queries
+Array operations
+Pivot / Unpivot
+Dynamic SQL
+Temporary tables
+Temporary variables
+MERGE / UPSERT
+Full-text search
+Partitioning
+Sharding basics
+🧠 SQL Interview Problem Patterns
+
+You should become comfortable solving these without looking at solutions:
+
+Pattern	Example
+Aggregation	Highest salary by department
+JOIN	Customers without orders
+Subquery	Employees above average salary
+Self JOIN	Employee-manager relationship
+Window	Top 3 salaries per department
+Ranking	2nd highest salary
+Date	Monthly sales
+Duplicate	Find duplicate emails
+Missing data	Missing order records
+Running total	Cumulative sales
+LAG/LEAD	Previous month's revenue
+Gaps & Islands	Consecutive login days
+Recursive CTE	Employee hierarchy
+Deduplication	Keep latest record
+Performance	Optimize slow query
+🎯 For You as a MERN Developer
+
+I would prioritize these 10 topics first:
+
+1. JOINs
+2. GROUP BY + HAVING
+3. Subqueries
+4. CTEs
+5. Window Functions
+6. Normalization / 3NF
+7. Indexing
+8. Transactions + ACID
+9. Query Optimization
+10. Database Design
+Best learning order
+SQL Basics
+    ↓
+Filtering
+    ↓
+GROUP BY / Aggregation
+    ↓
+JOINs
+    ↓
+Subqueries
+    ↓
+CTEs
+    ↓
+Window Functions
+    ↓
+Database Design
+    ↓
+Normalization
+    ↓
+Indexes
+    ↓
+Transactions
+    ↓
+Query Optimization
+    ↓
+Advanced SQL
+
+If you master JOINs + Subqueries + CTEs + Window Functions + Indexing + Transactions + Query Optimization, 
+you'll already be at a strong advanced SQL level.
