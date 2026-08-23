@@ -64,7 +64,6 @@ Find customers who never placed an order.
 Find employees earning more than their manager.
 
 5. Subqueries ⭐⭐⭐
-
 Learn:
 
  Single-row subquery
@@ -84,6 +83,8 @@ WHERE salary > (
     SELECT AVG(salary)
     FROM employees
 );
+
+
 6. CTEs ⭐⭐⭐
 
 Learn:
@@ -142,6 +143,8 @@ Understand the difference between:
 UNION
 vs
 UNION ALL
+
+
 9. Database Design ⭐⭐⭐⭐
 
 For backend/full-stack development, this is very important.
