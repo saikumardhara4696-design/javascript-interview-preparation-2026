@@ -690,6 +690,7 @@ WHERE sales_rank <= 3
 ORDER BY category, sales_rank;
 
 POWERED BY 
+
 95. What are ACID properties in database transactions?
 ACID is an acronym for the four key properties that guarantee reliable database transactions:
 

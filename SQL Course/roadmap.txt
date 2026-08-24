@@ -42,6 +42,7 @@ Important interview concept:
 
 WHERE  → filters rows BEFORE grouping
 HAVING → filters groups AFTER grouping
+
 4. JOINs ⭐⭐⭐
 
 This is one of the most important SQL topics.
