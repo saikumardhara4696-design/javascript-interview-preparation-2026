@@ -1,8 +1,12 @@
 1. What is SQL?
-It stands for Structured Query Language, and it's a programming language used for interaction with relational database management systems (RDBMS). This includes fetching, updating, inserting, and removing data from tables.
+It stands for Structured Query Language, and it's a programming language 
+used for interaction with relational database management systems (RDBMS).
+ This includes fetching, updating, inserting, and removing data from tables.
 
 2. What are SQL dialects? Give some examples.
-The various versions of SQL, both free and paid, are also called SQL dialects. All the dialects of SQL have a very similar syntax and vary insignificantly only in additional functionality. Some examples are Microsoft SQL Server, PostgreSQL, MySQL, SQLite, T-SQL, and Oracle.
+The various versions of SQL, both free and paid, are also called SQL dialects.
+ All the dialects of SQL have a very similar syntax and vary insignificantly only in additional functionality.
+  Some examples are Microsoft SQL Server, PostgreSQL, MySQL, SQLite, T-SQL, and Oracle.
 
 3. What are the main applications of SQL?
 Using SQL, we can:
