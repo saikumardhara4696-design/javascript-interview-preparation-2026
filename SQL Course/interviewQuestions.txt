@@ -15,7 +15,11 @@ create, delete, and update tables in a database
 access, manipulate, and modify data in a table
 retrieve and summarize the necessary information from a table or several tables
 add or remove certain rows or columns from a table
+
+
+==============================================
 SQL Interview Questions for Beginners 
+==============================================
 Your interviewer may get the ball rolling by starting with the easier questions:
 
 4. What is an SQL statement?
