@@ -65,9 +65,13 @@ POWERED BY
 Technical SQL Interview Questions
 Now, let's move on to the technical SQL interview questions and some potential answers to them.
 
-When answering technical questions, the best strategy is to give as precise answers as possible. It may look like an attempt to deviate from the main topic. In addition, it may provoke additional questions about which you can feel less confident.
+When answering technical questions, the best strategy is to give as precise answers as possible.
+It may look like an attempt to deviate from the main topic.
+In addition, it may provoke additional questions about which you can feel less confident.
 
-All in all, SQL allows querying a database in multiple ways. In addition, SQL easily integrates with other programming languages, such as Python or R, so we can use their combined power.
+All in all, SQL allows querying a database in multiple ways.
+In addition, SQL easily integrates with other programming languages,
+such as Python or R, so we can use their combined power.
 
 10. What types of SQL commands do you know?
 Data Definition Language (DDL) – to define and modify the structure of a database.
