@@ -23,12 +23,18 @@ SQL Interview Questions for Beginners
 Your interviewer may get the ball rolling by starting with the easier questions:
 
 4. What is an SQL statement?
-Also known as an SQL command. It's a string of characters interpreted by the SQL engine as a legal command and executed accordingly. Some examples of SQL statements are SELECT, CREATE, DELETE, DROP, REVOKE, and so on.
+Also known as an SQL command.
+It's a string of characters interpreted by the SQL engine as a legal command and executed accordingly.
+Some examples of SQL statements are SELECT, CREATE, DELETE, DROP, REVOKE, and so on.
 
 5. What is an SQL query?
 A query is a piece of code written in SQL to access or modify data from a database.
 
-There are two types of SQL queries: queries for data retrieval and data modification. The first ones are used to retrieve the necessary data (this also includes limiting, grouping, ordering the data, extracting the data from multiple tables, etc.), while the second ones are used to create, add, delete, update, and rename the data.
+There are two types of SQL queries:
+ queries for data retrieval and data modification.
+=> The first ones are used to retrieve the necessary data 
+(this also includes limiting, grouping, ordering the data, extracting the data from multiple tables, etc.),
+=> while the second ones are used to create, add, delete, update, and rename the data.
 
 6. What is an SQL subquery?
 Also called an inner query, a query placed inside another query, or an outer query. A subquery may occur in the clauses such as SELECT, FROM, WHERE, UPDATE, etc. It's also possible to have a subquery inside another subquery. The innermost subquery is run first, and its result is passed to the containing query (or subquery).
