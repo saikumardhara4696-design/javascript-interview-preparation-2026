@@ -37,16 +37,26 @@ There are two types of SQL queries:
 => while the second ones are used to create, add, delete, update, and rename the data.
 
 6. What is an SQL subquery?
-Also called an inner query, a query placed inside another query, or an outer query. A subquery may occur in the clauses such as SELECT, FROM, WHERE, UPDATE, etc. It's also possible to have a subquery inside another subquery. The innermost subquery is run first, and its result is passed to the containing query (or subquery).
+Also called an inner query, a query placed inside another query, or an outer query.
+A subquery may occur in the clauses such as SELECT, FROM, WHERE, UPDATE, etc.
+It's also possible to have a subquery inside another subquery.
+The innermost subquery is run first, and its result is passed to the containing query (or subquery).
 
 7. What is an SQL join?
-A clause used to combine and retrieve records from two or multiple tables. SQL tables can be joined based on the relationship between the columns of those tables. Check out our SQL joins tutorial for more context, plus our dedicated guide to SQL joins interview questions. 
+A clause used to combine and retrieve records from two or multiple tables.
+SQL tables can be joined based on the relationship between the columns of those tables.
+Check out our SQL joins tutorial for more context, plus our dedicated guide to SQL joins interview questions. 
 
 8. What is an SQL comment?
-A human-readable clarification of what a particular piece of code does. SQL code comments can be single-line (preceded by a double dash --) or span over multiple lines (as follows: /*comment_text*/). When the SQL engine runs, it ignores code comments. The purpose of adding SQL code comments is to make the code more comprehensive for those people who will read it in the future.
+A human-readable clarification of what a particular piece of code does.
+SQL code comments can be single-line (preceded by a double dash --) or span over multiple lines
+(as follows: /*comment_text*/). When the SQL engine runs, it ignores code comments.
+The purpose of adding SQL code comments is to make the code more comprehensive for those people who will read it in the future.
 
 9. What is an SQL alias?
-A temporary name given to a table (or a column in a table) while executing a certain SQL query. Aliases are used to improve the code readability and make the code more compact. An alias is introduced with the AS keyword:
+A temporary name given to a table (or a column in a table) while executing a certain SQL query.
+Aliases are used to improve the code readability and make the code more compact.
+An alias is introduced with the AS keyword:
 
 SELECT col_1 AS column
 FROM table_name;
