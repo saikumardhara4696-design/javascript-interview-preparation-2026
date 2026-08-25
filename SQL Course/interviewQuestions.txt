@@ -120,25 +120,36 @@ PRIMARY KEY – allows only unique and strictly non-null values (NOT NULL and UN
 FOREIGN KEY – provides shared keys between two or more tables.
 
 18. What types of joins do you know?
-(INNER) JOIN – returns only those records that satisfy a defined join condition in both (or all) tables. It's a default SQL join.
+(INNER) JOIN – returns only those records that satisfy a defined join condition in both (or all) tables.
+ It's a default SQL join.
 
-LEFT (OUTER) JOIN – returns all records from the left table and those records from the right table that satisfy a defined join condition.
+LEFT (OUTER) JOIN – returns all records from the left table and those records from the right table
+ that satisfy a defined join condition.
 
-RIGHT (OUTER) JOIN – returns all records from the right table and those records from the left table that satisfy a defined join condition.
+RIGHT (OUTER) JOIN – returns all records from the right table and those records from the 
+left table that satisfy a defined join condition.
 
-FULL (OUTER) JOIN – returns all records from both (or all) tables. It can be considered as a combination of left and right joins.
+FULL (OUTER) JOIN – returns all records from both (or all) tables. 
+It can be considered as a combination of left and right joins.
 
 Note: FULL OUTER JOIN is supported by PostgreSQL, SQL Server, Oracle, and MySQL 8.0 and above, but MySQL only allows it through UNION patterns; meanwhile, SQLite does not support RIGHT JOIN, which can be emulated using LEFT JOIN in combination with UNION.
 
 19. What is a primary key in SQL?
-A column (or multiple columns) of a table to which the PRIMARY KEY constraint was imposed to ensure unique and non-null values in that column. In other words, a primary key is a combination of the NOT NULL and UNIQUE constraints.The primary key uniquely identifies each record of the table.
+A column (or multiple columns) of a table to which the PRIMARY KEY constraint was imposed 
+to ensure unique and non-null values in that column. In other words, a primary key is a combination
+ of the NOT NULL and UNIQUE constraints.The primary key uniquely identifies each record of the table.
 
-Related concept — Surrogate key: A surrogate key is an artificially generated identifier (typically a sequential integer or UUID) assigned to each record, independent of the actual data values. Unlike natural keys (e.g., an email address), surrogate keys remain stable when business data changes, making them a popular choice for primary keys in production databases.
+Related concept — Surrogate key: A surrogate key is an artificially generated identifier
+ (typically a sequential integer or UUID) assigned to each record, independent of the actual data values.
+  Unlike natural keys (e.g., an email address), surrogate keys remain stable when business data changes,
+   making them a popular choice for primary keys in production databases.
 
- Each table can define at most one PRIMARY KEY (which may be composite). A PRIMARY KEY  is strongly recommended but not strictly required by all engines.
+ Each table can define at most one PRIMARY KEY (which may be composite).
+  A PRIMARY KEY  is strongly recommended but not strictly required by all engines.
 
 20. What is a unique key in SQL?
-A column (or multiple columns) of a table to which the UNIQUE constraint was imposed to ensure unique values in that column, including a possible NULL value (the only one).
+A column (or multiple columns) of a table to which the UNIQUE constraint was imposed to
+ ensure unique values in that column, including a possible NULL value (the only one).
 
 Note: 
 
