@@ -230,7 +230,6 @@ Using the asterisk * with the SELECT statement. The syntax is: SELECT * FROM tab
 
 35. How to select common records from two tables?
 Using the INTERSECT statement:
-
 SELECT col1, col2 FROM table_1
 INTERSECT
 SELECT col1, col2 FROM table_2;
