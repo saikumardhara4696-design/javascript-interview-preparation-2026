@@ -735,11 +735,9 @@ console.log(add(2, 3, 4)); // 9
 
 //     console.log("A");
 
-
 // setTimeout(() => {
 //     console.log("B");
 // }, 1000);
-
 
 // console.log("C");
 

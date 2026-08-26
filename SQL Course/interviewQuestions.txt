@@ -152,9 +152,9 @@ A column (or multiple columns) of a table to which the UNIQUE constraint was imp
  ensure unique values in that column, including a possible NULL value (the only one).
 
 Note: 
-
 SQL Server: Only one NULL allowed unless you use a filtered index.
 PostgreSQL / Oracle / MySQL: Multiple NULLs allowed because NULL <> NULL.
+
 21. What is a foreign key in SQL? 
 A column (or multiple columns) of a table to which the FOREIGN KEY (or UNIQUE key) constraint was imposed to link this column to the primary key in another table (or several tables).The purpose of foreign keys is to keep connected various tables of a database.
 
