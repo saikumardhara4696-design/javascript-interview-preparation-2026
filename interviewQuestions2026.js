@@ -108,7 +108,6 @@
 
 // 4. write the memoize function ? And update how to manage  the multiple arg?
 // Interview Points
-
 // Stores previous function results.
 // Avoids repeated calculations.
 // Improves performance.
