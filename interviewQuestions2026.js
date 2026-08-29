@@ -162,7 +162,8 @@ console.log(add(2, 3, 4)); // 9
 
 // 5. What is CSS style tree ?
 // Answer:
-// The Style Tree(often discussed together with the Render Tree) is an internal browser representation created after the browser applies CSS rules from the CSSOM to DOM elements.
+// The Style Tree(often discussed together with the Render Tree) is an internal
+// browser representation created after the browser applies CSS rules from the CSSOM to DOM elements.
 
 //     Flow
 
@@ -1138,6 +1139,23 @@ console.log(add(2, 3, 4)); // 9
 // ES6	Modern JavaScript features
 // ESLint	Code quality / static analysis
 // Reconciliation	Compares UI trees and updates changed DOM
+
+
+// What you should say in the interview
+
+// “The chatbot was implemented as a client-server architecture.
+//  From the React UI, whenever the user submits a message, we create a
+// structured payload containing the user message, conversation ID,
+// user information, and relevant application context such as the current page,
+//  selected asset, or active filters. We send this payload to a Node.js/Express API
+//  using a POST request. The backend validates and authenticates the request,
+//  retrieves the required conversation history and application data,
+//  constructs the AI request, and sends it to the AI service.
+//  The response is then streamed back through the Node.js API to the React UI,
+//  allowing us to display the answer incrementally.”
+
+// Key terms to remember:
+// React → JSON Payload → REST API → Node.js → Context/History → AI Service → Streaming → React UI
 
 
 
