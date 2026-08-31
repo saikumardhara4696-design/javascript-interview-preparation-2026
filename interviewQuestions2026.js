@@ -865,7 +865,6 @@ console.log(add(2, 3, 4)); // 9
 
 //     cy.get("#email").type("test@gmail.com");
 
-
 // cy.get("button").click();
 
 // Interview answer:
@@ -1157,6 +1156,27 @@ console.log(add(2, 3, 4)); // 9
 // Key terms to remember:
 // React → JSON Payload → REST API → Node.js → Context/History → AI Service → Streaming → React UI
 
+
+// 30-08-2025
+// 1. What is the difference between NaN and undefined in javascript?
+// 2. What is the difference between null and undefined in javascript?
+// 3. What is the difference between NaN and NaN===NaN? ***Incedo***
+// 4. What is the uses of <T> in typescript? ***Incedo***
+// 5. What is the difference between interface and type in typescript?
+// 6. What is the use of useCallback in react and how it works? ***incedo***
+// 7. What is the use of useMemo in react? ***incedo***
+// 8. Find the  6 bugs in the below React code and correct it. ***Incedo***
+//  a. passed null in useState(null)
+//  b. async function in useEffect without cleanup
+//  c. export function instead of export default function
+//  d. passing key in map function in side second div instead of first div
+//    data.map(key => {
+//    <tr>
+//     <td>
+//        {key}
+//     </td>
+//    </tr>
+// })
 
 
 
