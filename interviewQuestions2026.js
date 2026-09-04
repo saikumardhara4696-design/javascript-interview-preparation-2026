@@ -1195,6 +1195,7 @@ console.log(add(2, 3, 4)); // 9
 //  for building a React app from scratch.
 
 // 7. Why Vite is popular?
+// No, Vite is not mandatory.
 // React
 //   ↓
 // Vite
@@ -1226,3 +1227,17 @@ console.log(add(2, 3, 4)); // 9
 // Next.js	            React + routing + SSR / SSG + full - stack features
 // Create React App	    Older React approach; deprecated
 // Webpack	            Custom / advanced build configuration
+
+// 10. Why do we use Vite ?
+// No, Vite is not mandatory.
+// Vite is a build tool / development server used to create and run modern React applications.
+
+// Without a build tool, setting up React manually requires configuring things like:
+
+// Bundling
+// JSX / TSX compilation
+// Development server
+// Hot Module Replacement
+// Production builds
+
+// Vite handles these for you.
