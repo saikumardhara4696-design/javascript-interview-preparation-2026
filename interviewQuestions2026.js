@@ -1184,8 +1184,45 @@ console.log(add(2, 3, 4)); // 9
 
 
 // 31-08-2025
-// Create the grid (photo gallery)dashboard in frontend? *** Fintech** bangalore
-// what is lifecycle methods in react and how it works? ***Fintech*** bangalore
-// what is websocket.io and how its works
-// what is reconciliation in react and how it works? ***Fintech*** bangalore
-// what is reconciliation in javascript and how it works? ***Fintech*** bangalore
+// 1. Create the grid (photo gallery)dashboard in frontend? *** Fintech** bangalore
+// 2. What is lifecycle methods in react and how it works? ***Fintech*** bangalore
+// 3. What is websocket.io and how its works?
+// 4. What is reconciliation in react and how it works? ***Fintech*** bangalore
+// 5. What is reconciliation in javascript and how it works? ***Fintech*** bangalore
+
+// 6. What is the command to create react app in vite? and why is vite preferred? ***Fintech*** bangalore
+// The React documentation currently gives the Vite command as npm create vite@latest ... --template react-ts
+//  for building a React app from scratch.
+
+// 7. Why Vite is popular?
+// React
+//   ↓
+// Vite
+//   ↓
+// Development Server + Build + Bundling
+// Main benefits:
+// ⚡ Very fast startup
+// 🔄 Fast Hot Module Replacement(HMR)
+// 📦 Easy production builds
+// 🛠️ Minimal configuration
+// 🆕 Common choice for new React projects
+
+// 8. What is Vite and how it works with React?
+// "Vite is a modern build tool used with React.
+//  It provides a fast development server, HMR, and optimized production builds.
+//   It is not mandatory, but it is one of the recommended
+//   choices for creating a new React application."
+// But Vite is not part of React itself.
+// Think of it like:
+
+// React = UI library
+// Vite = Tool that helps develop / build the React application
+
+// 9.Is Vite the only option?
+
+// No.You can use:
+// Tool	                 Use
+// Vite	                Simple React applications
+// Next.js	            React + routing + SSR / SSG + full - stack features
+// Create React App	    Older React approach; deprecated
+// Webpack	            Custom / advanced build configuration
