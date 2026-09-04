@@ -1184,8 +1184,8 @@ console.log(add(2, 3, 4)); // 9
 
 
 // 31-08-2025
-// Create the grid dashboard in frontend? *** Fintech** bangalore
+// Create the grid (photo gallery)dashboard in frontend? *** Fintech** bangalore
 // what is lifecycle methods in react and how it works? ***Fintech*** bangalore
 // what is websocket.io and how its works
-// what is recoincelation in react and how it works? ***Fintech*** bangalore
-// what is reconcilation in javascript and how it works? ***Fintech*** bangalore
+// what is reconciliation in react and how it works? ***Fintech*** bangalore
+// what is reconciliation in javascript and how it works? ***Fintech*** bangalore
