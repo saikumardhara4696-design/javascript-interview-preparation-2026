@@ -1185,6 +1185,31 @@ console.log(add(2, 3, 4)); // 9
 
 // 31-08-2025
 // 1. Create the grid (photo gallery)dashboard in frontend? *** Fintech** bangalore
+// I would create a reusable card component and display the images using CSS Grid.
+// function Gallery({ photos }) {
+//     return (
+//         <div className="gallery">
+//             {photos.map((photo) => (
+//                 <article className="photo-card" key={photo.id}>
+//                     <img src={photo.url} alt={photo.title} />
+//                     <h3>{photo.title}</h3>
+//                 </article>
+//             ))}
+//         </div>
+//     );
+// }
+// .gallery {
+//     display: grid;
+//     grid - template - columns: repeat(auto - fit, minmax(220px, 1fr));
+//     gap: 16px;
+// }
+
+// .photo - card img {
+//     width: 100 %;
+//     aspect - ratio: 4 / 3;
+//     object - fit: cover;
+// }
+
 // 2. What is lifecycle methods in react and how it works? ***Fintech*** bangalore
 // 3. What is websocket.io and how its works?
 // 4. What is reconciliation in react and how it works? ***Fintech*** bangalore
