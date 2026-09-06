@@ -1211,6 +1211,75 @@ console.log(add(2, 3, 4)); // 9
 // }
 
 // 2. What is lifecycle methods in react and how it works? ***Fintech*** bangalore
+// React lifecycle refers to the different stages a component goes through: mounting, updating, and unmounting.
+//  In functional components, we mainly use useEffect to handle side effects during these stages.
+
+// Functional Component Lifecycle
+// Mounting
+//    ↓
+// Component is created and rendered
+//    ↓
+// useEffect()
+//    ↓
+// Updating
+//    ↓
+// State / Props change
+//    ↓
+// Component re - renders
+//    ↓
+// useEffect() runs based on dependencies
+//    ↓
+// Unmounting
+//    ↓
+// useEffect cleanup()
+
+// 1. Mounting
+
+// Runs when the component is first rendered.
+
+//     useEffect(() => {
+//         console.log("Component Mounted");
+//     }, []);
+
+// [] means the effect runs after the initial render.
+
+// 2. Updating
+
+// Runs when a dependency changes.
+
+//     useEffect(() => {
+//         console.log("Count changed");
+//     }, [count]);
+
+// Whenever count changes, the effect runs.
+
+// 3. Unmounting
+
+// The cleanup function runs when the component is removed.
+
+//     useEffect(() => {
+
+//         const timer = setInterval(() => {
+//             console.log("Running...");
+//         }, 1000);
+
+//         return () => {
+//             clearInterval(timer);
+//             console.log("Component Unmounted");
+//         };
+
+//     }, []);
+// Class vs Functional
+// Class Component	Functional Component
+// componentDidMount()	useEffect(() => { }, [])
+// componentDidUpdate()	useEffect(() => { }, [dependency])
+// componentWillUnmount()	useEffect(() => { return cleanup })
+
+// Easy way to remember:
+
+// Mount → Update → Unmount
+
+
 // 3. What is websocket.io and how its works?
 // 4. What is reconciliation in react and how it works? ***Fintech*** bangalore
 // 5. What is reconciliation in javascript and how it works? ***Fintech*** bangalore
