@@ -1281,14 +1281,120 @@ console.log(add(2, 3, 4)); // 9
 
 
 // 3. What is websocket.io and how its works?
-// 4. What is reconciliation in react and how it works? ***Fintech*** bangalore
-// 5. What is reconciliation in javascript and how it works? ***Fintech*** bangalore
 
-// 6. What is the command to create react app in vite? and why is vite preferred? ***Fintech*** bangalore
+// Interview Answer:
+
+// Socket.IO is a real - time, bidirectional communication library that
+//  allows the client and server to communicate with each other without
+//   repeatedly sending HTTP requests.It is commonly used for chat applications,
+//    live notifications, gaming, trading dashboards, and real - time updates.
+
+// How it works
+// React Client
+//      │
+//      │ Connection
+//      ▼
+// Socket.IO Server
+//      │
+//      │ Event
+//      ▼
+// Other Connected Clients
+
+
+// Unlike normal REST APIs:
+
+// REST:
+// Client → Request → Server
+// Client ← Response ← Server
+
+// With Socket.IO:
+
+// Client ↔ Server
+//        ↕
+// Real - time events
+
+
+// SERVER CODE
+const { Server } = require("socket.io");
+
+const io = new Server(3000, {
+    cors: {
+        origin: "*"
+    }
+});
+
+io.on("connection", (socket) => {
+
+    console.log("User connected");
+
+    socket.on("message", (data) => {
+        console.log(data);
+
+        io.emit("message", data);
+    });
+
+    socket.on("disconnect", () => {
+        console.log("User disconnected");
+    });
+});
+
+
+// React Client
+import { io } from "socket.io-client";
+
+const socket = io("http://localhost:3000");
+
+socket.on("message", (data) => {
+    console.log("Received:", data);
+});
+
+socket.emit("message", {
+    text: "Hello"
+});
+
+
+// Important Socket.IO methods
+// socket.emit()
+// socket.on()
+// socket.off()
+// socket.disconnect()
+// emit() → send an event
+// on() → listen for an event
+// off() → remove listener
+// disconnect() → close connection
+
+// Socket.IO is not simply the WebSocket API.
+// It is a higher - level real - time library that can use
+//  as a transport and provides features such as events, reconnection, rooms, and acknowledgements.
+
+
+
+// 4. What is reconciliation in react and how it works? ***Fintech*** bangalore
+// Interview Answer
+
+// Reconciliation is React's process of comparing the previous rendered
+// element tree with the new element tree after a state or prop change,
+//  determining what changed, and updating the necessary parts of the UI.
+
+// How it works
+// State / Props Change
+//         ↓
+// React Re - render
+//         ↓
+// New React Element Tree
+//         ↓
+// Compare with Previous Tree
+//         ↓
+// Determine Changes
+//         ↓
+// Commit necessary DOM updates
+
+
+// 5. What is the command to create react app in vite? and why is vite preferred? ***Fintech*** bangalore
 // The React documentation currently gives the Vite command as npm create vite@latest ... --template react-ts
 //  for building a React app from scratch.
 
-// 7. Why Vite is popular?
+// 6. Why Vite is popular?
 // No, Vite is not mandatory.
 // React
 //   ↓
@@ -1335,3 +1441,6 @@ console.log(add(2, 3, 4)); // 9
 // Production builds
 
 // Vite handles these for you.
+
+
+// write counter update code?
