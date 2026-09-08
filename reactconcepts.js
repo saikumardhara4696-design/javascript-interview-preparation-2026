@@ -267,6 +267,11 @@ function Add(num1, num2) {
 // 8. What are Props and State ?
 
 // 9. What is useLayoutEffect() ?
+// useLayoutEffect is a React Hook that runs after React updates the DOM
+// but before the browser paints the screen.
+
+// (or)
+
 // useLayoutEffect is similar to useEffect, but it runs synchronously after the DOM
 //  is updated and before the browser paints.We mainly use it when we need to
 //  measure or modify the DOM, such as getting element dimensions, positioning tooltips,
@@ -283,6 +288,54 @@ function Add(num1, num2) {
 // Good for API calls	        Good for DOM measurements
 // Good for subscriptions	    Good for DOM positioning
 // Most common	                Use only when needed
+
+// 11. Real time example of useLayoutEffect() in React:
+import { useLayoutEffect, useRef, useState } from "react";
+
+function Tooltip() {
+    const tooltipRef = useRef(null);
+    const [top, setTop] = useState(0);
+
+    useLayoutEffect(() => {
+        const rect = tooltipRef.current.getBoundingClientRect();
+
+        setTop(rect.height);
+    }, []);
+
+    return (
+        <div>
+            <div ref={tooltipRef}>
+                Tooltip content
+            </div>
+
+            <p>Tooltip height: {top}px</p>
+        </div>
+    );
+}
+
+// How it works
+// The sequence is approximately:
+
+// React renders component
+//        ↓
+// DOM is updated
+//        ↓
+// useLayoutEffect runs
+//        ↓
+// Browser paints screen
+
+// This is different from useEffect:
+
+// useEffect:
+
+// React renders
+//     ↓
+// DOM updated
+//     ↓
+// Browser paints
+//     ↓
+// useEffect runs
+
 
 
 
