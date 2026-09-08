@@ -3,6 +3,8 @@
 // TypeScript Course
 
 // Interface
+
+
 // Union types
 
 // type Status = "active" | "inactive" | "pending";

@@ -230,29 +230,28 @@ class UncontrolledComponent extends Component {
 
 // ================MAIN COMPONENT APP.JS===============//
 
-import React from "react";
-import "./App.css";
-import withName from './Components/Name'; // Import the HOC
+// import React from "react";
+// import "./App.css";
+// import withName from './Components/Name'; // Import the HOC
 // Functional component
-const App = (props) => {
-    return <h1>{props.name}</h1>;
-};
-// Wrap the App component with the HOC to create the enhanced version
-const EnhancedComponent = withName(App);
+// const App = (props) => {
+//     return <h1>{props.name}</h1>;
+// }; // Wrap the App component with the HOC to create the enhanced version
+// const EnhancedComponent = withName(App);
 // Export the enhanced component
-export default EnhancedComponent;
+// export default EnhancedComponent;
 // ================MAIN COMPONENT APP.JS===============//
 
 //========== HIGHER ORDER (COMMON) COMPONENT==========//
-import React from 'react';
+// import React from 'react';
 // Higher-Order Component (HOC) as a functional component
-const withName = (OriginalComponent) => {
-    const NewComponent = (props) => {
-        return <OriginalComponent {...props} name="Higher Order Component" />;
-    };
-    return NewComponent;
-};
-export default withName;
+// const withName = (OriginalComponent) => {
+//     const NewComponent = (props) => {
+//         return <OriginalComponent {...props} name="Higher Order Component" />;
+//     };
+//     return NewComponent;
+// };
+// export default withName;
 //========== HIGHER ORDER (COMMON) COMPONENT==========//
 
 // 7. What is Pure Component?
@@ -267,6 +266,23 @@ function Add(num1, num2) {
 
 // 8. What are Props and State ?
 
+// 9. What is useLayoutEffect() ?
+// useLayoutEffect is similar to useEffect, but it runs synchronously after the DOM
+//  is updated and before the browser paints.We mainly use it when we need to
+//  measure or modify the DOM, such as getting element dimensions, positioning tooltips,
+//  or preventing visual flickering.
+
+// Easy way to remember:
+// useEffect       → After paint
+// useLayoutEffect → Before paint
+
+// 10. what is the difference between useEffect and useLayoutEffect?
+// useEffect	                useLayoutEffect
+// Runs after browser paint 	Runs before browser paint
+// Doesn't block painting	    Can block painting
+// Good for API calls	        Good for DOM measurements
+// Good for subscriptions	    Good for DOM positioning
+// Most common	                Use only when needed
 
 
 
