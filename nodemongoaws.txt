@@ -1,0 +1,673 @@
+1. Node.js Interview Questions
+1. What is Node.js?
+Answer:Node.js is a JavaScript runtime environment built on Chrome's V8 engine. It allows us to run JavaScript on the server side.
+Key points:
+* Single-threaded
+* Non-blocking I/O
+* Event-driven
+* Good for real-time and API applications
+* Uses the V8 JavaScript engine
+
+2. Why is Node.js fast?
+Answer:Node.js is fast because:
+* It uses the V8 engine
+* Uses an event-driven architecture
+* Uses non-blocking I/O
+* Handles many concurrent requests efficiently
+
+const fs = require("fs");
+
+console.log("Start");
+
+fs.readFile("file.txt", "utf8", (err, data) => {
+  console.log(data);
+});
+
+console.log("End");
+
+Output:
+
+Start
+End
+file content
+
+The file operation doesn't block the execution.
+
+3. What is the Event Loop?
+Answer:The Event Loop allows Node.js to perform non-blocking asynchronous operations even though JavaScript runs on a single main thread.
+Simple flow:
+
+Request
+   ↓
+Node.js
+   ↓
+Event Loop
+   ↓
+Async operation
+   ↓
+Callback / Promise
+   ↓
+Response
+
+
+4. What is the difference between synchronous and asynchronous code?
+Synchronous:
+
+const data = fs.readFileSync("file.txt");
+console.log(data);
+
+Execution waits until the operation completes.
+Asynchronous:
+
+fs.readFile("file.txt", (err, data) => {
+  console.log(data);
+});
+
+Execution doesn't wait.
+Interview answer:"I prefer asynchronous operations in Node.js because they prevent blocking the event loop."
+
+5. What is Express.js?
+Answer:Express.js is a lightweight Node.js framework used to build:
+* REST APIs
+* Web applications
+* Middleware
+* Routing
+* Authentication
+
+const express = require("express");
+
+const app = express();
+
+app.get("/users", (req, res) => {
+  res.json({ message: "Users fetched" });
+});
+
+app.listen(3000);
+
+
+6. What is middleware in Express?
+Answer:Middleware is a function that executes between the request and response.
+
+app.use((req, res, next) => {
+  console.log(req.method, req.url);
+  next();
+});
+
+Common middleware:
+* Authentication
+* Logging
+* Error handling
+* Validation
+* CORS
+* Body parsing
+
+7. How do you handle errors in Express?
+
+app.get("/users", async (req, res, next) => {
+  try {
+    const users = await User.find();
+    res.json(users);
+  } catch (error) {
+    next(error);
+  }
+});
+
+app.use((err, req, res, next) => {
+  res.status(500).json({
+    message: err.message
+  });
+});
+
+Interview answer:"I use centralized error-handling middleware so API errors are handled consistently."
+
+8. What is async/await?
+Answer:async/await provides a cleaner way to work with Promises.
+
+async function getUsers() {
+  try {
+    const users = await User.find();
+    return users;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+
+9. What is the difference between Promise.all() and Promise.allSettled()?
+
+const result = await Promise.all([
+  getUsers(),
+  getProducts()
+]);
+
+Promise.all() fails when any one Promise fails.
+
+const result = await Promise.allSettled([
+  getUsers(),
+  getProducts()
+]);
+
+Promise.allSettled() waits for all Promises, whether they succeed or fail.
+
+10. How do you create a REST API?
+
+app.get("/users", getUsers);
+
+app.post("/users", createUser);
+
+app.put("/users/:id", updateUser);
+
+app.delete("/users/:id", deleteUser);
+
+HTTP methods:
+Method	Purpose
+GET	Read
+POST	Create
+PUT	Update
+PATCH	Partial update
+DELETE	Delete
+2. MongoDB Interview Questions
+11. What is MongoDB?
+Answer:MongoDB is a NoSQL document database that stores data in a JSON-like BSON format.
+
+BSON stands for Binary JSON.
+It is a binary-encoded serialization format used primarily to store documents and make remote procedure calls in databases like MongoDB.
+
+Example:
+
+{
+  "name": "Sai",
+  "age": 28,
+  "skills": ["React", "Node.js", "MongoDB"]
+}
+
+
+12. MongoDB vs SQL?
+MongoDB	SQL
+NoSQL	Relational
+Collection	Table
+Document	Row
+Field	Column
+Flexible schema	Fixed schema
+BSON	Rows/columns
+13. What is a Collection?
+A collection is similar to a table in SQL.
+
+Database
+   ↓
+users collection
+   ↓
+documents
+
+Example:
+
+db.users.find();
+
+
+14. What is a Document?
+A document is an individual record.
+
+{
+  "_id": "123",
+  "name": "Sai",
+  "email": "sai@example.com"
+}
+
+
+15. What is Mongoose?
+Answer:Mongoose is an ODM (Object Data Modeling) library for MongoDB and Node.js.
+Example:
+
+const mongoose = require("mongoose");
+
+const userSchema = new mongoose.Schema({
+  name: String,
+  email: String,
+  age: Number
+});
+
+const User = mongoose.model("User", userSchema);
+
+
+16. How do you connect Node.js with MongoDB?
+
+const mongoose = require("mongoose");
+
+mongoose.connect(process.env.MONGO_URI)
+  .then(() => console.log("MongoDB connected"))
+  .catch(err => console.log(err));
+
+
+17. What is an index in MongoDB?
+Answer:An index improves query performance by allowing MongoDB to find documents more efficiently.
+
+userSchema.index({ email: 1 });
+
+Query:
+
+User.findOne({ email: "sai@example.com" });
+
+Interview point:Indexes improve read performance but consume storage and can increase write/update cost.
+
+18. What is aggregation in MongoDB?
+Aggregation is used to process and transform data.
+Example:
+
+const result = await User.aggregate([
+  {
+    $group: {
+      _id: "$department",
+      count: { $sum: 1 }
+    }
+  }
+]);
+
+Common aggregation operators:
+
+$match
+$group
+$sort
+$project
+$lookup
+$unwind
+$limit
+
+
+19. What is $lookup?
+$lookup is used to perform a join-like operation between collections.
+
+db.orders.aggregate([
+  {
+    $lookup: {
+      from: "users",
+      localField: "userId",
+      foreignField: "_id",
+      as: "user"
+    }
+  }
+]);
+
+
+20. What is MongoDB transaction?
+Answer:A transaction allows multiple database operations to succeed or fail as one atomic unit.
+Example:
+
+const session = await mongoose.startSession();
+
+try {
+  session.startTransaction();
+
+  await Account.updateOne(
+    { _id: senderId },
+    { $inc: { balance: -100 } },
+    { session }
+  );
+
+  await Account.updateOne(
+    { _id: receiverId },
+    { $inc: { balance: 100 } },
+    { session }
+  );
+
+  await session.commitTransaction();
+} catch (error) {
+  await session.abortTransaction();
+} finally {
+  session.endSession();
+}
+
+Very important interview point:All operations that belong to the transaction must use the same session.
+
+21. What is embedding vs referencing?
+Embedding:
+
+{
+  "name": "Sai",
+  "address": {
+    "city": "Bangalore",
+    "pincode": 560001
+  }
+}
+
+Referencing:
+
+{
+  "name": "Sai",
+  "addressId": "65abc..."
+}
+
+Interview answer:
+"I use embedding when related data is small and usually accessed together. I use referencing when the related data is large, shared, or independently managed."
+
+22. How do you prevent duplicate emails?
+Use a unique index:
+
+const userSchema = new mongoose.Schema({
+  email: {
+    type: String,
+    unique: true
+  }
+});
+
+But don't treat unique: true as ordinary validation—it creates/enforces a unique index, and duplicate-key errors should still be handled.
+
+3. AWS Interview Questions
+23. What is AWS?
+Answer:AWS (Amazon Web Services) is a cloud platform providing infrastructure and managed services such as:
+* EC2
+* S3
+* RDS
+* Lambda
+* CloudFront
+* IAM
+* VPC
+* CloudWatch
+* ECS/EKS
+
+24. What is EC2?
+Answer:EC2 (Elastic Compute Cloud )provides virtual servers in the AWS cloud.
+For a Node.js application:
+
+Client
+  ↓
+Load Balancer
+  ↓
+EC2
+  ↓
+Node.js / Express
+  ↓
+MongoDB
+
+You can deploy your Node.js backend on an EC2 instance.
+
+25. What is S3?
+Answer:S3 is an object-storage service used to store:
+* Images
+* Videos
+* PDFs
+* Backups
+* Static files
+Typical architecture:
+
+React
+  ↓
+Node.js API
+  ↓
+AWS S3
+  ↓
+Image/File
+
+
+26. EC2 vs S3?
+EC2	S3
+Virtual server	Object storage
+Runs applications	Stores files
+Compute	Storage
+OS required	No server management
+27. What is IAM?
+Answer:IAM stands for Identity and Access Management.
+It controls:
+
+Who can access AWS?
+        ↓
+What can they access?
+        ↓
+What actions can they perform?
+
+Important concepts:
+* Users
+* Groups
+* Roles
+* Policies
+Best practice: Follow least privilege and avoid hardcoding AWS credentials.
+
+28. What is Lambda?
+Answer:AWS Lambda is a serverless compute service where you run code without managing servers.
+Example use cases:
+
+Upload image
+     ↓
+S3
+     ↓
+Lambda
+     ↓
+Resize/process image
+
+
+29. What is CloudFront?
+Answer:CloudFront is AWS's Content Delivery Network (CDN).
+It caches content at edge locations closer to users.
+
+User
+ ↓
+CloudFront
+ ↓
+S3 / Backend
+
+Benefits:
+* Lower latency
+* Faster content delivery
+* Reduced load on origin
+
+30. What is a Load Balancer?
+A load balancer distributes incoming traffic across multiple servers.
+
+             ┌── EC2 #1
+User → ALB ──┼── EC2 #2
+             └── EC2 #3
+
+This improves:
+* Availability
+* Scalability
+* Fault tolerance
+
+4. Important AWS + Node.js Questions
+31. How would you deploy a Node.js application to AWS?
+Interview answer:
+"I would build the Node.js application, configure environment variables, deploy it to EC2 or a container platform such as ECS, put an Application Load Balancer in front of multiple instances when required, use CloudWatch for monitoring, and configure CI/CD for automated deployments."
+Basic architecture:
+
+GitHub
+   ↓
+CI/CD
+   ↓
+AWS
+   ↓
+Load Balancer
+   ↓
+EC2 / ECS
+   ↓
+Node.js + Express
+   ↓
+MongoDB
+
+
+32. How do you store environment variables?
+.env
+
+PORT=5000
+MONGO_URI=xxxxx
+JWT_SECRET=xxxxx
+AWS_BUCKET=xxxxx
+
+Node.js:
+
+require("dotenv").config();
+
+console.log(process.env.PORT);
+
+Never commit .env to Git.
+
+33. How do you secure a Node.js API?
+Important points:
+
+Authentication
+Authorization
+JWT
+HTTPS
+Input validation
+Rate limiting
+CORS
+Helmet
+Password hashing
+Environment variables
+MongoDB query protection
+Logging & monitoring
+
+Example:
+
+app.use(express.json());
+app.use(helmet());
+
+
+5. Scenario-Based Questions — Very Important
+34. Your Node.js API is slow. How will you debug it?
+Answer:
+I would check:
+1. API response time
+2. Database query performance
+3. MongoDB indexes
+4. Network latency
+5. CPU/memory
+6. Event-loop blocking
+7. External API calls
+8. Large payloads
+9. Logging/APM metrics
+10. Caching opportunities
+
+35. MongoDB query is taking 5 seconds. What will you do?
+Answer:
+First I would inspect the query using explain():
+
+db.users
+  .find({ email: "sai@example.com" })
+  .explain("executionStats");
+
+Then check:
+* Missing indexes
+* Collection size
+* Query shape
+* Number of documents examined
+* Number of documents returned
+* Unnecessary fields
+* Aggregation performance
+Then add an appropriate index if needed:
+
+db.users.createIndex({ email: 1 });
+
+
+36. How do you handle 10,000 concurrent users?
+Answer:
+I would use:
+
+Load Balancer
+      ↓
+Multiple Node.js instances
+      ↓
+Caching
+      ↓
+MongoDB optimized queries
+      ↓
+Indexes
+
+Additionally:
+* Horizontal scaling
+* Stateless APIs
+* Connection pooling
+* CDN for static assets
+* Queue/background processing
+* Monitoring
+
+37. What happens if Node.js receives CPU-intensive work?
+Answer:
+CPU-intensive synchronous work can block the event loop, preventing Node.js from efficiently handling other requests.
+Possible solutions:
+
+Worker Threads
+Child Processes
+Background Jobs
+Separate Service
+Queue-based architecture
+
+
+38. How would you implement a money transfer API?
+This is a very common senior-level MERN scenario.
+
+POST /transfer
+       ↓
+Validate request
+       ↓
+Start MongoDB transaction
+       ↓
+Debit sender
+       ↓
+Credit receiver
+       ↓
+Commit transaction
+       ↓
+Response
+
+If credit fails:
+
+Debit
+  ↓
+Credit ❌
+  ↓
+Rollback
+  ↓
+Sender balance restored
+
+Key interview statement:
+"I would use a MongoDB transaction with a single Mongoose session and ensure every transactional operation uses that session. If any operation fails, I abort the transaction so the debit and credit are rolled back together."
+
+6. Top Questions to Prepare First
+For your MERN/React + Node.js interview, I would prioritize these:
+🔥 Node.js
+1. Event Loop
+2. Async/await
+3. Promises
+4. Promise.all
+5. Middleware
+6. Express routing
+7. Error handling
+8. Authentication/JWT
+9. REST API
+10. Node.js scalability
+11. Worker threads
+12. Streams
+13. EventEmitter
+14. Clustering
+15. Security
+🔥 MongoDB
+1. SQL vs MongoDB
+2. Documents/Collections
+3. Mongoose
+4. Schema
+5. CRUD
+6. Indexes
+7. Aggregation
+8. $lookup
+9. Embedding vs referencing
+10. Transactions
+11. Sessions
+12. Atomicity
+13. Query optimization
+14. Replication
+15. Sharding
+🔥 AWS
+1. EC2
+2. S3
+3. IAM
+4. Lambda
+5. CloudFront
+6. VPC
+7. Load Balancer
+8. Auto Scaling
+9. CloudWatch
+10. RDS
+11. ECS
+12. ECR
+13. Route 53
+14. Security Groups
+15. CI/CD deployment
+Most important scenario to practice:React → Node/Express API → MongoDB → AWS deployment, including authentication, error handling, transactions, scaling, logging, and deployment architecture.
