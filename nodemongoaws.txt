@@ -670,4 +670,5 @@ For your MERN/React + Node.js interview, I would prioritize these:
 13. Route 53
 14. Security Groups
 15. CI/CD deployment
-Most important scenario to practice:React → Node/Express API → MongoDB → AWS deployment, including authentication, error handling, transactions, scaling, logging, and deployment architecture.
+Most important scenario to practice:React → Node/Express API → MongoDB → AWS deployment,
+ including authentication, error handling, transactions, scaling, logging, and deployment architecture.
