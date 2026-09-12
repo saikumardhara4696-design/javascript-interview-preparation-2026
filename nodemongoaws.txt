@@ -168,6 +168,8 @@ POST	Create
 PUT	Update
 PATCH	Partial update
 DELETE	Delete
+
+
 2. MongoDB Interview Questions
 11. What is MongoDB?
 Answer:MongoDB is a NoSQL document database that stores data in a JSON-like BSON format.
