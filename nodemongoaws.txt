@@ -1,6 +1,7 @@
 1. Node.js Interview Questions
 1. What is Node.js?
-Answer:Node.js is a JavaScript runtime environment built on Chrome's V8 engine. It allows us to run JavaScript on the server side.
+Answer:Node.js is a JavaScript runtime environment built on Chrome's V8 engine. 
+It allows us to run JavaScript on the server side.
 Key points:
 * Single-threaded
 * Non-blocking I/O
@@ -34,7 +35,8 @@ file content
 The file operation doesn't block the execution.
 
 3. What is the Event Loop?
-Answer:The Event Loop allows Node.js to perform non-blocking asynchronous operations even though JavaScript runs on a single main thread.
+Answer:The Event Loop allows Node.js to perform non-blocking asynchronous
+ operations even though JavaScript runs on a single main thread.
 Simple flow:
 
 Request
