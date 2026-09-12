@@ -175,7 +175,8 @@ DELETE	Delete
 Answer:MongoDB is a NoSQL document database that stores data in a JSON-like BSON format.
 
 BSON stands for Binary JSON.
-It is a binary-encoded serialization format used primarily to store documents and make remote procedure calls in databases like MongoDB.
+It is a binary-encoded serialization format used primarily to store documents and make
+ remote procedure calls in databases like MongoDB.
 
 Example:
 
@@ -187,13 +188,14 @@ Example:
 
 
 12. MongoDB vs SQL?
-MongoDB	SQL
-NoSQL	Relational
-Collection	Table
-Document	Row
-Field	Column
-Flexible schema	Fixed schema
-BSON	Rows/columns
+MongoDB	                SQL
+NoSQL	                  Relational
+Collection	            Table
+Document	              Row
+Field	                  Column
+Flexible schema	        Fixed schema
+BSON	                  Rows/columns
+
 13. What is a Collection?
 A collection is similar to a table in SQL.
 
