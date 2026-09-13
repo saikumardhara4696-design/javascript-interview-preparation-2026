@@ -630,7 +630,9 @@ Rollback
 Sender balance restored
 
 Key interview statement:
-"I would use a MongoDB transaction with a single Mongoose session and ensure every transactional operation uses that session. If any operation fails, I abort the transaction so the debit and credit are rolled back together."
+"I would use a MongoDB transaction with a single Mongoose session and ensure every
+ transactional operation uses that session. If any operation fails, I abort the transaction
+  so the debit and credit are rolled back together."
 
 6. Top Questions to Prepare First
 For your MERN/React + Node.js interview, I would prioritize these:
