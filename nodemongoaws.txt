@@ -343,7 +343,8 @@ Referencing:
 }
 
 Interview answer:
-"I use embedding when related data is small and usually accessed together. I use referencing when the related data is large, shared, or independently managed."
+"I use embedding when related data is small and usually accessed together. 
+I use referencing when the related data is large, shared, or independently managed."
 
 22. How do you prevent duplicate emails?
 Use a unique index:
@@ -355,7 +356,8 @@ const userSchema = new mongoose.Schema({
   }
 });
 
-But don't treat unique: true as ordinary validation—it creates/enforces a unique index, and duplicate-key errors should still be handled.
+But don't treat unique: true as ordinary validation—it creates/enforces a unique index,
+ and duplicate-key errors should still be handled.
 
 3. AWS Interview Questions
 23. What is AWS?
@@ -470,7 +472,10 @@ This improves:
 4. Important AWS + Node.js Questions
 31. How would you deploy a Node.js application to AWS?
 Interview answer:
-"I would build the Node.js application, configure environment variables, deploy it to EC2 or a container platform such as ECS, put an Application Load Balancer in front of multiple instances when required, use CloudWatch for monitoring, and configure CI/CD for automated deployments."
+"I would build the Node.js application, configure environment variables,
+ deploy it to EC2 or a container platform such as ECS, put an Application
+  Load Balancer in front of multiple instances when required, use CloudWatch for
+   monitoring, and configure CI/CD for automated deployments."
 Basic architecture:
 
 GitHub
@@ -586,7 +591,8 @@ Additionally:
 
 37. What happens if Node.js receives CPU-intensive work?
 Answer:
-CPU-intensive synchronous work can block the event loop, preventing Node.js from efficiently handling other requests.
+CPU-intensive synchronous work can block the event loop, preventing Node.js from efficiently
+ handling other requests.
 Possible solutions:
 
 Worker Threads
