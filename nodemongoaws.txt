@@ -690,3 +690,56 @@ Most important scenario to practice:React → Node/Express API → MongoDB → A
 
 
  
+ Question: How do you implement load balancing in Node.js?
+
+Answer:
+I can implement load balancing at the Node.js process level using the built-in
+ cluster module, which creates multiple worker processes and distributes incoming
+connections across them. In production, I would normally use an external load balancer
+such as NGINX, AWS Application Load Balancer, or a cloud load balancer to distribute
+traffic across multiple Node.js instances.
+
+const cluster = require("cluster");
+const os = require("os");
+const express = require("express");
+
+const PORT = 5000;
+
+if (cluster.isPrimary) {
+
+  const cpuCount = os.cpus().length;
+
+  console.log(`Primary process: ${process.pid}`);
+
+  for (let i = 0; i < cpuCount; i++) {
+    cluster.fork();
+  }
+
+} else {
+
+  const app = express();
+
+  app.get("/", (req, res) => {
+    res.json({
+      message: "Hello from Node.js",
+      processId: process.pid
+    });
+  });
+
+  app.get("/users", (req, res) => {
+    res.json({
+      users: ["Sai", "Kumar", "Dhara"],
+      processId: process.pid
+    });
+  });
+
+  app.listen(PORT, () => {
+    console.log(
+      `Server running on ${PORT}, Worker: ${process.pid}`
+    );
+  });
+}
+
+The important part is:
+cluster.fork();
+Each worker is a separate Node.js process.
