@@ -361,7 +361,8 @@ But don't treat unique: true as ordinary validation—it creates/enforces a uniq
 
 3. AWS Interview Questions
 23. What is AWS?
-Answer:AWS (Amazon Web Services) is a cloud platform providing infrastructure and managed services such as:
+Answer:AWS (Amazon Web Services) is a cloud platform providing infrastructure
+ and managed services such as:
 * EC2
 * S3
 * RDS
