@@ -2,7 +2,6 @@
 // 28-07-2026
 // 1. What is CSSOM?
 // Answer:
-
 // CSSOM is a tree - like structure created by the browser from CSS files.
 // It contains all CSS rules and computed styles.
 // The browser combines DOM + CSSOM to create the Render Tree.
