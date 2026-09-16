@@ -1483,3 +1483,594 @@ socket.emit("message", {
 // Div have border.Input dont have border
 // Values selected and input are beside.
 // Onclick dropdown should open.
+
+
+// =============================
+// ANSWERS
+
+// 1. How does the JavaScript Event Loop work internally ?
+// Definition:-
+// The Event Loop allows JavaScript to handle asynchronous operations
+// even though JavaScript runs on a single main thread.
+
+// The main parts are:
+
+// Call Stack – Executes synchronous JavaScript.
+// Web APIs / Node APIs – Handle timers, HTTP requests, DOM events, etc.
+// Callback / Task Queue – Stores callbacks from operations like setTimeout.
+// Microtask Queue – Stores Promise.then(), catch (), finally(), and queueMicrotask().
+// Event Loop – Moves tasks to the Call Stack when it is empty.
+
+// Execution order:
+
+// Synchronous Code
+//       ↓
+// Call Stack
+//       ↓
+// Microtask Queue(Promises)
+//       ↓
+// Task / Callback Queue(setTimeout)
+//       ↓
+// Call Stack
+// Example
+// console.log("1");
+
+// setTimeout(() => {
+//     console.log("2");
+// }, 0);
+
+// Promise.resolve().then(() => {
+//     console.log("3");
+// });
+
+// console.log("4");
+// Output
+// 1
+// 4
+// 3
+// 2
+// Why ?
+// console.log("1")       → Call Stack → executes
+// setTimeout()           → Web API → callback queue
+// Promise.then()         → Microtask Queue
+// console.log("4")       → Call Stack → executes
+
+// Call Stack empty
+// ↓
+// Microtask Queue
+// ↓
+// 3
+
+// Then Callback Queue
+// ↓
+// 2
+// Interview point
+
+// Microtasks such as Promises are executed before macrotasks such as setTimeout after the current
+// synchronous code finishes.
+
+// 2. How does code compile inside JavaScript ?
+// Definition
+
+// JavaScript engines such as V8 don't simply execute your source code line-by-line.
+//  Modern engines use a combination of parsing, interpretation, compilation, optimization, and deoptimization.
+
+// For example, Chrome and Node.js use the V8 engine.
+
+// Simplified process
+// JavaScript Source Code
+//         ↓
+// Lexing / Tokenization
+//         ↓
+// Parsing
+//         ↓
+// AST
+//     (Abstract Syntax Tree)
+//         ↓
+// Bytecode / Execution
+//         ↓
+// JIT Compilation
+//         ↓
+// Optimized Machine Code
+// Example
+// function add(a, b) {
+//     return a + b;
+// }
+
+// console.log(add(10, 20));
+
+// The engine roughly does:
+
+// Source Code
+//     ↓
+// Tokens
+//     ↓
+// AST
+//     ↓
+// Bytecode
+//     ↓
+// Execute
+//     ↓
+// JIT optimization
+//     ↓
+// Machine code
+// What is JIT ?
+
+//     JIT = Just - In - Time compilation
+
+// The JavaScript engine can identify frequently executed code and optimize it into faster machine code.
+
+// Interview answer
+
+// JavaScript is parsed into an AST, converted into executable bytecode / intermediate representation, and modern engines such as V8 use JIT compilation to optimize frequently executed code into efficient machine code.
+
+// 3. What is Hoisting ?
+//     Definition
+
+// Hoisting is JavaScript's behavior where declarations are processed during the creation phase of an execution context before the code actually executes.
+
+// Important distinction:
+
+// var → hoisted and initialized with undefined
+// let → hoisted but remains in the Temporal Dead Zone(TDZ)
+// const → hoisted but remains in the TDZ
+// Function declarations → can generally be called before their declaration
+// var
+//     console.log(a);
+
+// var a = 10;
+
+// Output:
+
+// undefined
+
+// Conceptually:
+
+// var a;
+
+// console.log(a);
+
+// a = 10;
+// let
+//     console.log(a);
+
+// let a = 10;
+
+// Result:
+
+// ReferenceError
+
+// Because a is in the Temporal Dead Zone until its declaration is evaluated.
+
+// Function hoisting
+// sayHello();
+
+// function sayHello() {
+//     console.log("Hello");
+// }
+
+// Output:
+
+// Hello
+// Interview point
+
+// Hoisting doesn't literally mean JavaScript moves your code to the top. It means declarations are handled during the creation phase of the execution context.
+
+// 4. Redux vs Context API
+// Context API
+
+// React Context is mainly used to share data between components without manually passing props through every level.
+
+//     Example:
+
+// App
+//  ↓
+// Provider
+//  ↓
+// Component A
+//  ↓
+// Component B
+//  ↓
+// Component C
+
+// Context allows Component C to access shared data directly.
+
+//     Redux
+
+// Redux is a predictable state - management library designed for managing application state using a centralized store and explicit state updates.
+
+//     Difference
+// Context API	Redux
+// Built into React	Separate library
+// Simple state sharing	Complex state management
+// Good for theme / auth / user preferences	Good for large application state
+// Less setup	More structure
+// No Redux DevTools	Redux DevTools available
+// Basic state sharing	Middleware, async logic, selectors, etc.
+// Suitable for smaller / global state	Suitable for complex applications
+// Context example
+// const UserContext = createContext();
+
+// function App() {
+//     return (
+//         <UserContext.Provider value={{ name: "Sai" }}>
+//             <Profile />
+//         </UserContext.Provider>
+//     );
+// }
+
+// function Profile() {
+//     const user = useContext(UserContext);
+
+//     return <h1>{user.name}</h1>;
+// }
+// Redux example
+// const store = configureStore({
+//     reducer: {
+//         user: userReducer
+//     }
+// });
+// Real - time example
+
+// Use Context for:
+
+//     Theme
+// Language
+// Logged -in user
+// Simple configuration
+
+// Use Redux for:
+
+//     Cart
+// Products
+// Orders
+// Notifications
+// Complex application state
+// Multiple components modifying shared state
+// Interview answer
+
+// Context API is mainly useful for sharing global or cross - cutting data, while Redux provides a more structured state - management architecture for complex applications.
+
+// 5. Promise resolve, reject question
+
+// Your code has some syntax issues, so let's correct it first.
+
+// Correct version
+// const promise = new Promise((resolve, reject) => {
+//     console.log(1);
+
+//     resolve("success3");
+
+//     setTimeout(() => {
+//         console.log(3);
+
+//         resolve("success1");
+//         resolve("success2");
+//     }, 0);
+// });
+
+// promise.then((result) => {
+//     console.log(result);
+// });
+
+// console.log(4);
+// Output
+// 1
+// 4
+// success3
+// 3
+// Why ?
+
+//     First :
+
+//     console.log(1);
+
+// prints:
+
+// 1
+
+// Then:
+
+// resolve("success3");
+
+// The Promise becomes fulfilled with:
+
+// success3
+
+// But.then() is a microtask, so it doesn't execute immediately.
+
+// Then:
+
+// setTimeout(...)
+
+// is scheduled.
+
+//     Then:
+
+// console.log(4);
+
+// prints:
+
+// 4
+
+// Now the call stack is empty.
+
+// The Promise callback runs:
+
+// success3
+
+// Then the timer executes:
+
+// 3
+
+// The later calls:
+
+// resolve("success1");
+// resolve("success2");
+
+// do nothing because a Promise can settle only once.
+
+// Important interview point
+// resolve("success3");
+// resolve("success1");
+// resolve("success2");
+
+// Only the first resolve() matters.
+
+// A Promise is:
+
+// pending
+//    ↓
+// fulfilled
+
+// or
+
+// pending
+//    ↓
+// rejected
+
+// Once settled, it cannot change state.
+
+// 6. var inside for loop
+
+// Your code:
+
+//     for (var i = 0; i < 3; i++) {
+//         console.log(i);
+//     }
+// Output
+// 0
+// 1
+// 2
+
+// Because console.log(i) executes during each iteration.
+
+// Important interview variation
+
+// If you use setTimeout:
+
+// for (var i = 0; i < 3; i++) {
+//     setTimeout(() => {
+//         console.log(i);
+//     }, 0);
+// }
+
+// Output:
+
+// 3
+// 3
+// 3
+// Why ?
+
+// var is function-scoped, not block - scoped.
+
+// After the loop finishes:
+
+// i === 3
+
+// All three callbacks refer to the same i.
+
+// Using let
+// for (let i = 0; i < 3; i++) {
+//     setTimeout(() => {
+//         console.log(i);
+//     }, 0);
+// }
+
+// Output:
+
+// 0
+// 1
+// 2
+
+// Because let creates a separate binding for each iteration.
+
+// Interview point
+
+// var is function-scoped, while let and const are block-scoped.
+
+// 7. CRUD Dropdown / Input UI Question
+
+// The requirement sounds like:
+
+// ┌──────────────────────────────┐
+// │ Apple   ×   Banana   ×   ▼   │
+// └──────────────────────────────┘
+
+// Click the dropdown:
+
+// ┌──────────────────────────────┐
+// │ Apple   ×   Banana   ×   ▼   │
+// ├──────────────────────────────┤
+// │ Apple                        │
+// │ Banana                       │
+// │ Orange                       │
+// │ Mango                        │
+// └──────────────────────────────┘
+
+// Selected values should appear inside the bordered div, while the input itself has no border.
+
+// React example
+// import { useState } from "react";
+
+// function MultiSelect() {
+//     const options = ["Apple", "Banana", "Orange", "Mango"];
+
+//     const [selected, setSelected] = useState([]);
+//     const [open, setOpen] = useState(false);
+
+//     const handleSelect = (option) => {
+//         if (!selected.includes(option)) {
+//             setSelected([...selected, option]);
+//         }
+
+//         setOpen(false);
+//     };
+
+//     const removeItem = (option) => {
+//         setSelected(selected.filter((item) => item !== option));
+//     };
+
+//     return (
+//         <div className="container">
+//             <div
+//                 className="input-box"
+//                 onClick={() => setOpen(!open)}
+//             >
+//                 {selected.map((item) => (
+//                     <span className="tag" key={item}>
+//                         {item}
+
+//                         <button
+//                             onClick={(e) => {
+//                                 e.stopPropagation();
+//                                 removeItem(item);
+//                             }}
+//                         >
+//                             ×
+//                         </button>
+//                     </span>
+//                 ))}
+
+//                 <input
+//                     placeholder="Select..."
+//                     readOnly
+//                 />
+
+//                 <span>▼</span>
+//             </div>
+
+//             {open && (
+//                 <div className="dropdown">
+//                     {options.map((option) => (
+//                         <div
+//                             className="option"
+//                             key={option}
+//                             onClick={() => handleSelect(option)}
+//                         >
+//                             {option}
+//                         </div>
+//                     ))}
+//                 </div>
+//             )}
+//         </div>
+//     );
+// }
+
+// export default MultiSelect;
+// CSS
+//     .container {
+//     width: 350px;
+//     position: relative;
+// }
+
+// .input - box {
+//     min - height: 40px;
+//     border: 1px solid #999;
+//     border - radius: 5px;
+
+//     display: flex;
+//     align - items: center;
+//     gap: 5px;
+
+//     padding: 5px;
+//     cursor: pointer;
+// }
+
+// .input - box input {
+//     border: none;
+//     outline: none;
+//     flex: 1;
+//     min - width: 80px;
+// }
+
+// .tag {
+//     background: #eee;
+//     padding: 5px 8px;
+//     border - radius: 4px;
+//     display: flex;
+//     gap: 5px;
+// }
+
+// .tag button {
+//     border: none;
+//     background: transparent;
+//     cursor: pointer;
+// }
+
+// .dropdown {
+//     position: absolute;
+//     width: 100 %;
+//     border: 1px solid #999;
+//     background: white;
+//     z - index: 10;
+// }
+
+// .option {
+//     padding: 10px;
+//     cursor: pointer;
+// }
+
+// .option:hover {
+//     background: #eee;
+// }
+// CRUD mapping
+
+// For an interview, you can explain it as:
+
+// Create → Select / add an option
+// Read   → Display selected options
+// Update → Change selected value
+// Delete → Click × to remove selected option
+// Key React concepts tested
+// useState
+// map()
+// Conditional rendering
+// Event handling
+// Controlled / uncontrolled input concepts
+// Array manipulation
+// filter()
+// includes()
+// Event propagation
+// Component state management
+// Very important interview follow - up
+
+// If the interviewer asks:
+
+// "How would you prevent duplicate selections?"
+
+// Answer:
+
+// if (!selected.includes(option)) {
+//     setSelected([...selected, option]);
+// }
+
+// "How would you remove a selected item?"
+
+// setSelected(
+//     selected.filter((item) => item !== option)
+// );
+
+// "How would you close the dropdown when clicking outside?"
+
+// Use a useEffect with a document - level click listener or a reusable click - outside hook.
