@@ -1657,14 +1657,16 @@ socket.emit("message", {
 // Hello
 // Interview point
 
-// Hoisting doesn't literally mean JavaScript moves your code to the top. It means declarations are handled during the creation phase of the execution context.
+// Hoisting doesn't literally mean JavaScript moves your code to the top.
+//  It means declarations are handled during the creation phase of the execution context.
 
 // 4. Redux vs Context API
 // Context API
 
-// React Context is mainly used to share data between components without manually passing props through every level.
+// React Context is mainly used to share data between components without manually
+//  passing props through every level.
 
-//     Example:
+//  Example:
 
 // App
 //  ↓
@@ -1680,7 +1682,8 @@ socket.emit("message", {
 
 //     Redux
 
-// Redux is a predictable state - management library designed for managing application state using a centralized store and explicit state updates.
+// Redux is a predictable state - management library designed for managing application state
+//  using a centralized store and explicit state updates.
 
 //     Difference
 // Context API	Redux
@@ -1732,7 +1735,8 @@ socket.emit("message", {
 // Multiple components modifying shared state
 // Interview answer
 
-// Context API is mainly useful for sharing global or cross - cutting data, while Redux provides a more structured state - management architecture for complex applications.
+// Context API is mainly useful for sharing global or cross - cutting data,
+//  while Redux provides a more structured state - management architecture for complex applications.
 
 // 5. Promise resolve, reject question
 
