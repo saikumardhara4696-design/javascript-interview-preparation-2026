@@ -1443,3 +1443,43 @@ socket.emit("message", {
 
 
 // write counter update code?
+
+
+// How event loop works internally ?
+//     How code compiles inside javascript ?
+//         What is hoisting ?
+//             What is difference between redux and context api ?
+
+
+//                 1. code question
+// Promises(resolve, reject) {
+//     console.log(1);
+//     resolve(success3);
+//     settimeout(() => {
+//         console.log(3);
+//         resolve(success1);
+//         resolve(success2)
+//     }, 0)
+// }
+// Promise
+//     .then(
+//         console.log(resolve)
+
+//     )
+// console.log(4);
+
+// Output ?
+
+//     2)
+// for (var i = 0; i < 3; i++) {
+//     Console.log(i)
+// }
+
+
+// 3) CRUD
+//  DIV box having input
+
+// We need to show the options selected in div
+// Div have border.Input dont have border
+// Values selected and input are beside.
+// Onclick dropdown should open.
