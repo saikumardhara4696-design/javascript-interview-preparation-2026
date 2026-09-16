@@ -1609,7 +1609,8 @@ socket.emit("message", {
 // 3. What is Hoisting ?
 //     Definition
 
-// Hoisting is JavaScript's behavior where declarations are processed during the creation phase of an execution context before the code actually executes.
+// Hoisting is JavaScript's behavior where declarations are processed during the creation phase
+//  of an execution context before the code actually executes.
 
 // Important distinction:
 
