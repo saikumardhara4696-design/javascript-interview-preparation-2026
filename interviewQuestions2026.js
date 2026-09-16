@@ -1602,7 +1602,9 @@ socket.emit("message", {
 
 // Interview answer
 
-// JavaScript is parsed into an AST, converted into executable bytecode / intermediate representation, and modern engines such as V8 use JIT compilation to optimize frequently executed code into efficient machine code.
+// JavaScript is parsed into an AST, converted into executable bytecode / intermediate representation,
+//  and modern engines such as V8 use JIT compilation to optimize frequently executed code
+// into efficient machine code.
 
 // 3. What is Hoisting ?
 //     Definition
