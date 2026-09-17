@@ -2081,3 +2081,4 @@ socket.emit("message", {
 // "How would you close the dropdown when clicking outside?"
 
 // Use a useEffect with a document - level click listener or a reusable click - outside hook.
+

@@ -121,7 +121,8 @@ const doubled = numbers.map(num => num * 2); // [2, 4, 6]
 // 
 // Uses:
 // Implementing search bars or frontend filtering toggles.
-// Removing items from a state array(e.g., removing a deleted item by its ID: items.filter(item => item.id !== deletedId)).
+// Removing items from a state array(e.g., removing a deleted item by its ID:
+//  items.filter(item => item.id !== deletedId)).
 
 // Disadvantages:
 // It cannot alter the elements themselves; it can only decide whether they stay or go.
@@ -162,7 +163,8 @@ const totalValue = products
 
 // Disadvantage of Chaining:
 // Every method in the chain creates a brand - new intermediate array in memory.
-// For massive datasets(hundreds of thousands of rows), chaining filter().map() is much slower than performing the operation inside a single reduce() or standard for loop.
+// For massive datasets(hundreds of thousands of rows), chaining filter().map()
+//  is much slower than performing the operation inside a single reduce() or standard for loop.
 
 
 
@@ -170,7 +172,8 @@ const totalValue = products
 
 //  ASYNC AND AWAIT
 // Async and await are JavaScript keywords that provide a cleaner syntax for working with Promises.
-// They eliminate the need for nested.then() and.catch() blocks, allowing you to write asynchronous code that looks and behaves like synchronous code.
+// They eliminate the need for nested.then() and.catch() blocks, allowing you
+//  to write asynchronous code that looks and behaves like synchronous code.
 
 // Under the hood, async/await is strictly non-blocking syntactic sugar built on top of the JavaScript Event Loop.
 
@@ -184,7 +187,8 @@ const totalValue = products
 // It wraps the return value of the function in a resolved Promise.
 
 // The await keyword:
-//  Placed before any Promise.It pauses code execution within that specific function until the Promise settles(resolves or rejects).
+//  Placed before any Promise.It pauses code execution within that specific function
+//  until the Promise settles(resolves or rejects).
 // Note: await only works inside async functions or as a top - level module feature in modern environments.
 
 // Error handling:
@@ -232,7 +236,8 @@ getUserDashboard(123).then(data => console.log(data));
 
 // Heavy computation:
 //  Do not use async / await for CPU - intensive tasks like image processing or matrix multiplication.
-// JavaScript is single - threaded, and async / await will not prevent these operations from freezing the browser UI.
+// JavaScript is single - threaded, and async / await will not prevent these operations
+//  from freezing the browser UI.
 // For heavy math, use Web Workers or Node.js Worker Threads.
 
 // Synchronous array methods:
