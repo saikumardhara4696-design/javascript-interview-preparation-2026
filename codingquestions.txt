@@ -1,0 +1,8 @@
+1. Write the stop watch code?
+2. write setinterval code which should update every 2 seconds?
+3. write the multi select combo box code?
+4. write the crud operations ?
+5. write the memoize function code?
+6. write the photo grid code in css?
+7. write the promises code?
+8. 
