@@ -2083,5 +2083,3 @@ socket.emit("message", {
 // Use a useEffect with a document - level click listener or a reusable click - outside hook.
 
 
-
-
