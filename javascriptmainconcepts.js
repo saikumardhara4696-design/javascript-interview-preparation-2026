@@ -288,5 +288,33 @@ const [user, posts] = await Promise.all([fetchUser(), fetchPosts()]);
 
 
 
+// Debouncing in JavaScript
+
+// Definition:
+// Debouncing is a technique that delays executing a function until the user stops
+//  triggering an event for a specified amount of time.
 
 
+// function debounce(callback, delay) {
+//     let timer;
+
+//     return function (...args) {
+//         clearTimeout(timer);
+
+//         timer = setTimeout(() => {
+//             callback(...args);
+//         }, delay);
+//     };
+// }
+
+// function searchProducts(value) {
+//     console.log("API call:", value);
+// }
+
+// const debouncedSearch = debounce(searchProducts, 500);
+
+// document
+//     .getElementById("search")
+//     .addEventListener("input", (event) => {
+//         debouncedSearch(event.target.value);
+//     });
