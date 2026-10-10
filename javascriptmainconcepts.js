@@ -318,3 +318,8 @@ const [user, posts] = await Promise.all([fetchUser(), fetchPosts()]);
 //     .addEventListener("input", (event) => {
 //         debouncedSearch(event.target.value);
 //     });
+
+
+
+
+
