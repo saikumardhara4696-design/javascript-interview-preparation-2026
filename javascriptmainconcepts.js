@@ -321,5 +321,3 @@ const [user, posts] = await Promise.all([fetchUser(), fetchPosts()]);
 
 
 
-
-
