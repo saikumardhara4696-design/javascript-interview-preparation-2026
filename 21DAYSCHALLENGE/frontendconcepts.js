@@ -149,3 +149,353 @@
 // Best Practice: Store authentication tokens in an HttpOnly, Secure, SameSite=Strict/Lax cookie.
 //  The browser automatically handles cookie transmission, and JavaScript cannot read HttpOnly cookies,
 //  nullifying token theft via XSS.
+
+
+
+// Fundamentals & Core Architecture
+// 1. What is the difference between HTML and HTML5 ?
+//   DOCTYPE : HTML5 uses a simplified declaration(< !DOCTYPE html >), whereas HTML 4.01
+//   required long references to DTDs(Document Type Definitions).
+
+//   Semantics: HTML5 introduced native structural tags(<header>, <nav>, <article>, <section>, <footer>, <aside>).
+
+//   Media Support: Native <audio> and <video> tags replaced reliance on third-party plugins like Adobe Flash.
+
+//   Storage: HTML5 provides client-side key-value storage (localStorage and sessionStorage)
+//   and IndexedDB, moving beyond standard 4KB cookies.
+
+//   APIs: HTML5 added APIs for Canvas, Web Workers, Geolocation, Drag and Drop, and WebSockets.
+
+
+
+// 2. What does < !DOCTYPE html > actually do? What happens if you omit it ?
+// The < !DOCTYPE html > declaration tells the browser which version of HTML the page is written
+// in and ensures the page renders in Standards Mode.
+
+// If omitted or mistyped, modern browsers switch to Quirks Mode(or Almost Standards Mode)
+//  to maintain backward compatibility with legacy websites built in the late 1990s.In Quirks Mode:
+
+// CSS box model emulation changes(in old IE quirks mode, width included padding and borders).
+
+// Font sizes, table layout algorithms, and margin collapse rules deviate from W3C specifications.
+
+
+// 3. Explain the standard DOM structure and execution flow.
+// A minimal valid HTML5 document follows this hierarchy:
+
+// < !DOCTYPE html >
+//     <html lang="en">
+//      <head>
+//    <meta charset="UTF-8">
+//    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+//    <title>Document Title</title>
+//    </head>
+//    <body>
+//    <!-- Visible content here -->
+//    </body>
+//   </html>
+
+// The browser parses bytes $\to$ characters $\to$ tokens $\to$ nodes $\to$ DOM(Document Object Model) tree.
+// CSSOM(CSS Object Model) is built in parallel.
+// DOM and CSSOM combine into the Render Tree, which undergoes Layout(calculating exact geometries)
+// and Painting(rasterizing pixels onto the screen).
+
+// 4. What is the difference between Semantic and Non - Semantic HTML ?
+//   Semantic HTML uses elements that describe their meaning to both the browser and
+//  the developer(e.g., <article>, <button>, <nav>, <form>).
+
+//  Non-Semantic HTML uses generic containers with no intrinsic meaning about their contents (e.g., <div>, <span>).
+
+//  Benefits of Semantic HTML:
+
+//  Accessibility (a11y): Screen readers use semantic nodes to construct accessibility trees and landmark navigation.
+
+//   SEO: Search engine crawlers parse page hierarchy and prioritize content within headers, articles, and main tags.
+
+//   Maintainability: Code readability improves across development teams.
+
+
+
+// Elements, Tags, & Attributes
+//
+// 5.What are the key differences between block, inline, and inline - block display modes ?
+//
+//  Property              Block(<div>, <p>, <h1>)                           Inline (<span>, <a>, <strong>)          Inline-Block (<img>, <button>, display: inline-block)
+// Line Break             Starts on a new line;                              Flows along existing line content;      Flows along line content; does not force new line.
+//                        forces subsequent elements to next line.           wraps when needed.
+
+// Width / Height         Fills available parent width(100 % by default ).   Ignores explicit width and height.      Respects explicit width and height.
+//                           Respects explicit width / height.               Size depends purely on content.
+
+// Padding / Margin       Respects vertical and horizontal                  Horizontal padding / margin works.       Respects vertical and horizontal margins and padding completely without line breaks.
+//                        margins and padding fully.                        Vertical padding / margin renders
+//                                                                          visually but does not affect layout or
+//                                                                          push adjacent lines.
+
+
+// 6. What is the difference between script, script async, and script defer ?
+//  By default, <script src="..."> halts HTML parsing while the file is downloaded and executed.
+//  <script> (Default): Parser halts => downloads script => executes script immediately => HTML parsing resumes.
+//  <script async>: Downloads the script asynchronously while HTML parsing continues.
+// As soon as the download finishes, HTML parsing pauses while the script executes.
+//  Execution order is non-deterministic (scripts run in whatever order they finish downloading).
+
+// <script defer>: Downloads the script asynchronously while HTML parsing continues.
+//  Execution is deferred until the HTML parser finishes constructing the initial DOM (just before DOMContentLoaded).
+//  Execution order is guaranteed according to document order.
+//
+
+// 7. How do data-* attributes work, and how are they accessed?
+// data-* attributes allow storing custom data directly on HTML elements without affecting rendering.
+
+// Access via HTML:
+<button id="cartBtn" data-item-id="4821" data-user-tier="gold">Add to Cart</button>
+
+// Access via JavaScript:
+const btn = document.getElementById('cartBtn');
+
+// Dataset property uses camelCase conversion
+console.log(btn.dataset.itemId);   // "4821"
+console.log(btn.dataset.userTier); // "gold"
+
+// Or using standard DOM methods
+console.log(btn.getAttribute('data-item-id')); // "4821"
+
+// CSS:
+// button[data - user - tier= "gold"] {
+//     border: 2px solid gold;
+// }
+
+
+// 8. What are Void(Self - Closing) Elements ?
+// Void elements cannot have child nodes or closing tags.In HTML5, adding a trailing slash
+// (e.g., <img />) is optional syntactic sugar; the browser parses < img ...> and < img ... /> identically.
+
+// Common void elements: <img>, <br>, <hr>, <input>, <link>, <meta>, <source>, <area>, <base>, <col>, <embed>, <param>, <track>, <wbr>.
+
+
+//     Media, Tables, & Forms
+// 9. Responsive Images: When to use <img> with srcset vs. <picture>?
+// Use <img> with srcset and sizes for Resolution Switching: When the image content is identical, but you need to serve different resolutions based on screen pixel density (DPR) or viewport width.
+
+//    HTML
+
+{/* <img src="small.jpg"
+    srcset="small.jpg 480w, medium.jpg 800w, large.jpg 1200w"
+    sizes="(max-width: 600px) 480px, (max-width: 1000px) 800px, 1200px"
+    alt="Landscape preview" /> */}
+
+// Use < picture > for Art Direction & Format Fallbacks: When you need to crop / alter
+//  the composition for different screen ratios, or serve next - gen formats(AVIF, WebP) with fallbacks.
+
+{/* <div>
+<picture>
+  <source srcset="banner.avif" type="image/avif">
+  <source srcset="banner.webp" type="image/webp">
+  <source media="(min-width: 768px)" srcset="banner-desktop.jpg">
+  <img src="banner-mobile.jpg" alt="Company Announcement">
+</picture>
+</div> */}
+
+
+
+// 10. Form Handling: GET vs.POST and Encoding Types
+// GET: Appends form data directly into the URL query string(?field = value).Used for non - destructive, idempotent requests(search queries, filters).Data is visible in history, bookmarked, and subject to URL length limits(approx. 2048 characters).
+
+//     POST: Transmits form data in the HTTP request body.Used for state modifications, sensitive data, and file uploads.Not bookmarked or cached by default.
+
+// Key enctype values on < form >:
+
+// application / x - www - form - urlencoded(Default): Encodes values into key - value pairs
+//  separated by &, with special characters URL - encoded.
+
+//   multipart / form - data: Required when uploading files using
+// < input type = "file" >.Sends data in distinct boundary - separated blocks.
+
+//   text / plain: Sends data without character encoding(primarily for debugging).
+
+// 11. HTML5 Native Form Validation Attributes
+// HTML5 includes client - side validation without custom JavaScript:
+
+// required: Prevents submission if the control is empty.
+
+//  pattern: Validates input value against a regular expression(e.g., pattern = "[0-9]{5}").
+
+//  min / max: Sets boundaries for numeric and date inputs.
+
+//  minlength / maxlength: Defines character length constraints.
+
+//   type: Built -in validation for email, url, number, tel.
+
+//  Accessibility(a11y) & SEO
+
+
+// 12. What are ARIA attributes, and what is the "First Rule of ARIA" ?
+//  ARIA(Accessible Rich Internet Applications) attributes complement HTML by exposing state,
+// role, and property information to accessibility APIs when native HTML is insufficient.
+
+// The First Rule of ARIA(W3C):
+
+// If you can use a native HTML element or attribute with the semantics and behavior you
+//  require already built -in, do so instead of re - purposing an element and adding an ARIA role, state, or property.
+
+//  Bad: <div role="button" tabindex="0" onclick="...">Click Me</div>
+// (requires manual keyboard event bindings for Enter and Space).
+
+//  Good: <button onclick="...">Click Me</button> (natively accessible, focusable,
+//  handles keyboard navigation out of the box).
+
+// 13. What is the difference between aria - hidden="true", hidden, and display: none ?
+//   hidden attribute: A native HTML attribute.Browsers apply user - agent
+//   style display: none.Element is hidden from both visual rendering and assistive technologies.
+
+//   display: none(CSS): Removes the element completely from the render tree.
+//   Hidden visually and from screen readers.
+
+//   aria - hidden="true": Hides the element from the accessibility tree / screen readers,
+//   but leaves it visible on screen.Useful for purely decorative icons or duplicate
+//   content meant only for visual presentation.
+
+// 14. Explain the key < meta > tags required for modern SEO and mobile rendering.
+
+// < !--Character encoding-- >
+//     <meta charset="UTF-8">
+
+//         <!-- Mobile responsive scaling -->
+//    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+//             <!-- Search engine crawling directives -->
+//    <meta name="robots" content="index, follow">
+
+//                 <!-- Search engine SERP snippet -->
+//     <meta name="description" content="Concise summary under 160 characters.">
+
+//                     <!-- Open Graph / Social Sharing Protocol -->
+//     <meta property="og:title" content="Page Title">
+//     <meta property="og:description" content="Description">
+//     <meta property="og:image" content="https://example.com/share.jpg">
+
+
+
+// Advanced Web APIs & HTML5 Storage
+// 15. Compare localStorage, sessionStorage, and Cookies.
+//      Feature                  localStorage                         sessionStorage                               Cookies(document.cookie)
+//=================================================================================================================================================================
+//      Capacity                 ~5MB - 10MB per origin               ~5MB per origin                               ~4KB per cookie
+//      Lifetime                 Persists until explicitly deleted    Cleared when browser tab / session closes     Determined by Expires or Max - Age header
+//      Server Transfer          Never sent to server automatically    Never sent to server automatically           Sent automatically in every HTTP request header
+//      Security Flags           None(vulnerable to XSS)               None(vulnerable to XSS)                      Supports HttpOnly, Secure, SameSite
+//      Scope                    Same origin(protocol, domain, port)   Same origin + specific tab instance          Same domain and specified path
+
+// 16. What is the Shadow DOM and how does it relate to Web Components ?
+//     The Shadow DOM provides encapsulation for CSS styles and DOM subtrees,
+// ensuring internal elements do not leak into the main document and parent styles do not
+//  unintentionally override child styles.
+
+// It is one of the four key Web Component specifications:
+
+// Custom Elements: APIs to define new HTML tags(customElements.define('my-card', MyCard)).
+
+// Shadow DOM: Scoped subtree attached via element.attachShadow({ mode: 'open' | 'closed' }).
+
+// HTML Templates(<template> and <slot>): Markup templates that are not rendered until instantiated via JavaScript.
+
+
+// 17. How does the < canvas > element differ from SVG ?
+//  Feature                  HTML5 < canvas >                                                            SVG(Scalable Vector Graphics)
+// Technology                Raster - based(Pixel array manipulated via JS).                             Vector - based(XML document nodes).
+// DOM Integration           Single DOM node(<canvas>). Shapes are not individual DOM elements.          Every shape (<rect>, <circle>, <path>) is a distinct DOM node.
+// Scalability               Loss of fidelity when scaled; requires manual redrawing on resize.          Scalable to any resolution without pixelation.
+// Event Handling            Custom math required to detect clicks on drawn objects.                     Supports standard DOM event listeners directly on shapes (circle.addEventListener).
+// Best For                  High-performance dynamic rendering: games, ray-tracers, video filters.      Resolution-independent UI icons, infographics, interactive maps.
+
+// 18. What is the difference between preload, prefetch, and preconnect ?
+//     Resource hints tell the browser how to optimize asset loading:
+
+// rel = "preload": Mandatory instruction to fetch a resource critical for the current page rendering
+// immediately(e.g., above - the - fold hero image, primary web font).
+
+//     HTML
+
+//   < link rel = "preload" href = "/fonts/inter.woff2" as="font" type = "font/woff2" crossorigin >
+//   rel="prefetch": Low - priority hint suggesting the browser download resources that might be needed for future navigations during idle time.
+
+//HTML
+
+//   < link rel = "prefetch" href = "/next-page-bundle.js" >
+//    rel="preconnect": Informs the browser to establish early network handshakes(DNS lookup, TCP handshake, TLS negotiation) to a third - party origin before the actual resource is requested.
+
+// HTML
+
+//  < link rel = "preconnect" href = "https://cdn.example.com" >
+
+// 19. What are Web Workers and what can they access ?
+// Web Workers allow executing JavaScript in background threads separated from the main
+// execution thread, preventing long - running tasks from freezing the user interface(UI thread).
+
+// Can access: navigator, location, XMLHttpRequest, fetch, setTimeout, IndexedDB.
+
+// Cannot access: The DOM, document, window, and UI elements directly.
+// Communication between the main thread and workers occurs exclusively
+//  via message passing(postMessage and onmessage).
+
+
+// 20. What is the < dialog > element and how is it controlled ?
+//     The < dialog > element represents a native modal or non - modal dialog box.
+
+//   HTML
+
+//  < dialog id = "favDialog" >
+//             <form method="dialog">
+//                 <p>Are you sure you want to proceed?</p>
+//                 <button value="cancel">Cancel</button>
+//                 <button value="confirm">Confirm</button>
+//   </form>
+// </dialog> >
+//     dialog.show() opens a non - modal dialog(allows interacting with the rest of the page).
+
+// dialog.showModal() opens a modal dialog(disables interaction with page content, places the element
+//  in the top layer, and renders a native::backdrop pseudo - element).
+
+// Forms inside < dialog > with method = "dialog" automatically close the dialog upon submission and
+// return the clicked button's value to dialog.returnValue.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
