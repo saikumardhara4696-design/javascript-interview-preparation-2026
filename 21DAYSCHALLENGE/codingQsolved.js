@@ -2,7 +2,7 @@
 // DSA QUESTIONS SOLVED
 
 // 1. Palindrome Number
-
+// Given an integer x, return true if x is a palindrome, and false otherwise.
 var isPalindrome = function (x) {
 
     let str = x.toString();
@@ -20,7 +20,7 @@ var isPalindrome = function (x) {
     }
     return result
 };
-isPalindrome("121");
+isPalindrome(121);
 
 // Example 1:
 
@@ -39,6 +39,9 @@ isPalindrome("121");
 // Explanation: Reads 01 from right to left.Therefore it is not a palindrome.
 
 // 2. Reverse String
+// Write a function that reverses a string.The input string is given as an array of characters s.
+
+// You must do this by modifying the input array in -place with O(1) extra memory.
 
 var reverseString = function (s) {
     let left = 0;
@@ -63,5 +66,45 @@ var reverseString = function (s) {
 
 // Input: s = ["H", "a", "n", "n", "a", "h"]
 // Output: ["h", "a", "n", "n", "a", "H"]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
