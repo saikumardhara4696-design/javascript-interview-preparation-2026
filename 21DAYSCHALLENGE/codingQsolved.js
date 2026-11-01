@@ -81,13 +81,21 @@ var reverseString = function (s) {
 
 
 
-// Day 2 
+// Day 2
 
-// DSA practice: 
+// DSA practice:
 // Second-largest number;
 // remove duplicates from sorted array.
 
 
+
+// Day 3 — Advanced CSS + JavaScript Basics
+// Topics
+// • Closures, scope, hoisting, var vs let vs const.
+// • Primitive vs reference types, coercion, equality, shallow vs deep copy.
+// • Destructuring, spread / rest; CSS performance and responsive images.
+// DSA practice: Two Sum; move zeroes; merge sorted arrays.
+// System design: Reusable responsive component library.
 
 
 
