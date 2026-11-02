@@ -99,7 +99,13 @@ var reverseString = function (s) {
 
 
 
-
+// Day 4 — JavaScript Functions + Arrays
+// Topics
+// • map, filter, reduce, find, some, every.
+// • Function declarations / expressions, arrow functions, this, higher - order and pure functions.
+// • Implement array methods manually without built - ins.
+// DSA practice: Frequency counter; anagram check; array intersection.
+// System design: Searchable, sortable and filterable data table.
 
 
 
