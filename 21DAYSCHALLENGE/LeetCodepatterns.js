@@ -237,3 +237,27 @@ function levelOrder(root) {
 
     return result;
 }
+
+
+
+// 8. Tree Depth - First Search(DFS)
+// Concept: Traverse as deep as possible down each branch before backtracking,
+// typically implemented via recursion or an explicit stack.
+
+// When to use: Path sum calculations, validating Binary Search Trees, tree diameter, maximum depth.
+
+//     JavaScript
+
+
+// Example: Path Sum (check if root-to-leaf path equals targetSum)
+function hasPathSum(root, targetSum) {
+    if (!root) return false;
+
+    // Reached leaf node
+    if (!root.left && !root.right) {
+        return targetSum === root.val;
+    }
+
+    const remaining = targetSum - root.val;
+    return hasPathSum(root.left, remaining) || hasPathSum(root.right, remaining);
+}
