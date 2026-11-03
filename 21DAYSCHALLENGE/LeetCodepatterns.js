@@ -261,3 +261,42 @@ function hasPathSum(root, targetSum) {
     const remaining = targetSum - root.val;
     return hasPathSum(root.left, remaining) || hasPathSum(root.right, remaining);
 }
+
+
+
+// 9. Two Heaps 
+// Concept: Maintain two priority queues(a Max - Heap for the
+//  smaller half and a Min - Heap for the larger half) to access the median 
+// in $O(1)$ time.When to use: Continuous streams of numeric data where you
+//  need the median or split percentiles.
+
+// JavaScript
+// Example: MedianFinder conceptual design using Min/Max heaps
+class MedianFinder {
+    constructor() {
+        // Conceptual heaps (maxHeap: lower half, minHeap: upper half)
+        this.low = [];  // simulated max-heap
+        this.high = []; // simulated min-heap
+    }
+
+    addNum(num) {
+        // Push to low, balance to high
+        this.low.push(num);
+        this.low.sort((a, b) => b - a); // Keep sorted descending
+        this.high.push(this.low.shift());
+        this.high.sort((a, b) => a - b); // Keep sorted ascending
+
+        // Maintain size invariant: low has equal or +1 elements
+        if (this.low.length < this.high.length) {
+            this.low.push(this.high.shift());
+            this.low.sort((a, b) => b - a);
+        }
+    }
+
+    findMedian() {
+        if (this.low.length > this.high.length) {
+            return this.low[0];
+        }
+        return (this.low[0] + this.high[0]) / 2;
+    }
+}
