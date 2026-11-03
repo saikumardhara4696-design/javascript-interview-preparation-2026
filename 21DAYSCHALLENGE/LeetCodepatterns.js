@@ -300,3 +300,89 @@ class MedianFinder {
         return (this.low[0] + this.high[0]) / 2;
     }
 }
+
+
+
+
+// 10. Subsets & Backtracking
+// Concept: Systematically construct candidate solutions and abandon("backtrack")
+//  as soon as a candidate fails the constraints.
+
+// When to use: Permutations, combinations, subsets, N - Queens, Sudoku.
+
+//     JavaScript
+
+
+// Example: Generate all Subsets (Power Set)
+function subsets(nums) {
+    const result = [];
+
+    function backtrack(startIndex, currentSubset) {
+        result.push([...currentSubset]);
+
+        for (let i = startIndex; i < nums.length; i++) {
+            currentSubset.push(nums[i]);
+            backtrack(i + 1, currentSubset); // Explore further
+            currentSubset.pop();             // Backtrack
+        }
+    }
+
+    backtrack(0, []);
+    return result;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
