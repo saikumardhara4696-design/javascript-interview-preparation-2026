@@ -178,3 +178,26 @@ function missingNumber(nums) {
 }
 
 
+// 6. In - place Reversal of a LinkedList
+// Concept: Reverse connections between nodes using three tracking pointers
+//  (prev, curr, next) without allocating new nodes.
+
+// When to use: Reversing sub - lists, palindromic lists, reordering linked lists.
+
+//     JavaScript
+
+
+// Example: Reverse a Singly Linked List
+function reverseList(head) {
+    let prev = null;
+    let curr = head;
+
+    while (curr !== null) {
+        const nextTemp = curr.next; // Stash next node
+        curr.next = prev;          // Reverse direction
+        prev = curr;               // Advance prev
+        curr = nextTemp;           // Advance curr
+    }
+
+    return prev;
+}
