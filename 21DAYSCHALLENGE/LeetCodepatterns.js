@@ -334,7 +334,44 @@ function subsets(nums) {
 
 
 
+// 11. Modified Binary Search
+// Concept: Halve the search space in each step using calculated midpoints, 
+// adapting the condition to handle shifted boundaries.
 
+// When to use: Searching in rotated sorted arrays, finding peak elements, search in infinite arrays.
+
+//  JavaScript
+
+
+// Example: Search in Rotated Sorted Array
+function search(nums, target) {
+    let left = 0;
+    let right = nums.length - 1;
+
+    while (left <= right) {
+        const mid = Math.floor((left + right) / 2);
+
+        if (nums[mid] === target) return mid;
+
+        // Check if left half is sorted
+        if (nums[left] <= nums[mid]) {
+            if (nums[left] <= target && target < nums[mid]) {
+                right = mid - 1;
+            } else {
+                left = mid + 1;
+            }
+        } else {
+            // Right half is sorted
+            if (nums[mid] < target && target <= nums[right]) {
+                left = mid + 1;
+            } else {
+                right = mid - 1;
+            }
+        }
+    }
+
+    return -1;
+}
 
 
 
