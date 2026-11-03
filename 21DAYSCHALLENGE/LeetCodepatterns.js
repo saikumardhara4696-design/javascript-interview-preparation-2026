@@ -421,7 +421,43 @@ function coinChange(coins, amount) {
 
 
 
+// 14. Graph BFS / DFS & Topological Sort
+// Concept: Model entities as vertices and connections as edges;
+//  process adjacency lists or indegree arrays(Kahn's algorithm).
 
+// When to use: Course prerequisites, network delays, number of connected islands,
+//  cycle detection in directed graphs.
+
+//     JavaScript
+
+
+// Example: Number of Islands (Grid DFS)
+function numIslands(grid) {
+    if (!grid || grid.length === 0) return 0;
+    let count = 0;
+
+    function sink(r, c) {
+        if (r < 0 || c < 0 || r >= grid.length || c >= grid[0].length || grid[r][c] === '0') {
+            return;
+        }
+        grid[r][c] = '0'; // mark visited
+        sink(r + 1, c);
+        sink(r - 1, c);
+        sink(r, c + 1);
+        sink(r, c - 1);
+    }
+
+    for (let r = 0; r < grid.length; r++) {
+        for (let c = 0; c < grid[0].length; c++) {
+            if (grid[r][c] === '1') {
+                count++;
+                sink(r, c);
+            }
+        }
+    }
+
+    return count;
+}
 
 
 
