@@ -145,3 +145,36 @@ function merge(intervals) {
 
     return merged;
 }
+
+
+
+// 5. Cyclic Sort
+// Concept: Places numbers where $value = index + 1$(or $value = index$)
+//  by swapping the current number into its target position in $O(n)$ time and $O(1)$ space.
+// When to use: Unsorted arrays with values bounded in the range $[1, n]$ or $[0, n]$.
+
+// JavaScript
+
+// Example: Find Missing Number in range [0, n]
+function missingNumber(nums) {
+    let i = 0;
+    const n = nums.length;
+
+    while (i < n) {
+        const targetIdx = nums[i];
+        if (nums[i] < n && nums[i] !== nums[targetIdx]) {
+            // Swap into correct position
+            [nums[i], nums[targetIdx]] = [nums[targetIdx], nums[i]];
+        } else {
+            i++;
+        }
+    }
+
+    for (let j = 0; j < n; j++) {
+        if (nums[j] !== j) return j;
+    }
+
+    return n;
+}
+
+
