@@ -201,3 +201,39 @@ function reverseList(head) {
 
     return prev;
 }
+
+
+
+
+// 7. Tree Breadth - First Search(BFS)
+// Concept: Traverse a tree level by level using a FIFO queue.
+
+// When to use: Level-order output, shortest path in unweighted graphs, zig - zag tree traversal.
+
+//         JavaScript
+
+
+// Example: Binary Tree Level Order Traversal
+function levelOrder(root) {
+    if (!root) return [];
+
+    const result = [];
+    const queue = [root];
+
+    while (queue.length > 0) {
+        const levelSize = queue.length;
+        const currentLevel = [];
+
+        for (let i = 0; i < levelSize; i++) {
+            const node = queue.shift();
+            currentLevel.push(node.val);
+
+            if (node.left) queue.push(node.left);
+            if (node.right) queue.push(node.right);
+        }
+
+        result.push(currentLevel);
+    }
+
+    return result;
+}
