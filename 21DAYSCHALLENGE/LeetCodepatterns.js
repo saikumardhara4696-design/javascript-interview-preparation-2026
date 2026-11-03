@@ -394,7 +394,30 @@ function findKthLargest(nums, k) {
 
 
 
+// 13. Dynamic Programming(1D / 2D)
+// Concept: Break the problem into subproblems, solve each subproblem once,
+//  and store solutions in a table(memoization or tabulation).
 
+// When to use: Optimization problems(min / max), counting distinct ways, knapsack variations.
+
+// JavaScript
+
+
+// Example: Coin Change (Minimum coins to make amount)
+function coinChange(coins, amount) {
+    const dp = new Array(amount + 1).fill(Infinity);
+    dp[0] = 0;
+
+    for (let i = 1; i <= amount; i++) {
+        for (const coin of coins) {
+            if (i - coin >= 0) {
+                dp[i] = Math.min(dp[i], dp[i - coin] + 1);
+            }
+        }
+    }
+
+    return dp[amount] === Infinity ? -1 : dp[amount];
+}
 
 
 
