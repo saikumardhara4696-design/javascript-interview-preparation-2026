@@ -376,7 +376,19 @@ function search(nums, target) {
 
 
 
+// 12. Top 'K' Elements
+// Concept: Use a Min - Heap of size $K$ to maintain the top $K$ largest
+//  items across an iterable in $O(N \log K)$ instead of $O(N \log N)$ sorting.
+// When to use: $K$ most frequent items, $K$ - th largest element, nearest points to origin.
+// JavaScript
 
+// Example: Kth Largest Element in an Array (Quickselect or Min-Heap logic)
+function findKthLargest(nums, k) {
+    // Sorting solution for baseline: O(N log N)
+    // Optimal heap solution maintains k elements in min-heap: O(N log K)
+    nums.sort((a, b) => b - a);
+    return nums[k - 1];
+}
 
 
 
