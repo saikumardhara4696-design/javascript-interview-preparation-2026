@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Practice</title>
+</head>
+<body>
+
+    <h1>JavaScript Practice</h1>
+
+    <button onclick="showMessage()">Click Me</button>
+
+    <p id="result"></p>
+
+    <script>
+        function showMessage() {
+            document.getElementById("result").innerText =
+                "JavaScript is working!";
+        }
+
+
+var secondHighest = function(s) {
+    let temp = []
+    let num = 0
+    let res = []
+    for(let i = 0; i<s.length; i++){
+       
+        if(Number(s[i])){
+            
+            temp[num] = Number(s[i])
+            num++
+        }
+
+    }
+  num = 0;
+   console.log(temp)
+   let left =0;
+   let right = temp.length-1;
+    while(left < right){
+        if(temp[left] > temp[right]){
+            res[num] = temp[left]
+            left++
+            num++
+         }
+    }  
+};
+
+secondHighest('jdhgdu1234djhd4')
+    </script>
+
+</body>
+</html>
