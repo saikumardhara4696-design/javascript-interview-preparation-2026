@@ -464,8 +464,3 @@ console.log(btn.getAttribute('data-item-id')); // "4821"
 
 
 
-
-
-
-
-
